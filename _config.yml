@@ -1,10 +1,7 @@
 url: https://weasels.co
 title: kubalasecki
 email: kuba@lasica.co
-description: > # "Bla Bla Bla"
-
 markdown: kramdown
 permalink: pretty
-
 gems:
-  - jekyll-haml
+- jekyll-haml
