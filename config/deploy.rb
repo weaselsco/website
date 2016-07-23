@@ -2,7 +2,7 @@
 lock '3.4.1'
 
 set :application, 'weaselsco'
-set :repo_url, 'git@github.com:weaselsco/weaselsco.github.com.git'
+set :repo_url, 'git@github.com:weaselsco/website.git'
 set :scm, :git
 
 set :format, :pretty
