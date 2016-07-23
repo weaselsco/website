@@ -10,3 +10,8 @@
   transform: translateY(-50%);
   right: 10% !important;
 }
+.map {
+  background: url('../images/map.jpg') repeat-x;
+  background-size: contain;
+  height: 250px;
+}
