@@ -1,64 +1,8 @@
 !!!
 %html
-  %head
-    %meta{:charset => "utf-8"}
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
-    %meta{:content => "", :name => "description"}
-    %meta{:content => "", :name => "author"}
-    %title {% if page.title %}{% else %}{% endif %}
-    %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "css/landing-page.css", :rel => "stylesheet", :type => "text/css"}
+  {% haml head.haml %}
   %body
-    #index-banner.parallax-container
-      .section.no-pad-bot
-        .container
-          %br
-          %br
-          %h1.header.center.red-text.text-darken-2
-            weasels.co
-          .row.center
-            %h5.header.col.s12.light
-          .row.center
-            %a#download-button.btn-large.waves-effect.waves-light.red.darken-1
-              weasels.co
-          %br
-          %br
-      .parallax
-        %img{:src => "images/photo-bg1.jpg"}
-    .container
-      .section
-        .row
-          .col.s12.center
-            %h3
-              %i.mdi-content-send.brown-text
-            %h4
-              weasels.co
-            %p.left-align.light
-    .parallax-container.valign-wrapper
-      .section.no-pad-bot
-        .container
-          .row.center
-            %h5.header.col.s12.light
-              weasels.co
-      .parallax
-        %img{:src => "images/photo-bg4.jpg"}
-    .container
-      .section
-        .row
-          .col.s12.center#form
-            %h3
-              %i.mdi-action-input.brown-text
-            %h4
-              weasels.co
-    .parallax-container.valign-wrapper
-      .section.no-pad-bot
-        .container
-          .row.center
-            %h5.header.col.s12.light
-      .parallax
-        %img{:src => "images/photo-bg2.jpg"}
-    %script{:src => "https://code.jquery.com/jquery-2.1.1.min.js"}
-    %script{:src => "js/materialize.min.js"}
-    %script{:src => "js/landing-page.js"}
+    {% haml navbar.haml %}
+    .main-wrapper
+      {% haml main.haml %}
+    {% haml footer.haml %}
