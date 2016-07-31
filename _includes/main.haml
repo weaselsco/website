@@ -19,41 +19,80 @@
       .col.s12.m4
         .icon-block
           %h2.center.red-text.darken-4
-            %i.material-icons flash_on
+            %i.material-icons language
           %h5.center {{ site.text.content.block-1-title }}
-          %p.light {{ site.text.content.block-1 }}
+          %p.center.light {{ site.text.content.block-1 }}
       .col.s12.m4
         .icon-block
           %h2.center.red-text.darken-4
-            %i.material-icons group
+            %i.material-icons supervisor_account
           %h5.center {{ site.text.content.block-2-title }}
-          %p.light {{ site.text.content.block-2 }}
+          %p.center.light {{ site.text.content.block-2 }}
       .col.s12.m4
         .icon-block
           %h2.center.red-text.darken-4
-            %i.material-icons ring_volume
+            %i.material-icons location_on
           %h5.center {{ site.text.content.block-3-title }}
-          %p.light {{ site.text.content.block-3 }}
+          %p.center.light {{ site.text.content.block-3 }}
 .parallax-container.valign-wrapper
-  .section.no-pad-bot
-    .container
-      .row.center
-        %h5.header.col.s12.light
-          weasels.co
   .parallax
     %img{src: "images/photo-bg4.jpg"}
 .container
-  .section
-    .row
-      .col.s12.center#form
-        %h3
-          %i.mdi-action-input.brown-text
-        %h4
-          weasels.co
+  .row
+    .col.l6.s12
+      .icon-block
+        %h3.center.red-text.darken-4
+          %i.medium.material-icons phone
+        %h2.center {{ site.text.contact.michal }}
+        %h5.center.light {{ site.text.contact.michal-mail }}
+        %h5.center.light {{ site.text.contact.michal-tel }}
+    .col.l6.s12
+      .icon-block
+        %h3.center.red-text.darken-4
+          %i.medium.material-icons phone
+        %h2.center {{ site.text.contact.maciej }}
+        %h5.center.light {{ site.text.contact.maciej-mail }}
+        %h5.center.light {{ site.text.contact.maciej-tel }}
 .parallax-container.valign-wrapper
-  .section.no-pad-bot
-    .container
-      .row.center
-        %h5.header.col.s12.light
   .parallax
     %img{src: "images/photo-bg2.jpg"}
+%footer.page-footer.red
+  .container
+    .row
+      .col.l7.s12.about-company
+        %h5.white-text {{ site.text.footer.name }}
+        %p.grey-text.text-lighten-4 {{ site.text.footer.about-1 }}
+        %p.grey-text.text-lighten-4 {{ site.text.footer.about-3 }}
+      .col.l5.s12
+        %h5.white-text {{ site.text.footer.details }}
+        %table.about-table
+          %tr
+            %td
+              %span.right.white-text {{ site.text.footer.nip-t }}
+            %td
+              %span.white-text {{ site.text.footer.nip }}
+          %tr
+            %td
+              %span.right.white-text {{ site.text.footer.regon-t }}
+            %td
+              %span.white-text {{ site.text.footer.regon }}
+          %tr
+            %td
+              %span.right.white-text {{ site.text.footer.krs-t }}
+            %td
+              %span.white-text {{ site.text.footer.krs }}
+          %tr
+            %td
+              %span.right.white-text {{ site.text.footer.spec-t }}
+            %td
+              %span.white-text {{ site.text.footer.spec }}
+          %tr
+            %td
+              %span.right.white-text {{ site.text.footer.location-t }}
+            %td
+              %span.white-text {{ site.text.footer.location }}
+  .footer-copyright
+    .container
+      Made by
+      %a.blue-grey-text.text-lighten-3{:href => "https://lasica.co"} {{ site.text.content.made-by }}
+      {{ site.text.content.copyright }}
