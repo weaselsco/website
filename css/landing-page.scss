@@ -1,0 +1,255 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Lato&subset=latin-ext');
+
+html,
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/////// VARIABLES //////
+
+$black: #242423;
+$red: #c62828;
+$white: #fff;
+$menu: rgba(198,40,40,0.9);
+
+$height-span: 5px;
+$width-span: 35px;
+
+$shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0   rgba(0,0,0,0.12);
+$shadow-active: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+
+/////// NAVBAR /////////
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 99999;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity .5s, visibility .35s, width .35s;
+
+  &:after {
+    content: '';
+    background: $menu;
+    right: -200%;
+    top: -200%;
+    width: 200%;
+    height: 200%;
+    position: fixed;
+    border-radius: 100%;
+    transition: all .35s ease;
+  }
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+
+    &:after {
+      right: 0;
+      top: 0;
+      border-radius: 0%;
+    }
+   li {
+      animation: fadeInRight .35s ease forwards;
+      animation-delay: .35s;
+
+      &:nth-of-type(2) {
+        animation-delay: .45s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: .55s;
+      }
+      &:nth-of-type(4) {
+        animation-delay: .55s;
+      }
+    }
+  }
+
+  .menu-list {
+    position: relative;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 100;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%;
+
+    li {
+      display: block;
+      height: 25%;
+      height: calc(100% / 3);
+      min-height: 50px;
+      position: relative;
+      opacity: 0;
+
+      a {
+        display: block;
+        position: relative;
+        color: $white;
+        text-decoration: none;
+        overflow: hidden;
+        padding: 8px 15px;
+        transition: all .5s;
+
+        &:hover,
+        &:active,
+        &:focus{
+          color: $black;
+        }
+      }
+    }
+  }
+}
+}
+
+.sandwich {
+  width: $width-span;
+  height: $height-span * 5;
+  top: 15px;
+  right: 38px;
+  position: absolute;
+  padding: 20px;
+  cursor: pointer;
+  z-index: 999999;
+
+  .menu-logo {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+  }
+
+  .menu-text {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 90px;
+    color: $white;
+    font-size: $height-span * 3;
+  }
+
+  & span {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    width: $width-span;
+    height: $height-span;
+    background-color: $white;
+    transition: all .35s;
+    box-shadow: $shadow;
+    z-index: 50;
+
+    &:nth-of-type(2) {
+      top: 30px;
+    }
+
+    &:nth-of-type(3) {
+      top: 40px;
+    }
+  }
+
+  &.active {
+
+    .menu-text { color: $black }
+
+    .top {
+      transform: translateY(10px) translateX(0) rotate(45deg);
+      background: $black;
+    }
+
+    .middle,
+    .menu-text {
+      opacity: 0;
+    }
+
+    .bottom {
+      transform: translateY(-10px) translateX(0) rotate(-45deg);
+      background: $black;
+    }
+  }
+
+  &.active:hover {
+    .top,
+    .middle,
+    .bottom{
+      box-shadow: $shadow-active;
+    }
+  }
+}
+
+main {
+  position: relative;
+  top: 65px;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+/////// LOADER //////////
+
+@import "loader.css";
+
+/////// MAIN ///////////
+
+.info-box {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(158, 158, 158, 0.6) !important;
+}
+.info-box-middle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10% !important;
+}
+.map {
+  background: url('../images/map.jpg') repeat-x;
+  background-size: contain;
+  height: 250px;
+}
+footer.page-footer {
+  margin-top: 0px;
+}
+.about-company {
+  border-right: 1px solid #fff;
+}
+.about-company p {
+  padding-right: 40px;
+  text-align: justify;
+}
+table.about-table > tbody > tr > td > span.right {
+  font-weight: bold;
+}
