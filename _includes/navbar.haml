@@ -1,6 +1,16 @@
-%nav.white{role: "navigation"}
-  .nav-wrapper.container
-    %a.red-text#logo-container.brand-logo{:href => "#"} {{ site.text.navbar.header }}
-    %ul.right.hide-on-med-and-down
-      %li
-        %a.red-text.text-darken-2{:href => "#"} Navbar Link
+.container-fluid
+  #btn.sandwich
+    .menu-logo
+    .menu-text MENU
+    %span.top
+    %span.middle
+    %span.bottom
+  #menu.menu
+    .menu-list
+      %ul
+        %li
+          %a.page-scroll{:href => "#home"} {{ site.text.navbar.links.about }}
+        %li
+          %a.page-scroll{:href => "#about"} {{ site.text.navbar.links.services }}
+        %li
+          %a.page-scroll{:href => "#contact"} {{ site.text.navbar.links.contact }}

@@ -7,6 +7,10 @@ encoding: utf-8
 text:
   navbar:
     header: 'Łasiczki'
+    links:
+      about: 'O Firmie'
+      services: 'Usługi'
+      contact: 'Kontakt'
   content:
     block-1-title: 'Transport międzynarodowy'
     block-1: 'Dalekie trasy to nasza specjalność. Nasi kierowcy to doświadczeni pracownicy z wieloletnią praktyką. Stawiamy, na jakość i bezpieczeństwo prowadzonych działań.'

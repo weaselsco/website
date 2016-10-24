@@ -2,7 +2,8 @@
 %html
   {% haml head.haml %}
   %body
-    /{% haml navbar.haml %}
+    {% haml loader.haml %}
+    {% haml navbar.haml %}
     .main-wrapper
       {% haml main.haml %}
     {% haml footer.haml %}
