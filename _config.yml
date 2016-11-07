@@ -8,9 +8,11 @@ text:
   navbar:
     header: 'Łasiczki'
     links:
+      home: 'Start'
       about: 'O Firmie'
       services: 'Usługi'
       contact: 'Kontakt'
+      tabor: 'Tabor'
   content:
     block-1-title: 'Transport międzynarodowy'
     block-1: 'Dalekie trasy to nasza specjalność. Nasi kierowcy to doświadczeni pracownicy z wieloletnią praktyką. Stawiamy, na jakość i bezpieczeństwo prowadzonych działań.'
@@ -20,6 +22,9 @@ text:
     block-3: 'Codziennie jesteśmy do Państwa dyspozycji, gwarantując, profesjonalne wykonanie powierzonych nam działań. Transport krajowy to dla nas codzienność.'
     made-by: 'łasica'
     copyright: '2016 © Weasels. Wszelkie prawa zastrzeżone.'
+  about:
+    poczatki: 'Spółka powstała w 2016 roku, chociaż początki Naszej przygody z transportem sięgają 1989 roku. Początkowo dysponowała jednym pojazdem, a jego kierowcą był właściciel. Z roku na rok flota sukcesywnie się powiększała starsze zestawy zostały zastąpione nowymi i w chwili obecnej dysponujemy zestawami typu ciągnik z naczepą o kubaturze 90-100 m³ oraz zestawami z naczepą niskopodłogową do przewozu ładunków ponadgabarytowych takich jak na przykład maszyny budowlane czy rolnicze. Naszym celem jest dalszy rozwój, w szczególności w dziedzinie przewozów ładunków ponadnormatywnych oraz dążenie do jak najwyższej jakości świadczonych przez nas usług.'
+    uslugi: 'Naszą główną domeną są przewozy ładunków na terenie Unii Europejskiej; chętnie jednak podejmujemy się transportów do innych krajów, zgodnie z życzeniem klienta. Posiadamy naczepy specjalistyczne przeznaczone do transportu towarów ponadgabarytowych. Towar ubezpieczony jest polisą OC przewoźnika w ruchu międzynarodowym i krajowym. Większość ciągników wyposażona jest w system GPS pozwalający na nieprzerwaną łączność z pojazdem co jest dla Państwa dodatkową gwarancją bezpieczeństwa powierzonych ładunków.'
   contact:
     michal-tel: '+48 726 922 069'
     michal: 'Michał Łasecki'
@@ -27,6 +32,7 @@ text:
     maciej-tel: '+48 727 907 796'
     maciej: 'Maciej Łasecki'
     maciej-mail: 'maciej.lasecki@weasels.co'
+    base-location: 'ul. Leśna 24a, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
   footer:
     name: 'weasels sp. z o. o.'
     about-1: 'Nasza firma transportowa pragnie dostarczyć Państwu pełen zakres usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe, spedycja to nasza specjalność, a także pasja! w naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą. Stawiamy na jakość świadczonych usług!'
@@ -40,6 +46,7 @@ text:
     regon: '365359540'
     regon-t: 'Regon:'
     location: 'ul. Brzozowa 13, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
+    base-location: 'ul. Leśna 24a, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
     location-t: 'Siedziba:'
     spec: 'Transport Drogowy Towarów ( PKD : 49.41.Z )'
     spec-t: 'Działalność:'

@@ -1,4 +1,10 @@
+// PARALLAX
 $('.parallax').parallax();
+
+// CAROUSEL
+$('.carousel.carousel-slider').carousel({
+  full_width: true
+});
 
 // LOADER
 $(document).ready(function() {

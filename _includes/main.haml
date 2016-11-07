@@ -2,60 +2,104 @@
 #index-banner.parallax-container
   .section.no-pad-bot
   .parallax
+    %img{src: "images/photo-bg3.jpg"}
+    .valign-wrapper
+      %img.valign.logo{src: "images/logo50_white.svg"}
+  %section#arrow-down.demo
+    %a.page-scroll{:href => "#about"}
+      %span
+/ .map
+#about
+  .container
+    .section
+      .row
+        .col.l12.s12
+          %h1.center O NAS
+          %span.border
+        .col.l12.s12
+          %p.center.text-black {{ site.text.about.poczatki }}
+        .col.l12.s12
+          %p.center.text-black {{ site.text.about.uslugi }}
+%section.parallax-container.valign-wrapper
+  .parallax
     %img{src: "images/photo-bg1.jpg"}
-.map
-.container
-  .section
-    .row
-      .col.s12.m4
-        .icon-block
-          %h2.center.red-text.darken-4
-            %i.material-icons language
-          %h5.center {{ site.text.content.block-1-title }}
-          %p.center.light {{ site.text.content.block-1 }}
-      .col.s12.m4
-        .icon-block
-          %h2.center.red-text.darken-4
-            %i.material-icons supervisor_account
-          %h5.center {{ site.text.content.block-2-title }}
-          %p.center.light {{ site.text.content.block-2 }}
-      .col.s12.m4
-        .icon-block
-          %h2.center.red-text.darken-4
-            %i.material-icons location_on
-          %h5.center {{ site.text.content.block-3-title }}
-          %p.center.light {{ site.text.content.block-3 }}
-.parallax-container.valign-wrapper
-  .parallax
-    %img{src: "images/photo-bg4.jpg"}
+  .row
+    .col.s12.m6
+      .icon-block
+        %h2.center.red-text.text-darken-3
+          %i.material-icons language
+        %h5.center.white-text {{ site.text.content.block-1-title }}
+        %p.center.light.white-text {{ site.text.content.block-1 }}
+    .col.s12.m6
+      .icon-block
+        %h2.center.red-text.text-darken-3
+          %i.material-icons supervisor_account
+        %h5.center.white-text {{ site.text.content.block-2-title }}
+        %p.center.light.white-text {{ site.text.content.block-2 }}
 #contact
+  .container.map-bottom
+    .row
+      .col.l12
+        %h2.center.red-text.text-darken-3 Skontaktuj się z nami!
+      .col.l12
+        #contact.contact-form
+          %form#contactForm{:action => "//formspree.io/transport@weasels.co", :method => "POST", "data-toggle" => "validator"}
+            #msgSubmit.h3.text-center.hidden
+            .input-field.col.m12.s12
+              %label.h4{"data-validation-required-message" => "Proszę wprowadź swoje imię i nazwisko.", :for => "name"} Imię i nazwisko *
+              %input#name.form-control.validate{"data-error" => "NEW ERROR MESSAGE", :required => "", :name => "name" ,:type => "text"}
+            .input-field.col.m12.s12
+              %label.h4{:for => "email"} Email *
+              %input#email.form-control.validate{:required => "", :name => "_replyto", :type => "email"}
+            .input-field.col.m12.s12
+              %label.h4{:for => "message"} Wiadomość *
+              %textarea#message.form-control.materialize-textarea.validate{:required => ""}
+            %div
+              %input{:name => "_subject", :type => "hidden", :value => "Nowa wiadomość z Weasels.co!"}
+              %input{:name => "_gotcha", :style => "display:none", :type => "text"}
+              %input{:name => "_next", :type => "hidden", :value => "//wesels.co"}
+            %a#form-submit.waves-effect.waves-light.btn.red.darken-3.right{:type => "submit"} Wyślij wiadomość
+
+/ .parallax-container.valign-wrapper
+/   .parallax
+/     %img{src: "images/photo-bg2.jpg"}
+
+%footer.page-footer.red.darken-3
   .container
     .row
       .col.l6.s12
-        .icon-block
-          %h3.center.red-text.darken-4
-            %i.medium.material-icons phone
-          %h2.center {{ site.text.contact.michal }}
-          %h5.center.light {{ site.text.contact.michal-mail }}
-          %h5.center.light {{ site.text.contact.michal-tel }}
+        %table.contact-table
+          %tr
+            %td
+              %span.right
+                %img{src: "images/trans.png"}
+            %td
+              %span 12345
+          %tr
+            %td
+              %span.right
+                %img{src: "images/timocom.png"}
+            %td
+              %span 12345
+          %tr
+            %td
+              %span.right
+                %i.material-icons email
+            %td
+              %span transport@weasels.co
+          %tr
+            %td
+              %span.right
+                %i.material-icons phone
+            %td
+              %span {{ site.text.contact.michal-tel }}
+          %tr
+            %td
+              %span.right
+                %i.material-icons business
+            %td
+              %span {{ site.text.contact.base-location }}
       .col.l6.s12
-        .icon-block
-          %h3.center.red-text.darken-4
-            %i.medium.material-icons phone
-          %h2.center {{ site.text.contact.maciej }}
-          %h5.center.light {{ site.text.contact.maciej-mail }}
-          %h5.center.light {{ site.text.contact.maciej-tel }}
-.parallax-container.valign-wrapper
-  .parallax
-    %img{src: "images/photo-bg2.jpg"}
-%footer.page-footer.red#about
-  .container
-    .row
-      .col.l7.s12.about-company
-        %h5.white-text {{ site.text.footer.name }}
-        %p.grey-text.text-lighten-4 {{ site.text.footer.about-1 }}
-        %p.grey-text.text-lighten-4 {{ site.text.footer.about-3 }}
-      .col.l5.s12
         %h5.white-text {{ site.text.footer.details }}
         %table.about-table
           %tr

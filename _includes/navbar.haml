@@ -6,11 +6,15 @@
     %span.middle
     %span.bottom
   #menu.menu
-    .menu-list
+    .menu-list.menu-link
       %ul
         %li
-          %a.page-scroll{:href => "#home"} {{ site.text.navbar.links.about }}
+          %a.page-scroll{"data-hover" => "{{ site.text.navbar.links.home }}", :href => "#home"} {{ site.text.navbar.links.home }}
         %li
-          %a.page-scroll{:href => "#about"} {{ site.text.navbar.links.services }}
+          %a.page-scroll{"data-hover" => "{{ site.text.navbar.links.services }}", :href => "#services"} {{ site.text.navbar.links.services }}
         %li
-          %a.page-scroll{:href => "#contact"} {{ site.text.navbar.links.contact }}
+          %a.page-scroll{"data-hover" => "{{ site.text.navbar.links.tabor }}", :href => "#tabor"} {{ site.text.navbar.links.tabor }}
+        %li
+          %a.page-scroll{"data-hover" => "{{ site.text.navbar.links.about }}", :href => "#about"} {{ site.text.navbar.links.about }}
+        %li
+          %a.page-scroll{"data-hover" => "{{ site.text.navbar.links.contact }}", :href => "/contact"} {{ site.text.navbar.links.contact }}
