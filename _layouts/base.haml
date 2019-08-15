@@ -2,8 +2,8 @@
 %html
   {% haml head.haml %}
   %body
-    {% haml loader.haml %}
-    {% haml navbar.haml %}
-    .main-wrapper
-      {% haml main.haml %}
-    {% haml footer.haml %}
+    {% haml parts/loader.haml %}
+    {% haml parts/navbar.haml %}
+    {% haml main.haml %}
+    {% haml parts/scroll.haml %}
+    {% haml script.haml %}

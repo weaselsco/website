@@ -1,0 +1,33 @@
+%nav.navbar.navbar-default.hide-on-med-and-down
+  .nav-wrapper
+    %ul
+      %li
+        %a{href: "#about"} O nas
+      %li
+        %a{href: "#services"} Usługi
+      %li
+        %a{href: "#contact"} Kontakt
+      %li
+        %a{href: "#map"} Jak dojechać
+
+.side-nav.hide-on-large-only
+  %a.sidenav-trigger.btn.waves-effect.waves-yellow.white.black-text{"data-target" => "slide-out", :href => "#"} menu
+
+#slide-out.sidenav
+  %ul
+    %li
+      %a.sidenav-close{:href => "#!"}
+        %i.material-icons close
+    %li
+      %a{href: "#about"} O nas
+    %li
+      %a{href: "#services"} Usługi
+    %li
+      %a{href: "#contact"} Kontakt
+    %li
+      %a{href: "#map"} Jak dojechać
+  %img.sidenav-logo{:src => "images/logo-male.svg"}
+  .footer-copyright
+    .container.black-text
+      2019 © Weasels. Wszelkie prawa zastrzeżone. Made by
+    .text-bold Michał Łasecki

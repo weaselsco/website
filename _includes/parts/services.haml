@@ -1,0 +1,46 @@
+.parallax-container.valign-wrapper
+  .container
+    %p.contact-quote.white-text Pracuj tak ciężko jak to możliwe, to zwiększa szanse na sukces. Jeśli inni ludzie pracują 40 godzin w tygodniu, a ty 100 godzin, to ty w 4 miesiące osiągniesz to, co innym zajmie rok.
+    %cite.grey-text.right - Elon Musk, założyciel przedsiębiorstw PayPal, SpaceX i Tesla
+
+  .parallax
+    %img.responsive-img{:src => "images/slide04-1.jpg"}
+
+#services.scrollspy
+  .section.divider-bottom
+    .container
+      .services__cards
+        %h5.text-upcase.yellow-text.text-darken-1.center.text-bold
+          Warto z Nami współpracować
+        %p.center.text-upcase.text-bold.grey-text Transport z Weasels się opłaca
+
+        .row
+          .col.l12
+            .card.services__card.waves-effect
+              .card-content.black-text
+                %i.material-icons.left.services__card--icon place
+                .card-title {{ site.text.content.block-4-title }}
+                .services__card--text
+                  {{ site.text.content.block-4 }}
+          .col.l12
+            .card.services__card.waves-effect
+              .card-content.black-text
+                %i.material-icons.left.services__card--icon tablet_mac
+                .card-title {{ site.text.content.block-3-title }}
+                .services__card--text
+                  {{ site.text.content.block-3 }}
+        .row
+          .col.l12
+            .card.services__card.waves-effect
+              .card-content.black-text
+                %i.material-icons.left.services__card--icon thumb_up
+                .card-title {{ site.text.content.block-5-title }}
+                .services__card--text
+                  {{ site.text.content.block-5 }}
+          .col.l12
+            .card.services__card.waves-effect
+              .card-content.black-text
+                %i.material-icons.left.services__card--icon public
+                .card-title {{ site.text.content.block-1-title }}
+                .services__card--text
+                  {{ site.text.content.block-1 }}

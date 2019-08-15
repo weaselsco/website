@@ -1,0 +1,55 @@
+#contact.scrollspy
+  .section
+    .section.white
+      .container
+        .row
+          .col.l12.wow.fadeIn
+            %h3.center.grey-text.text-darken-3.text-bold.section__gallery--title
+              Porozmawiajmy!
+            .section__about--text.grey-text.lighten-3.center
+              Bardzo chętnie odpowiemy na każde pytanie i ustalimy szczegóły transportu Twojego ładunku.
+
+        .contact__cards
+          .row
+            .col.l6.m6.s12.center
+              .card.contact__card.waves-effect.wow.fadeIn
+                .card-content.black-text
+                  .mask--contact-call
+                  .contact__card--title {{ site.text.contact.maciej }}
+                  .contact__card--text
+                    .contact-info.center {{ site.text.contact.maciej-mail }}
+                    .contact-info.center {{ site.text.contact.maciej-tel }}
+
+            .col.l6.m6.s12.center
+              .card.contact__card.waves-effect.wow.fadeIn
+                .card-content.black-text
+                  .mask--contact-call
+                  .contact__card--title {{ site.text.contact.michal }}
+                  .contact__card--text
+                    .contact-info.center {{ site.text.contact.michal-mail }}
+                    .contact-info.center {{ site.text.contact.michal-tel }}
+
+  .section__email.grey.darken-3
+    .mask--contact
+    .container
+      .row
+        .col.l12
+          %h3.center.grey-text.text-lighten-3.text-bold.section__gallery--title Napisz do nas!
+        .col.l12
+          .contact-form
+            %form#contactForm{action: "https://formspree.io/michal.lasecki@weasels.co", method: "POST", "data-toggle" => "validator"}
+              #msgSubmit.h3.text-center.hidden
+              .input-field.col.m12.s12
+                %label.h4{"data-validation-required-message" => "Proszę wprowadź swoje imię i nazwisko.", :for => "name"} Imię i nazwisko *
+                %input#name.form-control.validate{"data-error" => "NEW ERROR MESSAGE", :required => "", :name => "name" ,:type => "text"}
+              .input-field.col.m12.s12
+                %label.h4{:for => "email"} Email *
+                %input#email.form-control.validate{:required => "", :name => "_replyto", :type => "email"}
+              .input-field.col.m12.s12
+                %label.h4{:for => "message"} Wiadomość *
+                %textarea#message.form-control.materialize-textarea.validate{:required => "", name: 'message'}
+              %div
+                %input{:name => "_subject", :type => "hidden", :value => "Nowa wiadomość z Weasels.co!"}
+                %input{:name => "_gotcha", :style => "display:none", :type => "text"}
+                %input{:name => "_next", :type => "hidden", :value => "//weasels.co"}
+              %button#form-submit.btn.waves-effect.waves-light.btn-large.grey.darken-1.right{type: 'submit'} Wyślij wiadomość
