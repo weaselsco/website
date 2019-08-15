@@ -5,7 +5,7 @@ gem 'sass'
 gem 'rake'
 gem 'jekyll'
 gem 'coffee-script'
-gem 'capistrano'
+gem 'capistrano', '3.4.1'
 gem 'capistrano-bundler'
 gem 'rvm1-capistrano3', :require => false
 
