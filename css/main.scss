@@ -29,6 +29,10 @@ html {
   font-weight: bold;
 }
 
+.orange {
+  background-color: #f19438!important;
+}
+
 /// CONST ///
 
 $tablet-width: 768px;
@@ -65,7 +69,7 @@ $big-width: 1250px;
 }
 
 .holder-item {
-  background-image: url('../images/photo-bg10.jpeg');
+  background-image: url('../images/auto-3.jpg');
   background-position: bottom center;
   padding-bottom: 300px!important;
 }
@@ -92,11 +96,6 @@ $big-width: 1250px;
   &--contact {
     @extend .mask;
     background: url('../images/bg.svg');
-  }
-
-  &--contact-call {
-    @extend .mask;
-    background: url('../images/bg-contact.svg');
   }
 }
 
@@ -177,7 +176,6 @@ nav {
   background: transparent;
   box-shadow: none;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
   @include transition-all;
 
   .nav-wrapper img {
@@ -241,7 +239,7 @@ nav {
 
       &:hover, &.active {
         background-color: transparent;
-        color: #f1c642;
+        color: #f19438;
       }
 
       &:after {
@@ -320,6 +318,10 @@ nav {
       white-space: pre-line;
     }
 
+    .btn {
+      text-transform: none!important;
+    }
+
     @media (min-width: 992px) {
       &--icon {
         font-size: 5rem;
@@ -363,6 +365,13 @@ nav {
 
 .card {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#services {
+  .row, .row .col {
+    display: flex;
+
+  }
 }
 
 .services {
@@ -429,6 +438,10 @@ p.contact-quote {
   }
 }
 
+#materialbox-overlay {
+  background-color: rgba(0,0,0,0.95);
+}
+
 .section {
   &__gallery {
     padding-bottom: 6rem;
@@ -440,6 +453,12 @@ p.contact-quote {
       padding-bottom: 10px;
     }
   }
+}
+
+.materialboxed {
+  border-radius: 5px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
 
 
@@ -462,7 +481,13 @@ p.contact-quote {
       font-size: 1.5rem;
     }
   }
+
+  &__mask {
+    background: url('../images/bg-contact.svg');
+  }
 }
+
+
 
 .section {
   &__email {

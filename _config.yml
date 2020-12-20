@@ -15,7 +15,7 @@ text:
       contact: 'Kontakt'
       tabor: 'Tabor'
   content:
-    block-1-title: 'Transport międzynarodowy'
+    block-1-title: 'Wszechstronność'
     block-1: 'Dalekie trasy to nasza specjalność. Nasi kierowcy to doświadczeni pracownicy z wieloletnią praktyką. Stawiamy, na jakość i bezpieczeństwo prowadzonych działań. Transport krajowy to dla nas codzienność.'
     block-2-title: 'Transport ponadgabarytowy'
     block-2: 'Maszyny budowlane, rolnicze czy ładunki nietypowe? Chętnie podejmujemy się transportów naczepą niskopodłogową do przewozu ładunków ponadgabarytowych.'
@@ -33,7 +33,7 @@ text:
     poczatki: |
       Spółka powstała w 2016 roku, chociaż początki Naszej przygody z transportem sięgają 1989 roku. Początkowo dysponowała jednym pojazdem, a jego kierowcą był właściciel.
 
-      Z roku na rok flota sukcesywnie się powiększała starsze zestawy zostały zastąpione nowymi i w chwili obecnej dysponujemy zestawami typu ciągnik z naczepą o kubaturze 90-100 m³ oraz zestawem z naczepą niskopodłogową do przewozu maszyny budowlane oraz rolniczych.
+      Z roku na rok flota sukcesywnie się powiększała starsze zestawy zostały zastąpione nowymi i w chwili obecnej dysponujemy zestawami typu ciągnik z naczepą o kubaturze 90-100 m³ oraz zestawem z naczepą niskopodłogową do przewozu maszyn budowlanych oraz rolniczych.
 
       Naszym celem jest dalszy rozwój oraz dążenie do jak najwyższej jakości świadczonych przez nas usług.
     uslugi: 'Naszą główną domeną są przewozy ładunków na terenie Unii Europejskiej. Chętnie podejmujemy się transportów do innych krajów, zgodnie z życzeniem klienta. Towar ubezpieczony jest polisą OC przewoźnika w ruchu międzynarodowym i krajowym. Posiadamy naczepy przeznaczone do transportu maszyn rolniczych oraz budowlanych.'
@@ -53,8 +53,8 @@ text:
   footer:
     name: 'weasels sp. z o. o.'
     about-1: |
-      Nasza firma transportowa pragnie dostarczyć Państwu pełen zakres usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe, spedycja to nasza specjalność, a także pasja! W naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą. Stawiamy na jakość świadczonych usług!
-    about-2: 'Realizujemy się na wielu płaszczyznach, co daje nam wymierny efekt w postaci konkurencyjnych cen. W zakresie przewozu ładunków taborem ciężarowym na terenie całej Polski, dostarczamy pełną ofertę zarówno w obsłudze logistycznej, jak i spedycyjnej. Realizujemy zamówienia zarówno od dużych Przedsiębiorstw, jak i małych Firm. Dla nas liczy się indywidualne podejście do świadczonych usług. Codziennie jesteśmy dla Państwa! Swoim zasięgiem działania obejmujemy wszystkie kraje Unii Europejskiej.'
+      Nasza firma transportowa pragnie dostarczyć Państwu pełen wachlarz usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe i spedycja to nasza specjalność, a także pasja! W naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą. Stawiamy na jakość świadczonych usług!
+    about-2: 'Realizujemy się na wielu płaszczyznach, co daje nam wymierny efekt w postaci konkurencyjnych cen. W zakresie przewozu ładunków taborem ciężarowym na terenie całej Polski dostarczamy pełną ofertę zarówno w obsłudze logistycznej, jak i spedycyjnej. Realizujemy zamówienia zarówno od dużych Przedsiębiorstw, jak i małych Firm. Dla nas liczy się indywidualne podejście do świadczonych usług. Codziennie jesteśmy dla Państwa! Swoim zasięgiem działania obejmujemy wszystkie kraje Unii Europejskiej.'
     about-3: 'Jesteśmy firmą ceniącą Klienta, dbamy o jakość, terminowość i rzetelność wykonywanych usług transportowych. Ufamy naszym kierowcom. Ich doświadczenie i kwalifikacje sprawiają, że kiedy oni codziennie wyruszają w trasę, my mamy pewność realizacji Państwa zamówienia. Nasi spedytorzy są z nimi w stałym kontakcie, dzięki czemu na bieżąco mogą Państwo śledzić trasę swojej przesyłki. Dbamy o jej bezpieczeństwo, dlatego towar jest ubezpieczony – OC Przewoźnika, tzw. OCP. Jesteśmy firmą transportową posiadającą bardzo bogaty oraz rozbudowany tabor, by świadczone przez nas usługi transportowe, spedycyjne gwarantowały Państwu pełną kompleksowość. Nasza firma również przygotowana jest do przewożenia ładunków niebezpiecznych (ADR).'
     details: 'Dane firmy'
     nip: 'PL 766 199 52 94'
@@ -72,5 +72,7 @@ text:
     finance-t: 'Kapitał zakładowy'
     email: 'transport@weasels.co'
     court: 'Sąd Rejonowy w Wągrowcu. ul. Kościuszki 18. 62-100 Wągrowiec'
-gems:
+plugins:
+  - jekyll-seo-tag
   - jekyll-haml
+  - jekyll-sitemap

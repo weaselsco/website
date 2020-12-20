@@ -13,21 +13,24 @@
           .row
             .col.l6.m6.s12.center
               .card.contact__card.waves-effect.wow.fadeIn
-                .card-content.black-text
-                  .mask--contact-call
+                .card-image
+                  %img{:src => "images/contact/maciej.jpg"}
+                .card-content.black-text.contact__mask
                   .contact__card--title {{ site.text.contact.maciej }}
                   .contact__card--text
                     .contact-info.center {{ site.text.contact.maciej-mail }}
-                    .contact-info.center {{ site.text.contact.maciej-tel }}
+                    .contact-info.center.black-text {{ site.text.contact.maciej-tel }}
 
             .col.l6.m6.s12.center
               .card.contact__card.waves-effect.wow.fadeIn
-                .card-content.black-text
+                .card-image
+                  %img{:src => "images/contact/michal.jpg"}
+                .card-content.black-text.contact__mask
                   .mask--contact-call
                   .contact__card--title {{ site.text.contact.michal }}
                   .contact__card--text
                     .contact-info.center {{ site.text.contact.michal-mail }}
-                    .contact-info.center {{ site.text.contact.michal-tel }}
+                    .contact-info.center.black-text {{ site.text.contact.michal-tel }}
 
   .section__email.grey.darken-3
     .mask--contact
