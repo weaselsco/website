@@ -78,7 +78,7 @@ text:
     finance-t: 'Kapitał zakładowy'
     email: 'transport@weasels.co'
     court: 'Sąd Rejonowy w Wągrowcu. ul. Kościuszki 18. 62-100 Wągrowiec'
-plugins:
+plugins_dir:
   - jekyll-seo-tag
   - jekyll-haml
   - jekyll-sitemap
