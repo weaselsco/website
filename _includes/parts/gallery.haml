@@ -9,20 +9,18 @@
 
   .section__gallery__images
     .container.l12
-      .row
-        .col.l6.m6.s12.wow.fadeIn
-          %img.materialboxed.responsive-img{src: "images/uslugi-2/zwykla-2-2.jpg"}
-        .col.l6.m6.s12.wow.fadeIn
-          %img.materialboxed.responsive-img{src: "images/uslugi-2/zwykla-2-6.jpg"}
-      .row
-        .col.l4.m4.s4.wow.fadeIn
-          %img.materialboxed.responsive-img{src: "images/uslugi-2/zdjecie-nowe-1.jpg"}
-        .col.l4.m4.s4.wow.fadeIn
-          %img.materialboxed.responsive-img{src: "images/uslugi-2/zdjecie-nowe-2.jpg"}
-        .col.l4.m4.s4.wow.fadeIn
-          %img.materialboxed.responsive-img{src: "images/uslugi-2/zdjecie-nowe-3.jpg"}
-      .row
-        .col.l6.m6.s12.wow.fadeIn
-          %img.materialboxed.responsive-img{src: "images/uslugi-2/auto-1.jpg"}
-        .col.l6.m6.s12.wow.fadeIn
-          %img.materialboxed.responsive-img{src: "images/uslugi-2/auto-2.jpg"}
+      .row.valign-wrapper
+        .col.l6.m12.s12.wow.fadeIn
+          .section__about--text.grey-text.lighten-3.center
+            {{ site.text.footer.about-1 }}
+        .col.l6.m12.s12.wow.fadeIn
+          %img.responsive-img.clip--path{src: "images/fleet/auto-2.webp"}
+      .row.valign-wrapper
+        .col.l6.m12.s12.wow.fadeIn
+          %img.responsive-img.clip--path{src: "images/fleet/auto-5.webp"}
+        .col.l6.m12.s12.wow.fadeIn
+          .section__about--text.grey-text.lighten-3.center
+            {{ site.text.footer.about-4 }}
+            %br
+            %br
+            %a.btn.btn-large.btn-shadow.waves-effect.waves-light.grey.lighten-2.grey-text.text-darken-4.text-bold{href: "/gallery"} Nasza galeria

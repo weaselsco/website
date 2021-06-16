@@ -12,8 +12,8 @@ $(document).ready(function() {
   });
 
   $('.carousel.carousel-slider').carousel({
-    fullWidth: true,
-    indicators: true
+    fullWidth: false,
+    indicators: true,
   });
   autoplay();
 
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   setTimeout(function(){
       $('body').addClass('loaded');
-  }, 2500);
+  }, 1200);
 });
 
 $(window).scroll(function() {

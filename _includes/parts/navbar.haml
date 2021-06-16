@@ -1,32 +1,47 @@
 %nav.navbar.navbar-default.hide-on-med-and-down
   .nav-wrapper
     %ul
-      %li
-        %a{href: "#about"} O nas
-      %li
-        %a{href: "#services"} Usługi
-      %li
-        %a{href: "#contact"} Kontakt
-      %li
-        %a{href: "#map"} Jak dojechać
+      {% if page.collection == "gallery" %}
+      %li.content__item
+        %a.link.link--elara{:href => "/"}
+          %span Strona główna
+      {% else %}
+      %li.content__item
+        %a.link.link--elara{href: "#about"} O nas
+      %li.content__item
+        %a.link.link--elara{href: "#services"} Usługi
+      %li.content__item
+        %a.link.link--elara{href: "/gallery"} Galeria
+      %li.content__item
+        %a.link.link--elara{href: "#contact"} Kontakt
+      %li.content__item
+        %a.link.link--elara{href: "#map"} Jak dojechać
+      {% endif %}
 
 .side-nav.hide-on-large-only
-  %a.sidenav-trigger.btn.waves-effect.waves-orange.white.black-text{"data-target" => "slide-out", :href => "#"} menu
+  %a.sidenav-trigger.btn.waves-effect.waves-yellow.white.black-text{"data-target" => "slide-out", :href => "#"} menu
 
 #slide-out.sidenav
   %ul
     %li
       %a.sidenav-close{:href => "#!"}
         %i.material-icons close
+    {% if page.collection == "gallery" %}
+    %li
+      %a{href: "/"} Wróc na stronę główną
+    {% else %}
     %li
       %a{href: "#about"} O nas
     %li
       %a{href: "#services"} Usługi
     %li
+      %a{href: "/gallery"} Galeria
+    %li
       %a{href: "#contact"} Kontakt
     %li
       %a{href: "#map"} Jak dojechać
-  %img.sidenav-logo{:src => "images/logo-male.svg"}
+    {% endif %}
+  %img.sidenav-logo{:src => "/images/logo-male.svg"}
   .footer-copyright
     .container.black-text
       2020 © Weasels. Wszelkie prawa zastrzeżone. Made by

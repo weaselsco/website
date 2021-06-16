@@ -3,6 +3,10 @@ title: Weasels Sp. z o.o.
 email: michal.lasecki@weasels.co
 markdown: kramdown
 permalink: pretty
+collections:
+  gallery:
+    output: true
+    permalink: /gallery/
 encoding: utf-8
 page-title: 'Weasels Sp. z o. o.'
 text:
@@ -53,8 +57,10 @@ text:
   footer:
     name: 'weasels sp. z o. o.'
     about-1: |
-      Nasza firma transportowa pragnie dostarczyć Państwu pełen wachlarz usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe i spedycja to nasza specjalność, a także pasja! W naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą. Stawiamy na jakość świadczonych usług!
-    about-2: 'Realizujemy się na wielu płaszczyznach, co daje nam wymierny efekt w postaci konkurencyjnych cen. W zakresie przewozu ładunków taborem ciężarowym na terenie całej Polski dostarczamy pełną ofertę zarówno w obsłudze logistycznej, jak i spedycyjnej. Realizujemy zamówienia zarówno od dużych Przedsiębiorstw, jak i małych Firm. Dla nas liczy się indywidualne podejście do świadczonych usług. Codziennie jesteśmy dla Państwa! Swoim zasięgiem działania obejmujemy wszystkie kraje Unii Europejskiej.'
+      Nasza firma transportowa pragnie dostarczyć pełen wachlarz usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe i spedycja to nasza specjalność, a także pasja!
+      W naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą. Stawiamy na jakość!
+    about-2: 'Realizujemy się na wielu płaszczyznach, co daje nam wymierny efekt w postaci konkurencyjnych cen. W zakresie przewozu ładunków taborem ciężarowym na terenie całej Polski dostarczamy pełną ofertę zarówno w obsłudze logistycznej, jak i spedycyjnej.'
+    about-4: 'Realizujemy zamówienia zarówno od dużych Przedsiębiorstw, jak i małych Firm. Dla nas liczy się indywidualne podejście do świadczonych usług. Codziennie jesteśmy dla Państwa!'
     about-3: 'Jesteśmy firmą ceniącą Klienta, dbamy o jakość, terminowość i rzetelność wykonywanych usług transportowych. Ufamy naszym kierowcom. Ich doświadczenie i kwalifikacje sprawiają, że kiedy oni codziennie wyruszają w trasę, my mamy pewność realizacji Państwa zamówienia. Nasi spedytorzy są z nimi w stałym kontakcie, dzięki czemu na bieżąco mogą Państwo śledzić trasę swojej przesyłki. Dbamy o jej bezpieczeństwo, dlatego towar jest ubezpieczony – OC Przewoźnika, tzw. OCP. Jesteśmy firmą transportową posiadającą bardzo bogaty oraz rozbudowany tabor, by świadczone przez nas usługi transportowe, spedycyjne gwarantowały Państwu pełną kompleksowość. Nasza firma również przygotowana jest do przewożenia ładunków niebezpiecznych (ADR).'
     details: 'Dane firmy'
     nip: 'PL 766 199 52 94'
