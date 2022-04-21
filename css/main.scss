@@ -76,7 +76,7 @@ $big-width: 1250px;
 }
 
 .holder-item-gallery {
-  background-image: url('../images/fleet/auto-2.webp');
+  background-image: url('../images/fleet/auto-13.webp');
   background-position: center;
   padding-bottom: 300px!important;
 }
@@ -178,19 +178,20 @@ nav {
 
 .navbar-default {
   position: fixed;
-  text-transform: uppercase;
-  font-weight: bold;
+  text-transform: lowercase;
   background: transparent;
   box-shadow: none;
   z-index: 1000;
   @include transition-all;
 
-  .nav-wrapper img {
-    height: 64px;
+  .brand-logo {
+    margin: 0 15px 15px 150px;
+    height: inherit;
+    padding: 10px;
   }
 
   ul {
-    text-align: center;
+    text-align: right;
 
     li {
       display: inline;
@@ -216,7 +217,7 @@ nav {
     }
 
     &:hover::after {
-      background: linear-gradient(to right, #f18e37, #f1c642);
+      color: #f18e37;
       margin-left: 0;
       width: 100%;
       left: 0;
@@ -224,11 +225,11 @@ nav {
 
     &:after {
       position: relative;
-      background: linear-gradient(to right, #f18e37, #f1c642);
+      color: #f18e37;
       display: block;
       height: 3px;
       width: 20px;
-      bottom: -13px;
+      bottom: -5px;
       left: 50%;
       margin-left: -10px;
       content: "";
@@ -239,14 +240,14 @@ nav {
   &.navbar-collapsed {
     height: 60px;
     line-height: 60px;
-    background: white;
+    background: rgba(66, 66, 66, 0.85);
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     a {
-      color: black;
+      color: white;
 
       &:hover, &.active {
         background-color: transparent;
-        color: #ffeb3b;
+        color: #f18e37;
       }
 
       &:after {
@@ -743,7 +744,7 @@ footer {
     width: 100%;
     height: 1px;
     background: currentColor;
-    top: 100%;
+    top: 90%;
     left: 0;
     pointer-events: none;
 }
@@ -756,6 +757,62 @@ footer {
     clip-path: polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
     webkit-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
     border-radius: 50px;
+}
+
+////// BUTTON ///////
+
+.button {
+  border: none;
+  padding: 1.5rem 3rem;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+}
+
+.button::before,
+.button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button--mimas {
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  color: #fff;
+  background: #424242;
+
+  & span {
+    position: relative;
+    color: #fff;
+  }
+
+  &:hover {
+    & span {
+      color: #e7e7e7;
+    }
+  }
+}
+
+.button--mimas::before {
+  content: '';
+  background: linear-gradient(to right, #f18e37, #f1c642);
+  width: 140%;
+  left: -20%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.button--mimas:hover::before {
+  transform: translate3d(100%,0,0);
 }
 
 @import "loader.css";

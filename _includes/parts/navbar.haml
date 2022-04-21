@@ -1,5 +1,6 @@
 %nav.navbar.navbar-default.hide-on-med-and-down
   .nav-wrapper
+    %img.brand-logo.left{src: "/images/logo-3.svg"}
     %ul
       {% if page.collection == "gallery" %}
       %li.content__item
@@ -19,7 +20,7 @@
       {% endif %}
 
 .side-nav.hide-on-large-only
-  %a.sidenav-trigger.btn.waves-effect.waves-yellow.white.black-text{"data-target" => "slide-out", :href => "#"} menu
+  %a.sidenav-trigger.btn.waves-effect.waves-orange.white.black-text{"data-target" => "slide-out", href: "#"} menu
 
 #slide-out.sidenav
   %ul
@@ -44,5 +45,5 @@
   %img.sidenav-logo{:src => "/images/logo-male.svg"}
   .footer-copyright
     .container.black-text
-      2020 © Weasels. Wszelkie prawa zastrzeżone. Made by
+      2022 © Weasels. Wszelkie prawa zastrzeżone. Made by
     .text-bold Michał Łasecki
