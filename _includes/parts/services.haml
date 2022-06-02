@@ -1,46 +1,50 @@
 .parallax-container.valign-wrapper
   .container
-    %p.contact-quote.white-text Pracuj tak ciężko jak to możliwe, to zwiększa szanse na sukces. Jeśli inni ludzie pracują 40 godzin w tygodniu, a ty 100 godzin, to ty w 4 miesiące osiągniesz to, co innym zajmie rok.
-    %cite.grey-text.right - Elon Musk, założyciel przedsiębiorstw PayPal, SpaceX i Tesla
+    %p.contact-quote.white-text Połączenie sił to początek, pozostanie razem to postęp, wspólna praca to sukces.
+    %cite.grey-text.right - Henry Ford, amerykański inżynier oraz założyciel Ford Motor Company
 
   .parallax
-    %img.responsive-img{src: "images/slide04-1.webp"}
+    %img.responsive-img{src: "/images/fleet/auto-13.webp"}
 
 #services.scrollspy
   .section.divider-bottom
     .container.l12
       .services__cards
-        %h5.text-upcase.orange-text.text-darken-1.center.text-bold.shadow-text
+        %h5.text-upcase.yellow-text.text-darken-3.center.text-bold.shadow-text
           Warto z Nami współpracować
-        %p.center.text-upcase.text-bold.grey-text Transport z Weasels się opłaca
+        %p.center.text-upcase.text-bold.grey-text.text-darken-4 Transport z Weasels się opłaca
 
         .row
           .col.l6.m6.s12.wow.fadeIn
             .card.services__card.waves-effect
               .card-content.black-text
-                %i.material-icons.left.services__card--icon place
-                .card-title.orange-text.text-darken-1 {{ site.text.content.block-4-title }}
+                .btn-floating.btn-large.yellow.darken-3.left.pulse
+                  %i.material-icons.services__card--icon place
+                .card-title.grey-text.text-darken-4 {{ site.text.content.block-4-title }}
                 .services__card--text
                   {{ site.text.content.block-4 }}
           .col.l6.m6.s12.wow.fadeIn
             .card.services__card.waves-effect
               .card-content.black-text
-                %i.material-icons.left.services__card--icon miscellaneous_services
-                .card-title.orange-text.text-darken-1 {{ site.text.content.block-3-title }}
+                .btn-floating.btn-large.yellow.darken-3.left.pulse
+                  %i.material-icons.left.services__card--icon miscellaneous_services
+                .card-title.grey-text.text-darken-4 {{ site.text.content.block-3-title }}
                 .services__card--text
                   {{ site.text.content.block-3 }}
         .row
           .col.l6.m6.s12.wow.fadeIn
             .card.services__card.waves-effect
               .card-content.black-text
-                %i.material-icons.left.services__card--icon more_time
-                .card-title.orange-text.text-darken-1 {{ site.text.content.block-5-title }}
+                .btn-floating.btn-large.yellow.darken-3.left.pulse
+                  %i.material-icons.left.services__card--icon more_time
+                .card-title.grey-text.text-darken-4 {{ site.text.content.block-5-title }}
                 .services__card--text
                   {{ site.text.content.block-5 }}
           .col.l6.m6.s12.wow.fadeIn
             .card.services__card.waves-effect
               .card-content.black-text
-                %i.material-icons.left.services__card--icon public
-                .card-title.orange-text.text-darken-1 {{ site.text.content.block-1-title }}
+                .btn-floating.btn-large.yellow.darken-3.left.pulse
+                  %i.material-icons.left.services__card--icon public
+                .card-title.grey-text.text-darken-4 {{ site.text.content.block-1-title }}
                 .services__card--text
                   {{ site.text.content.block-1 }}
