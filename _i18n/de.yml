@@ -1,0 +1,85 @@
+site:
+  header: Ihr Partner im Transportwesen!
+  about:
+    title: Geben Sie Ihre Ladung in gute Hände!
+    lead: |
+      Unser Transportunternehmen möchte ein breites Spektrum an Dienstleistungen im Bereich des nationalen und internationalen Straßentransports anbieten. Transportdienstleistungen und Spedition sind unsere Spezialität und Leidenschaft!
+      In unseren Aktivitäten sind wir zuverlässig und genießen das Vertrauen und die Anerkennung unserer Kunden im Inland sowie im Ausland. Wir setzen auf Qualität!
+    button: Erfahren Sie mehr!
+    icon-1: Zufriedene Kunden
+    icon-2: Transporte pro Jahr
+    icon-3: Verfügbarkeit
+    icon-4: Tonnen transportierter Ladung pro Jahr
+
+  contact:
+    title: Lassen Sie uns sprechen!
+    lead: Wir beantworten gerne jede Frage und klären die Details des Transports Ihrer Ladung.
+    maciej:
+      title: 'Maciej Łasecki'
+      mail: 'maciej.lasecki@weasels.co'
+      tel: '+48 727 907 796'
+    michal:
+      title: 'Michał Łasecki'
+      mail: 'michal.lasecki@weasels.co'
+      tel: '+48 726 922 069'
+    mail: Schreiben Sie uns!
+    form:
+      name: Vor- und Nachname *
+      email:  E-Mail *
+      msg: Nachricht *
+      btn: Nachricht senden
+
+  footer:
+    title: Wir laden Sie zur Zusammenarbeit ein!
+    about: Wir sind ein kundenorientiertes Unternehmen, das Wert auf Qualität, Pünktlichkeit und Zuverlässigkeit bei der Erbringung von Transportdienstleistungen legt. Wir vertrauen unseren Fahrern. Ihre Erfahrung und Qualifikationen sorgen dafür, dass wir die Ausführung Ihrer Bestellungen sicherstellen können, wenn sie täglich auf die Straße gehen. Wir setzen auf die Qualität unserer Dienstleistungen!
+    table:
+      title: Firmendaten
+      name: weasels sp. z o. o.
+      activity: Tätigkeit
+      type: Güterkraftverkehr
+      address: Adresse
+      base: Firmensitz
+
+  map:
+    title: Anfahrtsbeschreibung zu unserem Firmensitz
+    lead: Wir stehen Ihnen von Montag bis Freitag von 7:00 bis 17:00 Uhr zur Verfügung
+
+  navbar:
+    main: Hauptseite
+    back: Zurück zur Hauptseite
+    about: Über uns
+    services: Dienstleistungen
+    gallery: Galerie
+    contact: Kontakt
+    map: Anfahrt
+
+  services:
+    quote:
+      text: Zusammenkommen ist ein Beginn, Zusammenbleiben ein Fortschritt, Zusammenarbeiten ein Erfolg.
+      author: Henry Ford, amerikanischer Ingenieur und Gründer der Ford Motor Company
+    title: Es lohnt sich, mit uns zusammenzuarbeiten
+    content:
+      block-1:
+        title: Überwachung
+        text: Unsere Zugmaschinen sind mit einem GPS-System ausgestattet, das eine kontinuierliche Verbindung zum Fahrzeug ermöglicht und Ihnen zusätzliche Sicherheit für Ihre Ladung bietet.
+      block-2:
+        title: Spedition
+        text: Täglich stehen wir zu Ihrer Verfügung und garantieren eine professionelle Ausführung der uns anvertrauten Aufgaben. Qualität und Zuverlässigkeit sind das Markenzeichen unserer Tätigkeit.
+      block-3:
+        title: Verfügbarkeit
+        text: Als kundenorientiertes Unternehmen legen wir Wert auf Qualität, Pünktlichkeit und Zuverlässigkeit unserer Transportdienstleistungen. Wir gehen professionell an jedes Projekt heran, vielen Unternehmern haben uns bereits ihr Vertrauen geschenkt.
+      block-4:
+        title: Vielseitigkeit
+        text: Weite Strecken sind unsere Spezialität. Unsere Fahrer sind erfahrene Mitarbeiter mit langjähriger Praxis. Wir setzen auf Qualität und Sicherheit unserer Aktionen. Nationaler Transport ist für uns Alltag.
+      block-5:
+        title: Schwertransport
+        text: Baumaschinen, landwirtschaftliche Geräte oder ungewöhnliche Ladungen? Gerne übernehmen wir Transporte mit Tiefladern für Schwerlasten.
+
+  partners: Unsere Partner
+
+  gallery:
+    btn: Galerie
+    title: Internationaler Transport, landwirtschaftliche und Baumaschinen
+    about-1: Unser Hauptgeschäftsbereich sind Transporte von Ladungen innerhalb der Europäischen Union. Gerne übernehmen wir auch Transporte in andere Länder, ganz nach den Wünschen unserer Kunden. Die Ware ist durch eine Haftpflichtversicherung des Frachtführers im internationalen und nationalen Verkehr versichert. Wir verfügen über Anhänger für den Transport von landwirtschaftlichen und Baumaschinen.
+    about-2: Unser Transportunternehmen möchte ein breites Spektrum an Dienstleistungen im Bereich des nationalen und internationalen Straßentransports anbieten. Transportdienstleistungen und Spedition sind unsere Spezialität und Leidenschaft! Wir sind zuverlässig in unseren Aktivitäten und genießen das Vertrauen und die Anerkennung unserer Kunden im Inland sowie im Ausland. Wir setzen auf Qualität!
+    about-3: Wir erfüllen Aufträge sowohl für große Unternehmen als auch für kleine Firmen. Für uns zählt ein individueller Ansatz bei der Erbringung unserer Dienstleistungen. Wir sind täglich für Sie da!

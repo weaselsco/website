@@ -5,54 +5,53 @@
         .row
           .col.l12.wow.fadeIn
             %h3.center.grey-text.text-darken-3.text-bold.section__gallery--title
-              Porozmawiajmy!
+              {% t site.contact.title %}
             .section__about--text.grey-text.lighten-3.center
-              Bardzo chętnie odpowiemy na każde pytanie i ustalimy szczegóły transportu Twojego ładunku.
-
+              {% t site.contact.lead %}
         .contact__cards
           .row
             .col.l6.m6.s12.center
               .card.contact__card.waves-effect.wow.fadeIn
                 .card-image
-                  %img{:src => "images/contact/maciej.webp"}
+                  %img{:src => "images/contact/maciej.webp", alt: 'Maciej'}
                 .card-content.black-text.contact__mask
-                  .contact__card--title {{ site.text.contact.maciej }}
+                  .contact__card--title {% t site.contact.maciej.title %}
                   .contact__card--text
-                    .contact-info.center {{ site.text.contact.maciej-mail }}
-                    .contact-info.center.black-text {{ site.text.contact.maciej-tel }}
+                    .contact-info.center {% t site.contact.maciej.mail %}
+                    .contact-info.center.black-text {% t site.contact.maciej.tel %}
 
             .col.l6.m6.s12.center
               .card.contact__card.waves-effect.wow.fadeIn
                 .card-image
-                  %img{:src => "images/contact/michal.webp"}
+                  %img{:src => "images/contact/michal.webp", alt: 'Michał'}
                 .card-content.black-text.contact__mask
                   .mask--contact-call
-                  .contact__card--title {{ site.text.contact.michal }}
+                  .contact__card--title {% t site.contact.michal.title %}
                   .contact__card--text
-                    .contact-info.center {{ site.text.contact.michal-mail }}
-                    .contact-info.center.black-text {{ site.text.contact.michal-tel }}
+                    .contact-info.center {% t site.contact.michal.mail %}
+                    .contact-info.center.black-text {% t site.contact.michal.tel %}
 
-  .section__email.grey.darken-3
-    .mask--contact
+  .section__email.midnight
+    {% haml parts/shape1.haml %}
     .container
       .row
         .col.l12
-          %h3.center.grey-text.text-lighten-3.text-bold.section__gallery--title Napisz do nas!
+          %h3.center.grey-text.text-lighten-3.text-bold.section__gallery--title {% t site.contact.mail %}
         .col.l12
           .contact-form
             %form#contactForm{action: "https://formspree.io/michal.lasecki@weasels.co", method: "POST", "data-toggle" => "validator"}
               #msgSubmit.h3.text-center.hidden
               .input-field.col.m12.s12
-                %label.h4{"data-validation-required-message" => "Proszę wprowadź swoje imię i nazwisko.", :for => "name"} Imię i nazwisko *
+                %label.h4{"data-validation-required-message" => "Proszę wprowadź swoje imię i nazwisko.", :for => "name"} {% t site.contact.form.name %}
                 %input#name.form-control.validate{"data-error" => "NEW ERROR MESSAGE", :required => "", :name => "name" ,:type => "text"}
               .input-field.col.m12.s12
-                %label.h4{:for => "email"} Email *
+                %label.h4{:for => "email"} {% t site.contact.form.email %}
                 %input#email.form-control.validate{:required => "", :name => "_replyto", :type => "email"}
               .input-field.col.m12.s12
-                %label.h4{:for => "message"} Wiadomość *
+                %label.h4{:for => "message"} {% t site.contact.form.msg %}
                 %textarea#message.form-control.materialize-textarea.validate{:required => "", name: 'message'}
               %div
                 %input{:name => "_subject", :type => "hidden", :value => "Nowa wiadomość z Weasels.co!"}
-                %input{:name => "_gotcha", :style => "display:none", :type => "text"}
+                %input{:name => "_gotcha", :style => "display:none; color:white", :type => "text"}
                 %input{:name => "_next", :type => "hidden", :value => "//weasels.co"}
-              %button#form-submit.btn.waves-effect.waves-light.btn-large.grey.darken-1.right{type: 'submit'} Wyślij wiadomość
+              %button#form-submit.btn.waves-effect.waves-light.btn-large.white.darken-1.black-text.right{type: 'submit'} {% t site.contact.form.btn %}

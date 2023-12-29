@@ -2,7 +2,7 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
 
 /// MAIN ///
 
@@ -31,6 +31,14 @@ html {
 
 .orange {
   background-color: #f19438!important;
+}
+
+.antracyt {
+  background-color: #202124!important;
+}
+
+.midnight {
+  background: linear-gradient(to right, #232526, #414345);
 }
 
 /// CONST ///
@@ -99,11 +107,6 @@ $big-width: 1250px;
     @extend .mask;
     background: rgba(255, 255, 255, 0.3);
   }
-
-  &--contact {
-    @extend .mask;
-    background: url('../images/bg.svg');
-  }
 }
 
 .motto {
@@ -127,53 +130,95 @@ $big-width: 1250px;
 /// SHAPE ///
 
 .shape-container[data-shape-position="bottom"] {
-    top: auto;
-    bottom: 0;
+  top: auto;
+  bottom: 0;
 }
 
 .shape-container[data-shape-position="top"] {
-    bottom: auto;
-    transform: rotate(180deg);
+  bottom: auto;
+  transform: rotate(180deg);
 }
 
 .shape-container {
-    position: absolute;
-    top: auto;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 150px;
-    z-index: 2;
-    transform: translateZ(0);
-    overflow: hidden;
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 2;
+  transform: translateZ(0);
+  overflow: hidden;
 }
 
 .shape-container[data-shape-fill="sct-color-1"] .shape-item {
-    fill: #FFF;
+  fill: #FFF;
 }
 .shape-container .shape-item {
-    fill: #FFF;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    height: 100%;
-    position: absolute;
+  fill: #FFF;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+}
+
+.section__email {
+  position: relative; /* Ensure this section can serve as a reference for absolute positioning */
+  z-index: 1; /* Adjust as needed */
+}
+
+.shape-contact[data-shape-position="top"] {
+  top: 0; /* Position at the top */
+  bottom: auto;
+  transform: rotate(180deg); /* Rotates the shape, adjust as needed */
+  z-index: 2; /* Ensure this is above the .section__email.grey.darken-3 */
+}
+
+// .shape-contact[data-shape-fill="sct-color-1"] .shape-item {
+//   fill: #202124!important;
+// }
+.shape-contact .shape-item {
+  background-color: white;
+  // fill: linear-gradient(to right, #232526, #414345);
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+}
+
+.p-shape {
+  transform: scaleY(-1) scaleX(-1);
+}
+
+.p-shape .shape-contact .shape-item {
+  background-color: white !important;
+  fill: #e0e0e0 !important;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
 }
 
 /// NAVBAR ///
 
 @mixin transition-all()
 {
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
 }
 
 nav {
   height: 72px;
   line-height: 72px;
-  width: 100%;
+  width: 80%;
   background-color: transparent;
+  margin-left: 10%;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 .navbar-default {
@@ -240,14 +285,14 @@ nav {
   &.navbar-collapsed {
     height: 60px;
     line-height: 60px;
-    background: rgba(66, 66, 66, 0.85);
+    background: rgba(66, 66, 66, 0.95);
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     a {
       color: white;
 
       &:hover, &.active {
         background-color: transparent;
-        color: #f18e37;
+        color: #202124;
       }
 
       &:after {
@@ -256,6 +301,24 @@ nav {
       }
     }
   }
+}
+
+nav .nav-wrapper {
+  border-radius: 10px;
+}
+
+.nav-wrapper ul li img {
+  height: 20px; /* Adjust this value based on your navbar's height */
+  vertical-align: middle; /* This helps in aligning the image vertically */
+}
+
+.language-flags {
+  display: inline-flex;
+}
+
+.language-flags img {
+  height: 20px; /* Adjust the height as needed */
+  vertical-align: middle; /* Align images vertically */
 }
 
 .side-nav {
@@ -372,10 +435,6 @@ nav {
 
 /// SERVICES ///
 
-.card {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
 .shadow-text {
   text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -387,6 +446,8 @@ nav {
 
   &__card {
     border-radius: .5rem;
+    min-height: 220px;
+    padding: 15px;
 
     &--text {
       padding-left: 75px;
@@ -495,7 +556,7 @@ p.contact-quote {
 .section {
   &__partners {
     margin: 0;
-    padding: 30px;
+    padding-top: 30px;
   }
 }
 
@@ -532,9 +593,9 @@ p.contact-quote {
     }
   }
 
-  &__mask {
-    background: url('../images/bg-contact.svg');
-  }
+  // &__mask {
+  //   background: url('../images/bg-contact.svg');
+  // }
 }
 
 
@@ -542,7 +603,6 @@ p.contact-quote {
 .section {
   &__email {
     padding-bottom: 3rem;
-    padding-top: 1rem;
     position: relative;
     width: 100%;
   }
@@ -573,7 +633,7 @@ p.contact-quote {
 
 .section {
   &__map {
-    padding-top: 60px;
+    padding-top: 30px;
     overflow: hidden;
 
     &--middle-align {
@@ -602,10 +662,6 @@ p.contact-quote {
 }
 
 /// FOOTER ///
-
-footer {
-
-}
 
 .section {
   &__footer {
@@ -683,6 +739,20 @@ footer {
       border-radius: 50%;
       border: 3px solid transparent;
       border-top-color: #FF9F1C;
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+    }
+
+    &:nth-of-type(4) {
+      content: "";
+      position: absolute;
+      top: 65px;
+      left: 65px;
+      right: 65px;
+      bottom: 65px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #000;
       -webkit-animation: spin 1s linear infinite;
       animation: spin 1s linear infinite;
     }
@@ -819,4 +889,6 @@ footer {
   transform: translate3d(100%,0,0);
 }
 
-@import "loader.css";
+textarea.materialize-textarea {
+  color: white;
+}

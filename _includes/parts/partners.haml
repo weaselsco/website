@@ -1,18 +1,22 @@
 .section__partners.grey.lighten-2
   %h3.center.grey-text.text-darken-3.center.text-bold.shadow-text.section__gallery--title
-    Nasi partnerzy
+    {% t site.partners %}
   .carousel.carousel-slider
     %a.carousel-item{:href => "#one!"}
       .row.center-align
         .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-1.webp"}
+          %img.responsive-img{src: "/images/partners/logo-1.webp", alt: 'logo-1'}
         .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-2.webp"}
+          %img.responsive-img{src: "/images/partners/logo-2.webp", alt: 'logo-2'}
         .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-3.webp"}
+          %img.responsive-img{src: "/images/partners/logo-3.webp", alt: 'logo-3'}
     %a.carousel-item{:href => "#two!"}
       .row.center-align
-        .col.l6.m6.s6.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-4.webp"}
-        .col.l6.m6.s6.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-5.webp"}
+        .col.l4.m4.s4.wow.fadeIn
+          %img.responsive-img{src: "/images/partners/logo-4.webp", alt: 'logo-4'}
+        .col.l4.m4.s4.wow.fadeIn
+          %img.responsive-img{src: "/images/partners/logo-5.webp", alt: 'logo-5'}
+        .col.l4.m4.s4.wow.fadeIn
+          %img.responsive-img{src: "/images/partners/logo-6.webp", alt: 'logo-6'}
+  .p-shape
+    {% haml parts/shape2.haml %}

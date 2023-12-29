@@ -1,43 +1,49 @@
-.section__footer--block.grey.darken-3
+.section__footer--block.midnight
   %h3.center.grey-text.text-lighten-3.text-bold.section__gallery--title
-    Zapraszamy do współpracy!
+    {% t site.footer.title %}
 
-%footer#about.page-footer.grey.lighten-4.section__footer
+%footer.page-footer.white.section__footer
   .container
     .row
       .col.l7.s12.about-company
-        %h4.grey-text.text-darken-3.text-bold weasels sp. z o. o.
-        %p.black-text.text-lighten-4 Nasza firma transportowa pragnie dostarczyć Państwu pełen zakres usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe, spedycja to nasza specjalność, a także pasja! w naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą.
-        %p.black-text.text-lighten-4 Jesteśmy firmą ceniącą Klienta, dbamy o jakość, terminowość i rzetelność wykonywanych usług transportowych. Ufamy naszym kierowcom. Ich doświadczenie i kwalifikacje sprawiają, że kiedy oni codziennie wyruszają w trasę, my mamy pewność realizacji Państwa zamówienia Stawiamy na jakość świadczonych usług!
+        %h4.grey-text.text-darken-3.text-bold.text-upcase {% t site.footer.table.name %}
+        %p.black-text.text-lighten-4 {% t site.about.lead %}
+        %p.black-text.text-lighten-4 {% t site.footer.about %}
+
       .col.l5.s12
-        %h4.grey-text.text-darken-3.text-bold dane firmy
+        %h4.grey-text.text-darken-3.text-bold.text-upcase {% t site.footer.table.title %}
         %table.about-table.black-text
           %tbody
             %tr
               %td
-                %span.right NIP
+                %span.right.text-bold NIP
               %td
                 %span PL 766 199 52 94
             %tr
               %td
-                %span.right Regon
+                %span.right.text-bold Regon
               %td
                 %span 365359540
             %tr
               %td
-                %span.right KRS
+                %span.right.text-bold KRS
               %td
                 %span 0000635743
             %tr
               %td
-                %span.right Działalność
+                %span.right.text-bold {% t site.footer.table.activity %}
               %td
-                %span Transport Drogowy Towarów (PKD : 49.41.Z)
+                %span {% t site.footer.table.type %} (PKD : 49.41.Z)
             %tr
               %td
-                %span.right Siedziba
+                %span.right.text-bold {% t site.footer.table.address %}
               %td
-                %span Leśna 24a, 62-100 Wągrowiec, woj. wielkopolskie, Polska
+                %span Brzozowa 13, 62-100 Wągrowiec, Polska
+            %tr
+              %td
+                %span.right.text-bold {% t site.footer.table.base %}
+              %td
+                %span Leśna 24a, 62-100 Wągrowiec, Polska
   .footer-copyright
     .container.black-text
       {{ site.time | date: '%Y' }} © Weasels. Wszelkie prawa zastrzeżone. Made by Michał Łasecki

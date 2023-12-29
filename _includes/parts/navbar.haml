@@ -1,22 +1,31 @@
 %nav.navbar.navbar-default.hide-on-med-and-down
-  .nav-wrapper
-    %img.brand-logo.left{src: "/images/logo-3.svg"}
+  .nav-wrapper.z-depth-5
+    %img.brand-logo.left{src: "/images/logo-3.svg", alt: 'Logo'}
     %ul
+      %li
+        %a{href: "/"}
+          %img{src: "/images/lang/pl.webp", alt: "Polski"}
+      %li
+        %a{href: "/en"}
+          %img{src: "/images/lang/en.webp", alt: "English"}
+      %li
+        %a{href: "/de"}
+          %img{src: "/images/lang/de.webp", alt: "Deutsch"}
       {% if page.collection == "gallery" %}
       %li.content__item
         %a.link.link--elara{:href => "/"}
-          %span Strona główna
+          %span {% t site.navbar.main %}
       {% else %}
       %li.content__item
-        %a.link.link--elara{href: "#about"} O nas
+        %a.link.link--elara{href: "#about"} {% t site.navbar.about %}
       %li.content__item
-        %a.link.link--elara{href: "#services"} Usługi
+        %a.link.link--elara{href: "#services"} {% t site.navbar.services %}
       %li.content__item
-        %a.link.link--elara{href: "/gallery"} Galeria
+        %a.link.link--elara{href: "/gallery"} {% t site.navbar.gallery %}
       %li.content__item
-        %a.link.link--elara{href: "#contact"} Kontakt
+        %a.link.link--elara{href: "#contact"} {% t site.navbar.contact %}
       %li.content__item
-        %a.link.link--elara{href: "#map"} Jak dojechać
+        %a.link.link--elara{href: "#map"} {% t site.navbar.map %}
       {% endif %}
 
 .side-nav.hide-on-large-only
@@ -27,22 +36,29 @@
     %li
       %a.sidenav-close{:href => "#!"}
         %i.material-icons close
+    %li.language-flags
+      %a{href: "/en"}
+        %img{src: "/images/lang/en.webp", alt: "English"}
+      %a{href: "/"}
+        %img{src: "/images/lang/pl.webp", alt: "Polski"}
+      %a{href: "/de"}
+        %img{src: "/images/lang/de.webp", alt: "Deutsch"}
     {% if page.collection == "gallery" %}
     %li
-      %a{href: "/"} Wróc na stronę główną
+      %a{href: "/"} {% t site.navbar.back %}
     {% else %}
     %li
-      %a{href: "#about"} O nas
+      %a{href: "#about"} {% t site.navbar.about %}
     %li
-      %a{href: "#services"} Usługi
+      %a{href: "#services"} {% t site.navbar.services %}
     %li
-      %a{href: "/gallery"} Galeria
+      %a{href: "/gallery"} {% t site.navbar.gallery %}
     %li
-      %a{href: "#contact"} Kontakt
+      %a{href: "#contact"} {% t site.navbar.contact %}
     %li
-      %a{href: "#map"} Jak dojechać
+      %a{href: "#map"} {% t site.navbar.map %}
     {% endif %}
-  %img.sidenav-logo{:src => "/images/logo-male.svg"}
+  %img.sidenav-logo{:src => "/images/logo-male.svg", alt: 'Logo'}
   .footer-copyright
     .container.black-text
       2022 © Weasels. Wszelkie prawa zastrzeżone. Made by

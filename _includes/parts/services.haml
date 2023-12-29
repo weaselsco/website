@@ -1,50 +1,60 @@
 .parallax-container.valign-wrapper
   .container
-    %p.contact-quote.white-text Połączenie sił to początek, pozostanie razem to postęp, wspólna praca to sukces.
-    %cite.grey-text.right - Henry Ford, amerykański inżynier oraz założyciel Ford Motor Company
+    %p.contact-quote.white-text {% t site.services.quote.text %}
+    %cite.grey-text.right - {% t site.services.quote.author %}
 
   .parallax
-    %img.responsive-img{src: "/images/fleet/auto-13.webp"}
+    %img.responsive-img{src: "/images/fleet/auto-13.webp", alt: "fleet-parallax"}
 
 #services.scrollspy
   .section.divider-bottom
     .container.l12
       .services__cards
-        %h5.text-upcase.yellow-text.text-darken-3.center.text-bold.shadow-text
-          Warto z Nami współpracować
-        %p.center.text-upcase.text-bold.grey-text.text-darken-4 Transport z Weasels się opłaca
+        %h3.text-upcase.grey-text.text-darken-3.center.text-bold.shadow-text
+          {% t site.services.title %}
 
         .row
-          .col.l6.m6.s12.wow.fadeIn
-            .card.services__card.waves-effect
+          .col.l12.m12.s12.wow.fadeIn
+            .card.services__card.waves-effect.z-depth-3
               .card-content.black-text
                 .btn-floating.btn-large.yellow.darken-3.left.pulse
-                  %i.material-icons.services__card--icon place
-                .card-title.grey-text.text-darken-4 {{ site.text.content.block-4-title }}
+                  %i.material-icons.services__card--icon.grey-text.text-darken-3 more_time
+                .card-title.grey-text.text-darken-4 {% t site.services.content.block-3.title %}
                 .services__card--text
-                  {{ site.text.content.block-4 }}
+                  {% t site.services.content.block-3.text %}
+
           .col.l6.m6.s12.wow.fadeIn
-            .card.services__card.waves-effect
+            .card.services__card.waves-effect.z-depth-3
               .card-content.black-text
                 .btn-floating.btn-large.yellow.darken-3.left.pulse
-                  %i.material-icons.left.services__card--icon miscellaneous_services
-                .card-title.grey-text.text-darken-4 {{ site.text.content.block-3-title }}
+                  %i.material-icons.left.services__card--icon.grey-text.text-darken-3 miscellaneous_services
+                .card-title.grey-text.text-darken-4 {% t site.services.content.block-4.title %}
                 .services__card--text
-                  {{ site.text.content.block-3 }}
-        .row
+                  {% t site.services.content.block-4.text %}
+
           .col.l6.m6.s12.wow.fadeIn
-            .card.services__card.waves-effect
+            .card.services__card.waves-effect.z-depth-3
               .card-content.black-text
                 .btn-floating.btn-large.yellow.darken-3.left.pulse
-                  %i.material-icons.left.services__card--icon more_time
-                .card-title.grey-text.text-darken-4 {{ site.text.content.block-5-title }}
+                  %i.material-icons.left.services__card--icon.grey-text.text-darken-3 landscape
+                .card-title.grey-text.text-darken-4 {% t site.services.content.block-5.title %}
                 .services__card--text
-                  {{ site.text.content.block-5 }}
+                  {% t site.services.content.block-5.text %}
+
           .col.l6.m6.s12.wow.fadeIn
-            .card.services__card.waves-effect
+            .card.services__card.waves-effect.z-depth-3
               .card-content.black-text
                 .btn-floating.btn-large.yellow.darken-3.left.pulse
-                  %i.material-icons.left.services__card--icon public
-                .card-title.grey-text.text-darken-4 {{ site.text.content.block-1-title }}
+                  %i.material-icons.left.services__card--icon.grey-text.text-darken-3 public
+                .card-title.grey-text.text-darken-4 {% t site.services.content.block-2.title %}
                 .services__card--text
-                  {{ site.text.content.block-1 }}
+                  {% t site.services.content.block-2.text %}
+
+          .col.l6.m6.s12.wow.fadeIn
+            .card.services__card.waves-effect.z-depth-3
+              .card-content.black-text
+                .btn-floating.btn-large.yellow.darken-3.left.pulse
+                  %i.material-icons.left.services__card--icon.grey-text.text-darken-3 public
+                .card-title.grey-text.text-darken-4 {% t site.services.content.block-1.title %}
+                .services__card--text
+                  {% t site.services.content.block-1.text %}

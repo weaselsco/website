@@ -2,30 +2,30 @@
   .container
     .col.l6.section__about.wow.fadeIn
       %h3.center.grey-text.text-darken-3.text-bold
-        Oddaj swój ładunek w dobre ręce!
+        {% t site.about.title %}
       .section__about--text.grey-text.lighten-3.center
-        {{ site.text.footer.about-1 }}
+        {% t site.about.lead %}
       .section__about--button.center
-        %a.btn.btn-large.waves-effect.waves-light.orange.grey-text.text-darken-3{href: "#services"} Dowiedz się więcej!
+        %a.btn.btn-large.waves-effect.waves-light.orange.grey-text.text-darken-3{href: "#services"} {% t site.about.button %}
 
     .row
       .col.l3.col.m6.s12.center.section__about--icons.wow.fadeIn
         %i.material-icons.section__about--icon favorite_border
         .block-content
           .section__about--icon-text.orange-text.text-darken-1 100%
-          %h6 Zadowolonych klientów
+          %h6 {% t site.about.icon-1 %}
       .col.l3.col.m6.s12.center.section__about--icons.wow.fadeIn
         %i.material-icons.section__about--icon local_shipping
         .block-content
-          .section__about--icon-text.orange-text.text-darken-1 1000 +
-          %h6 Transportów rocznie
+          .section__about--icon-text.orange-text.text-darken-1 1800 +
+          %h6 {% t site.about.icon-2 %}
       .col.l3.col.m6.s12.center.section__about--icons.wow.fadeIn
         %i.material-icons.section__about--icon update
         .block-content
           .section__about--icon-text.orange-text.text-darken-1 365x24
-          %h6 Dyspozycyjność
+          %h6 {% t site.about.icon-3 %}
       .col.l3.col.m6.s12.center.section__about--icons.wow.fadeIn
         %i.material-icons.section__about--icon widgets
         .block-content
-          .section__about--icon-text.orange-text.text-darken-1 5500 +
-          %h6 Ton przewiezionych ładunków rocznie
+          .section__about--icon-text.orange-text.text-darken-1 36000 +
+          %h6 {% t site.about.icon-4 %}

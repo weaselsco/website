@@ -3,6 +3,8 @@ title: Weasels Sp. z o.o.
 email: michal.lasecki@weasels.co
 markdown: kramdown
 permalink: pretty
+languages: ["pl", "en", "de"]
+exclude_from_localizations: ["js/", "images/", "css/"]
 collections:
   gallery:
     output: true
@@ -82,3 +84,5 @@ plugins_dir:
   - jekyll-seo-tag
   - jekyll-haml
   - jekyll-sitemap
+plugins:
+  - jekyll-multiple-languages-plugin

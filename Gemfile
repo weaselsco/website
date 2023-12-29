@@ -10,7 +10,9 @@ gem 'coffee-script'
 gem 'capistrano', '3.4.1'
 gem 'capistrano-bundler'
 gem 'rvm1-capistrano3', :require => false
+gem 'puma'
 
 group :jekyll_plugins do
   gem 'jekyll-haml'
+  gem 'jekyll-multiple-languages-plugin'
 end

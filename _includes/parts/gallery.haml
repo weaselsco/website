@@ -2,26 +2,25 @@
   .section__gallery.scrollspy
     .container
       .col.l6.wow.fadeIn
-        %h3.center.grey-text.text-darken-3.text-bold.section__gallery--title
-          {{ site.text.gallery.title }}
+        %h3.center.orange-text.text-bold.section__gallery--title
+          {% t site.gallery.title %}
         .section__about--text.grey-text.lighten-3.center
-          {{ site.text.about.uslugi }}
+          {% t site.gallery.about-1 %}
 
   .section__gallery__images
     .container.l12
       .row.valign-wrapper
         .col.l6.m12.s12.wow.fadeIn
           .section__about--text.grey-text.lighten-3.center
-            {{ site.text.footer.about-1 }}
+            {% t site.gallery.about-2 %}
         .col.l6.m12.s12.wow.fadeIn
-          %img.responsive-img.clip--path{src: "images/fleet/auto-12.webp"}
+          %img.responsive-img.clip--path{src: "images/fleet/auto-12.webp", alt: 'Truck'}
       .row.valign-wrapper
         .col.l6.m12.s12.wow.fadeIn
-          %img.responsive-img.clip--path{src: "images/fleet/auto-5.webp"}
+          %img.responsive-img.clip--path{src: "images/fleet/auto-5.webp",alt: 'Truck'}
         .col.l6.m12.s12.wow.fadeIn
           .section__about--text.grey-text.lighten-3.center
-            {{ site.text.footer.about-4 }}
+            {% t site.gallery.about-3 %}
             %br
             %br
-            %a.button.button--mimas{href: "/gallery"}
-              %span galeria
+            %button.btn.waves-effect.waves-light.btn-large.white.darken-1.z-depth-3.black-text{href: "/gallery"} {% t site.gallery.btn %}

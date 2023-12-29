@@ -1,0 +1,86 @@
+site:
+  header: Twój partner w transporcie!
+  about:
+    title: Oddaj swój ładunek w dobre ręce!
+    lead: |
+      Nasza firma transportowa pragnie dostarczyć pełen wachlarz usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe i spedycja to nasza specjalność, a także pasja!
+      W naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą. Stawiamy na jakość!
+    button: Dowiedz się więcej!
+    icon-1: Zadowolonych klientów
+    icon-2: Transportów rocznie
+    icon-3: Dyspozycyjność
+    icon-4: Ton przewiezionych ładunków rocznie
+
+  contact:
+    title: Porozmawiajmy!
+    lead: Bardzo chętnie odpowiemy na każde pytanie i ustalimy szczegóły transportu Twojego ładunku.
+    maciej:
+      title: 'Maciej Łasecki'
+      mail: 'maciej.lasecki@weasels.co'
+      tel: '+48 727 907 796'
+    michal:
+      title: 'Michał Łasecki'
+      mail: 'michal.lasecki@weasels.co'
+      tel: '+48 726 922 069'
+    mail: Napisz do nas!
+    form:
+      name: Imię i nazwisko *
+      email:  Email *
+      msg: Wiadomość *
+      btn: Wyślij wiadomość
+
+  footer:
+    title: Zapraszamy do współpracy!
+    about: Jesteśmy firmą ceniącą Klienta, dbamy o jakość, terminowość i rzetelność wykonywanych usług transportowych. Ufamy naszym kierowcom. Ich doświadczenie i kwalifikacje sprawiają, że kiedy oni codziennie wyruszają w trasę, my mamy pewność realizacji Państwa zamówienia Stawiamy na jakość świadczonych usług!
+    table:
+      title: dane firmy
+      name: weasels sp. z o. o.
+      activity: Działalność
+      type: Transport Drogowy Towarów
+      address: Adres
+      base: Siedziba
+
+  map:
+    title: Wskazówki dojazdu do naszej siedziby
+    lead: Jesteśmy do Waszej dyspozycji pod tym adresem od poniedziałku do piątku, od godziny 7:00 do godziny 17:00
+
+  navbar:
+    main: Strona główna
+    back: Wróc na stronę główną
+    about: O nas
+    services: Usługi
+    gallery: Galeria
+    contact: Kontakt
+    map: Jak dojechać
+
+  services:
+    quote:
+      text: Połączenie sił to początek, pozostanie razem to postęp, wspólna praca to sukces.
+      author: Henry Ford, amerykański inżynier oraz założyciel Ford Motor Company
+    title: Warto z Nami współpracować
+    content:
+      block-1:
+        title: Monitorowanie
+        text: Ciągniki wyposażone są w system GPS pozwalający na nieprzerwaną łączność z pojazdem co jest dla Państwa dodatkową gwarancją bezpieczeństwa powierzonych ładunków.
+      block-2:
+        title: Spedycja
+        text: Codziennie jesteśmy do Państwa dyspozycji, gwarantując, profesjonalne wykonanie powierzonych nam działań. Jakość i niezawodność jest domeną naszej działalności.
+      block-3:
+        title: Dyspozycyjność
+        text: Jesteśmy firmą ceniącą Klienta, dbamy o jakość, terminowość i rzetelność wykonywanych usług transportowych. Do każdego zlecenia podchodzimy profesjonalnie, zaufało nam wielu przedsiębiorców.
+      block-4:
+        title: Wszechstronność
+        text: Dalekie trasy to nasza specjalność. Nasi kierowcy to doświadczeni pracownicy z wieloletnią praktyką. Stawiamy, na jakość i bezpieczeństwo prowadzonych działań. Transport krajowy to dla nas codzienność.
+      block-5:
+        title: Transport ponadgabarytowy
+        text: Maszyny budowlane, rolnicze czy ładunki nietypowe? Chętnie podejmujemy się transportów naczepą niskopodłogową do przewozu ładunków ponadgabarytowych.
+
+  partners: Nasi partnerzy
+
+  gallery:
+    btn: galeria
+    title: Transport międzynarodowy, maszyn rolniczych i budowlanych
+    about-1: Naszą główną domeną są przewozy ładunków na terenie Unii Europejskiej. Chętnie podejmujemy się transportów do innych krajów, zgodnie z życzeniem klienta. Towar ubezpieczony jest polisą OC przewoźnika w ruchu międzynarodowym i krajowym. Posiadamy naczepy przeznaczone do transportu maszyn rolniczych oraz budowlanych.
+    about-2: Nasza firma transportowa pragnie dostarczyć pełen wachlarz usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe i spedycja to nasza specjalność, a także pasja!
+      W naszych działaniach jesteśmy niezawodni, ciesząc się uznaniem oraz zaufaniem Klientów w kraju, jak również za granicą. Stawiamy na jakość!
+    about-3: Realizujemy zamówienia zarówno od dużych Przedsiębiorstw, jak i małych Firm. Dla nas liczy się indywidualne podejście do świadczonych usług. Codziennie jesteśmy dla Państwa!

@@ -1,0 +1,85 @@
+site:
+  header: Your partner in transportation!
+  about:
+    title: Leave your cargo in good hands!
+    lead: |
+      Our company aims to provide a full range of services in national and international road transport. Transportation services and freight forwarding are our specialty and passion!
+      In our activities, we are reliable, enjoying recognition and trust from clients at home and abroad. We focus on quality!
+    button: Learn more!
+    icon-1: Satisfied customers
+    icon-2: Transports per year
+    icon-3: Availability
+    icon-4: Tons of cargo transported annually
+
+  contact:
+    title: Let's talk!
+    lead: We are more than happy to answer any questions and determine the details of transporting your cargo.
+    maciej:
+      title: 'Maciej Łasecki'
+      mail: 'maciej.lasecki@weasels.co'
+      tel: '+48 727 907 796'
+    michal:
+      title: 'Michał Łasecki'
+      mail: 'michal.lasecki@weasels.co'
+      tel: '+48 726 922 069'
+    mail: Write to us!
+    form:
+      name: Name and surname *
+      email:  Email *
+      msg: Message *
+      btn: Send message
+
+  footer:
+    title: We invite you to cooperate!
+    about: We are a customer-valuing company, caring about the quality, timeliness, and reliability of our transport services. We trust our drivers. Their experience and qualifications ensure that when they hit the road every day, we are confident in fulfilling your orders. We focus on the quality of our services!
+    table:
+      title: company data
+      name: weasels sp. z o. o.
+      activity: Activity
+      type: Road Freight Transport
+      address: Address
+      base: Headquarters
+
+  map:
+    title: Directions to our headquarters
+    lead: We are at your disposal at this address from Monday to Friday, from 7:00 AM to 5:00 PM
+
+  navbar:
+    main: Home page
+    back: Return to the home page
+    about: About us
+    services: Services
+    gallery: Gallery
+    contact: Contact
+    map: How to get there
+
+  services:
+    quote:
+      text: Coming together is the beginning. Keeping together is progress. Working together is success.
+      author: Henry Ford, American engineer and founder of Ford Motor Company
+    title: It's worth cooperating with us
+    content:
+      block-1:
+        title: Monitoring
+        text: Our trucks are equipped with a GPS system that allows continuous connectivity with the vehicle, providing additional security for your entrusted cargo.
+      block-2:
+        title: Freight Forwarding
+        text: We are at your disposal every day, guaranteeing professional execution of the tasks entrusted to us. Quality and reliability are the hallmarks of our activity.
+      block-3:
+        title: Availability
+        text: As a customer-oriented company, we care about the quality, timeliness, and reliability of our transport services. We approach each order professionally, trusted by many entrepreneurs.
+      block-4:
+        title: Versatility
+        text: Long routes are our specialty. Our drivers are experienced employees with many years of practice. We focus on the quality and safety of our operations. National transport is our everyday life.
+      block-5:
+        title: Oversized Transport
+        text: Construction machines, agricultural equipment, or atypical cargo? We gladly undertake transports with low-loader trailers for oversized cargo.
+
+  partners: Our partners
+
+  gallery:
+    btn: gallery
+    title: International transport, agricultural and construction machinery
+    about-1: Our main domain is the transportation of cargo within the European Union. We are happy to undertake transports to other countries, according to the wishes of the client. The goods are insured with a carrier's liability policy in international and national traffic. We have trailers for transporting agricultural and construction machinery.
+    about-2: Our company aims to provide a full range of services in the field of national and international road transport. Transport services and freight forwarding are our specialty and passion! In our activities, we are reliable, enjoying recognition and trust from clients both at home and abroad. We focus on quality!
+    about-3: We fulfill orders from both large enterprises and small companies. For us, an individual approach to the services provided matters. We are here for you every day!
