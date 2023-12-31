@@ -51,7 +51,7 @@ site:
     services: Services
     gallery: Gallery
     contact: Contact
-    map: How to get there
+    map: Map
 
   services:
     quote:

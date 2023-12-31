@@ -230,7 +230,7 @@ nav {
   @include transition-all;
 
   .brand-logo {
-    margin: 0 15px 15px 150px;
+    margin: 0 15px 15px 15px;
     height: inherit;
     padding: 10px;
   }
@@ -249,7 +249,7 @@ nav {
   }
 
   li {
-    margin-right: 2%;
+    margin-right: 1%;
   }
 
   a {
