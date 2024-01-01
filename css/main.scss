@@ -78,15 +78,15 @@ $big-width: 1250px;
 }
 
 .holder-item {
-  background-image: url('../images/background.webp');
+  background-image: url('../images/bg.jpg');
   background-position: bottom center;
   padding-bottom: 300px!important;
 }
 
 .holder-item-gallery {
-  background-image: url('../images/fleet/auto-13.webp');
-  background-position: center;
-  padding-bottom: 300px!important;
+  background-image: url('../images/fleet/auto06.webp');
+  background-position: bottom;
+  padding-bottom: 500px!important;
 }
 
 .bg-size-cover {
@@ -832,6 +832,19 @@ p.contact-quote {
     webkit-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
     border-radius: 50px;
 }
+
+.gall-1 {
+  border-radius: 30% 70% 50% 50% / 70% 40% 60% 30%;
+}
+
+.gall-2 {
+  border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+}
+
+.gall-3 {
+  border-radius: 20% 80% 50% 50% / 80% 20% 70% 30%;
+}
+
 
 ////// BUTTON ///////
 
