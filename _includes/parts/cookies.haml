@@ -1,0 +1,48 @@
+/ Cookie banner (auto-shown by JS if no consent stored)
+#cookie-banner.cookie-banner
+  .cookie-banner__inner
+    .cookie-banner__icon
+      %i.material-icons cookie
+    .cookie-banner__text
+      {% t site.cookies.banner-text %}
+    .cookie-banner__actions
+      %button.cookie-banner__btn.cookie-banner__btn--ghost{type: 'button', "data-cookie-action" => "open"} {% t site.cookies.more %}
+      %button.cookie-banner__btn.cookie-banner__btn--ghost{type: 'button', "data-cookie-action" => "decline"} {% t site.cookies.decline %}
+      %button.cookie-banner__btn.cookie-banner__btn--primary{type: 'button', "data-cookie-action" => "accept"} {% t site.cookies.accept %}
+
+/ Cookie policy modal (opened from banner + footer link)
+#cookie-modal.cookie-modal
+  .cookie-modal__backdrop{"data-cookie-action" => "close"}
+  .cookie-modal__dialog{role: 'dialog', "aria-modal" => 'true', "aria-labelledby" => 'cookie-modal-title'}
+    %button.cookie-modal__close{type: 'button', "data-cookie-action" => "close", "aria-label" => "Close"}
+      %i.material-icons close
+    .cookie-modal__header
+      .cookie-modal__icon
+        %i.material-icons shield
+      %h3#cookie-modal-title {% t site.cookies.title %}
+    .cookie-modal__body
+      %p.cookie-modal__intro {% t site.cookies.intro %}
+
+      .cookie-modal__section
+        .cookie-modal__section--head
+          %i.material-icons.cookie-modal__section--icon check_circle
+          %h4 {% t site.cookies.section-1-title %}
+        %p {% t site.cookies.section-1 %}
+
+      .cookie-modal__section
+        .cookie-modal__section--head
+          %i.material-icons.cookie-modal__section--icon insights
+          %h4 {% t site.cookies.section-2-title %}
+        %p {% t site.cookies.section-2 %}
+
+      .cookie-modal__section
+        .cookie-modal__section--head
+          %i.material-icons.cookie-modal__section--icon how_to_reg
+          %h4 {% t site.cookies.section-3-title %}
+        %p {% t site.cookies.section-3 %}
+
+    .cookie-modal__footer
+      %a.cookie-modal__full-link{href: "/polityka-cookies/"} Pełna polityka cookies →
+      .cookie-modal__footer-actions
+        %button.cookie-banner__btn.cookie-banner__btn--ghost{type: 'button', "data-cookie-action" => "decline"} {% t site.cookies.decline %}
+        %button.cookie-banner__btn.cookie-banner__btn--primary{type: 'button', "data-cookie-action" => "accept"} {% t site.cookies.accept %}

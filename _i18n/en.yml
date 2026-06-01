@@ -1,4 +1,9 @@
 site:
+  seo:
+    title-suffix: 'National and international road transport'
+    description: 'Weasels — road transport company from Wągrowiec, Poland. Domestic and international freight, freight forwarding, oversized transport of construction and agricultural machinery. 2000+ transports per year, 365×24 availability, own fleet.'
+    keywords: 'road transport, freight forwarding, international transport, domestic transport, oversized transport, construction machinery transport, agricultural machinery transport, Poland, Wągrowiec, Weasels'
+
   header: Your partner in transportation!
   about:
     title: Leave your cargo in good hands!
@@ -14,6 +19,7 @@ site:
   contact:
     title: Let's talk!
     lead: We are more than happy to answer any questions and determine the details of transporting your cargo.
+    lead-2: We are happy to answer your questions and help determine the details of transportation.
     maciej:
       title: 'Maciej Łasecki'
       mail: 'maciej.lasecki@weasels.co'
@@ -23,11 +29,31 @@ site:
       mail: 'michal.lasecki@weasels.co'
       tel: '+48 726 922 069'
     mail: Write to us!
-    form:
-      name: Name and surname *
-      email:  Email *
-      msg: Message *
-      btn: Send message
+    main-email: 'transport@weasels.co'
+    main-phone: '+48 726 922 069'
+    cta-title: 'Contact us directly'
+    cta-lead: 'One message is all it takes. We reply within a few hours on business days.'
+    cta-btn: 'Send a message'
+    cta-call: 'Call us now'
+    hours-title: 'Working hours'
+    hours: 'Monday – Friday, 7:00 – 17:00'
+    response-title: 'Response time'
+    response: 'Within 3 hours on business days'
+
+  cookies:
+    banner-text: 'We use cookies to make this site work and to improve it. By clicking "Accept" you agree to their use.'
+    accept: 'Accept'
+    decline: 'Essential only'
+    more: 'Cookie policy'
+    title: 'Cookie policy'
+    intro: 'This site uses cookies (small text files stored on your device) to ensure it works correctly and to collect anonymous usage statistics.'
+    section-1-title: 'Essential'
+    section-1: 'Cookies required for the site to function — e.g. remembering your language. No consent required.'
+    section-2-title: 'Analytics'
+    section-2: 'Google Analytics helps us understand how you use the site. Data is anonymous and aggregated.'
+    section-3-title: 'Your consent'
+    section-3: 'You can change your decision at any time by clearing the browser data for this site.'
+    close: 'Close'
 
   footer:
     title: We invite you to cooperate!
@@ -78,7 +104,7 @@ site:
   partners: Our partners
 
   gallery:
-    btn: gallery
+    btn: View full gallery
     title: International transport, agricultural and construction machinery
     about-1: Our main domain is the transportation of cargo within the European Union. We are happy to undertake transports to other countries, according to the wishes of the client. The goods are insured with a carrier's liability policy in international and national traffic. We have trailers for transporting agricultural and construction machinery.
     about-2: Our company aims to provide a full range of services in the field of national and international road transport. Transport services and freight forwarding are our specialty and passion! In our activities, we are reliable, enjoying recognition and trust from clients both at home and abroad. We focus on quality!

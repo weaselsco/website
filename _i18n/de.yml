@@ -1,4 +1,9 @@
 site:
+  seo:
+    title-suffix: 'Nationaler und internationaler Straßentransport'
+    description: 'Weasels — Transportunternehmen aus Wągrowiec, Polen. Nationaler und internationaler Straßentransport, Spedition, Schwertransport von Bau- und Landmaschinen. 2000+ Transporte pro Jahr, 365×24 Verfügbarkeit, eigene Flotte.'
+    keywords: 'Transport, Spedition, internationaler Transport, nationaler Transport, Schwertransport, Transport von Baumaschinen, Transport von Landmaschinen, Polen, Wągrowiec, Weasels'
+
   header: Ihr Partner im Transportwesen!
   about:
     title: Geben Sie Ihre Ladung in gute Hände!
@@ -14,6 +19,7 @@ site:
   contact:
     title: Lassen Sie uns sprechen!
     lead: Wir beantworten gerne jede Frage und klären die Details des Transports Ihrer Ladung.
+    lead-2: Gerne beantworten wir Ihre Fragen und helfen Ihnen, die Transportdetails zu klären.
     maciej:
       title: 'Maciej Łasecki'
       mail: 'maciej.lasecki@weasels.co'
@@ -23,11 +29,31 @@ site:
       mail: 'michal.lasecki@weasels.co'
       tel: '+48 726 922 069'
     mail: Schreiben Sie uns!
-    form:
-      name: Vor- und Nachname *
-      email:  E-Mail *
-      msg: Nachricht *
-      btn: Nachricht senden
+    main-email: 'transport@weasels.co'
+    main-phone: '+48 726 922 069'
+    cta-title: 'Kontaktieren Sie uns direkt'
+    cta-lead: 'Eine Nachricht genügt. An Werktagen antworten wir innerhalb weniger Stunden.'
+    cta-btn: 'Nachricht senden'
+    cta-call: 'Jetzt anrufen'
+    hours-title: 'Öffnungszeiten'
+    hours: 'Montag – Freitag, 7:00 – 17:00 Uhr'
+    response-title: 'Antwortzeit'
+    response: 'Im Durchschnitt innerhalb von 3 Stunden an Werktagen'
+
+  cookies:
+    banner-text: 'Wir verwenden Cookies, damit diese Website ordnungsgemäß funktioniert und wir sie verbessern können. Mit „Akzeptieren" stimmen Sie der Nutzung zu.'
+    accept: 'Akzeptieren'
+    decline: 'Nur Notwendige'
+    more: 'Cookie-Richtlinie'
+    title: 'Cookie-Richtlinie'
+    intro: 'Diese Website verwendet Cookies (kleine Textdateien auf Ihrem Gerät), um ordnungsgemäß zu funktionieren und anonyme Nutzungsstatistiken zu erfassen.'
+    section-1-title: 'Notwendig'
+    section-1: 'Cookies, die für den Betrieb der Website erforderlich sind — z. B. das Speichern der gewählten Sprache. Keine Zustimmung erforderlich.'
+    section-2-title: 'Analyse'
+    section-2: 'Google Analytics hilft uns zu verstehen, wie Sie die Website nutzen. Die Daten sind anonym und aggregiert.'
+    section-3-title: 'Ihre Zustimmung'
+    section-3: 'Sie können Ihre Entscheidung jederzeit ändern, indem Sie die Browserdaten für diese Website löschen.'
+    close: 'Schließen'
 
   footer:
     title: Wir laden Sie zur Zusammenarbeit ein!
@@ -78,7 +104,7 @@ site:
   partners: Unsere Partner
 
   gallery:
-    btn: Galerie
+    btn: Zur vollständigen Galerie
     title: Internationaler Transport, landwirtschaftliche und Baumaschinen
     about-1: Unser Hauptgeschäftsbereich sind Transporte von Ladungen innerhalb der Europäischen Union. Gerne übernehmen wir auch Transporte in andere Länder, ganz nach den Wünschen unserer Kunden. Die Ware ist durch eine Haftpflichtversicherung des Frachtführers im internationalen und nationalen Verkehr versichert. Wir verfügen über Anhänger für den Transport von landwirtschaftlichen und Baumaschinen.
     about-2: Unser Transportunternehmen möchte ein breites Spektrum an Dienstleistungen im Bereich des nationalen und internationalen Straßentransports anbieten. Transportdienstleistungen und Spedition sind unsere Spezialität und Leidenschaft! Wir sind zuverlässig in unseren Aktivitäten und genießen das Vertrauen und die Anerkennung unserer Kunden im Inland sowie im Ausland. Wir setzen auf Qualität!

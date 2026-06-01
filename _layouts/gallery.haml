@@ -1,8 +1,9 @@
 !!!
-%html
+%html(lang="pl")
   {% haml head.haml %}
-  %body
+  %body.gallery-page
     {% haml parts/navbar.haml %}
     {% haml gallery/main.haml %}
     {% haml parts/scroll.haml %}
+    {% haml parts/cookies.haml %}
     {% haml script.haml %}

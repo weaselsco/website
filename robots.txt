@@ -1,0 +1,9 @@
+---
+permalink: /robots.txt
+---
+User-agent: *
+Allow: /
+Disallow: /polityka-prywatnosci/
+Disallow: /polityka-cookies/
+
+Sitemap: {{ site.url }}/sitemap.xml

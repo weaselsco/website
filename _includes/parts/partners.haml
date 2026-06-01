@@ -1,22 +1,37 @@
-.section__partners.grey.lighten-2
-  %h3.center.grey-text.text-darken-3.center.text-bold.shadow-text.section__gallery--title
-    {% t site.partners %}
-  .carousel.carousel-slider
-    %a.carousel-item{:href => "#one!"}
-      .row.center-align
-        .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-1.webp", alt: 'logo-1'}
-        .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-2.webp", alt: 'logo-2'}
-        .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-3.webp", alt: 'logo-3'}
-    %a.carousel-item{:href => "#two!"}
-      .row.center-align
-        .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-4.webp", alt: 'logo-4'}
-        .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-5.webp", alt: 'logo-5'}
-        .col.l4.m4.s4.wow.fadeIn
-          %img.responsive-img{src: "/images/partners/logo-6.webp", alt: 'logo-6'}
-  .p-shape
-    {% haml parts/shape2.haml %}
+.section__partners
+  .partners__inner.reveal
+    %span.eyebrow.center-eyebrow Trusted by
+    %h3.partners__title
+      {% t site.partners %}
+
+    .partners__marquee
+      .partners__track
+        .partners__item
+          %img{src: "/images/partners/logo-1.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-2.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-3.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-4.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-5.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-6.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-7.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        / duplicate for seamless loop
+        .partners__item
+          %img{src: "/images/partners/logo-1.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-2.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-3.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-4.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-5.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-6.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}
+        .partners__item
+          %img{src: "/images/partners/logo-7.webp", alt: 'Partner biznesowy Weasels', loading: 'lazy', decoding: 'async'}

@@ -2,11 +2,117 @@
   %meta{:charset => "utf-8"}
   %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
   %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
-  %meta{:content => "", :name => "description"}
-  %meta{:content => "", :name => "author"}
-  %title {{ site.page-title }}
+  %meta{:content => "#ff6a00", :name => "theme-color"}
+  %meta{:content => "Weasels Sp. z o.o.", :name => "author"}
+
+  /
+    Page title — per-page override falls back to global suffix
+  %title
+    {% if page.title and page.title != site.title %}{{ page.title }} — Weasels Sp. z o.o.{% else %}Weasels Sp. z o.o. — {% t site.seo.title-suffix %}{% endif %}
+
+  /
+    Meta description — per-page override → i18n default
+  %meta{:content => "{% if page.description %}{{ page.description | strip_newlines | escape }}{% else %}{% t site.seo.description %}{% endif %}", :name => "description"}
+  %meta{:content => "{% t site.seo.keywords %}", :name => "keywords"}
+
+  /
+    Robots — noindex legal pages, index everything else
+  {% if page.layout == "page" %}
+  %meta{:content => "noindex, follow", :name => "robots"}
+  {% else %}
+  %meta{:content => "index, follow, max-image-preview:large", :name => "robots"}
+  {% endif %}
+
+  /
+    Canonical URL
+  %link{:rel => "canonical", :href => "{{ site.url }}{{ page.url }}"}
+
+  /
+    hreflang alternates
+  %link{:rel => "alternate", :hreflang => "pl", :href => "{{ site.url }}{{ page.url | replace: '/en/', '/' | replace: '/de/', '/' }}"}
+  %link{:rel => "alternate", :hreflang => "en", :href => "{{ site.url }}/en{{ page.url | replace: '/en/', '/' | replace: '/de/', '/' }}"}
+  %link{:rel => "alternate", :hreflang => "de", :href => "{{ site.url }}/de{{ page.url | replace: '/en/', '/' | replace: '/de/', '/' }}"}
+  %link{:rel => "alternate", :hreflang => "x-default", :href => "{{ site.url }}{{ page.url | replace: '/en/', '/' | replace: '/de/', '/' }}"}
+
+  /
+    Open Graph
+  %meta{:property => "og:type", :content => "website"}
+  %meta{:property => "og:site_name", :content => "Weasels Sp. z o.o."}
+  %meta{:property => "og:url", :content => "{{ site.url }}{{ page.url }}"}
+  %meta{:property => "og:title", :content => "{% if page.title and page.title != site.title %}{{ page.title }} — Weasels Sp. z o.o.{% else %}Weasels Sp. z o.o. — {% t site.seo.title-suffix %}{% endif %}"}
+  %meta{:property => "og:description", :content => "{% if page.description %}{{ page.description | strip_newlines | escape }}{% else %}{% t site.seo.description %}{% endif %}"}
+  %meta{:property => "og:image", :content => "{{ site.url }}{% if page.og_image %}{{ page.og_image }}{% else %}/images/bg.webp{% endif %}"}
+  %meta{:property => "og:image:alt", :content => "Weasels Sp. z o.o. — flota transportowa"}
+  %meta{:property => "og:locale", :content => "{% if site.lang == 'en' %}en_US{% elsif site.lang == 'de' %}de_DE{% else %}pl_PL{% endif %}"}
+  %meta{:property => "og:locale:alternate", :content => "pl_PL"}
+  %meta{:property => "og:locale:alternate", :content => "en_US"}
+  %meta{:property => "og:locale:alternate", :content => "de_DE"}
+
+  /
+    Twitter / X Card
+  %meta{:name => "twitter:card", :content => "summary_large_image"}
+  %meta{:name => "twitter:title", :content => "{% if page.title and page.title != site.title %}{{ page.title }} — Weasels Sp. z o.o.{% else %}Weasels Sp. z o.o. — {% t site.seo.title-suffix %}{% endif %}"}
+  %meta{:name => "twitter:description", :content => "{% if page.description %}{{ page.description | strip_newlines | escape }}{% else %}{% t site.seo.description %}{% endif %}"}
+  %meta{:name => "twitter:image", :content => "{{ site.url }}{% if page.og_image %}{{ page.og_image }}{% else %}/images/bg.webp{% endif %}"}
+
+  /
+    Preconnect — speed up first paint
+  %link{:rel => "preconnect", :href => "https://fonts.googleapis.com"}
+  %link{:rel => "preconnect", :href => "https://fonts.gstatic.com", :crossorigin => ""}
+  %link{:rel => "preconnect", :href => "https://maps.googleapis.com"}
+
+  /
+    Fonts + styles
   %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet", :type => "text/css"}
+  %link{:href => "https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap", :rel => "stylesheet", :type => "text/css"}
   %link{:href => "/css/materialize.min.css", :rel => "stylesheet", :type => "text/css"}
   %link{:href => "/css/main.css", :rel => "stylesheet", :type => "text/css"}
   %link{:href => "/css/animate.css", :rel => "stylesheet", :type => "text/css"}
+
+  /
+    Favicon
   %link{:href => "/favicon.png", :rel => "shortcut icon", :type => "image/png"}
+  %link{:href => "/favicon.png", :rel => "icon", :type => "image/png", :sizes => "192x192"}
+  %link{:href => "/favicon.png", :rel => "apple-touch-icon", :sizes => "180x180"}
+
+  /
+    Sitemap
+  %link{:rel => "sitemap", :type => "application/xml", :title => "Sitemap", :href => "{{ site.url }}/sitemap.xml"}
+
+  /
+    Structured data — MovingCompany (Google rich-result eligible)
+  %script{:type => "application/ld+json"}
+    :preserve
+      {
+        "@context": "https://schema.org",
+        "@type": "MovingCompany",
+        "@id": "{{ site.url }}/#organization",
+        "name": "{{ site.company.legal_name }}",
+        "legalName": "{{ site.company.legal_name }}",
+        "url": "{{ site.url }}",
+        "logo": "{{ site.url }}/images/logo-2.svg",
+        "image": "{{ site.url }}/images/bg.webp",
+        "description": "{% t site.seo.description %}",
+        "email": "{{ site.company.email }}",
+        "telephone": "{{ site.company.phone }}",
+        "vatID": "{{ site.company.nip }}",
+        "taxID": "{{ site.company.nip }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.company.address.street }}",
+          "postalCode": "{{ site.company.address.postal }}",
+          "addressLocality": "{{ site.company.address.city }}",
+          "addressRegion": "{{ site.company.address.region }}",
+          "addressCountry": "{{ site.company.address.country }}"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": {{ site.company.geo.lat }},
+          "longitude": {{ site.company.geo.lon }}
+        },
+        "openingHours": "{{ site.company.opening_hours }}",
+        "areaServed": [
+          { "@type": "Country", "name": "Poland" },
+          { "@type": "Place", "name": "Europe" }
+        ]
+      }

@@ -2,906 +2,4242 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
 
-/// MAIN ///
+/* =========================================================================
+   Weasels — modern / futuristic redesign
+   ========================================================================= */
 
+/* ---------- Tokens ---------- */
+$font: 'Quicksand', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+$ink:        #0b1020;       // near-black navy
+$ink-2:      #111933;
+$ink-3:      #1c2547;
+$ink-soft:   #3f4a73;
+$muted:      #6b7390;
+$line:       #e6eaf2;
+$surface:    #ffffff;
+$surface-2:  #f6f8fc;
+$surface-3:  #eef1f8;
+
+$accent:     #ff6a00;       // bold orange
+$accent-2:   #ff8a3d;
+$accent-3:   #ffb27a;
+$accent-soft:#ffece0;
+
+$neon-1:     #00d4ff;       // cyan accent for futuristic glow
+$neon-2:     #7b5cff;       // purple accent
+
+$radius:     14px;
+$radius-lg:  22px;
+$radius-xl:  32px;
+$shadow-sm:  0 1px 2px rgba(11,16,32,.06), 0 1px 3px rgba(11,16,32,.05);
+$shadow-md:  0 6px 16px rgba(11,16,32,.08), 0 18px 40px rgba(11,16,32,.08);
+$shadow-lg:  0 14px 28px rgba(11,16,32,.12), 0 30px 70px rgba(11,16,32,.18);
+$shadow-glow: 0 0 0 1px rgba(255,106,0,.15), 0 20px 60px rgba(255,106,0,.35);
+
+$mobile:  600px;
+$tablet:  992px;
+$desktop: 1200px;
+
+/* ---------- Base ---------- */
+html, body { width: 100%; min-height: 100%; }
 body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: $font;
+  font-weight: 400;
+  color: $ink;
+  background: $surface;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: .005em;
+  overflow-x: hidden;
 }
+body.no-scroll { overflow: hidden; }
 
-html {
-  width: 100%;
-  height: 100%;
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font;
+  font-weight: 700;
+  color: $ink;
+  letter-spacing: -.015em;
+  line-height: 1.15;
+  margin-top: 0;
 }
+h1 { font-size: clamp(2.5rem, 5.5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+h3 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+h4 { font-size: 1.2rem; font-weight: 600; }
+h5 { font-size: 1.05rem; }
+p  { margin: 0 0 1rem; color: $ink-soft; }
+a  { color: $accent; transition: color .2s ease; text-decoration: none; }
+a:hover { color: $accent-2; }
+img { max-width: 100%; height: auto; display: block; }
 
-.section {
-  padding: 0;
+/* Materialize overrides */
+.grey-text, .grey-text.text-darken-3, .grey-text.text-darken-4,
+.grey-text.text-lighten-3, .black-text { color: $ink !important; }
+.orange-text, .orange-text.text-darken-1 { color: $accent !important; }
+.text-bold   { font-weight: 700 !important; }
+.text-upcase { text-transform: uppercase; letter-spacing: .14em; }
+.shadow-text { text-shadow: none !important; }
+.section     { padding: 0; }
+
+.orange     { background-color: $accent !important; color: #fff !important; }
+.antracyt   { background-color: $ink !important; }
+.midnight   {
+  background: linear-gradient(135deg, $ink 0%, $ink-2 60%, $ink-3 100%);
+  color: #fff;
 }
+.midnight h3, .midnight h4 { color: #fff !important; }
 
-.text-upcase {
-  text-transform: uppercase !important;
+/* ---------- Reusable atoms ---------- */
+.eyebrow {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $accent;
+  padding: .35rem .85rem;
+  background: $accent-soft;
+  border-radius: 999px;
+  margin-bottom: 1.1rem;
 }
+.center-eyebrow { display: inline-block; }
 
-.text-bold {
-  font-weight: bold;
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
 }
+.reveal.is-visible { opacity: 1; transform: none; }
 
-.orange {
-  background-color: #f19438!important;
-}
+/* =========================================================================
+   Navbar
+   ========================================================================= */
 
-.antracyt {
-  background-color: #202124!important;
-}
-
-.midnight {
-  background: linear-gradient(to right, #232526, #414345);
-}
-
-/// CONST ///
-
-$mobile-width: 600px;
-$tablet-width: 768px;
-$desktop-width: 1024px;
-$big-width: 1250px;
-
-/// HOME ///
-
-.swiper-container {
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-
-  img {
-    width: 70%;
-    padding-top: 80px;
-
-    @media(max-width: $tablet-width) {
-      width: 90%;
-    }
-  }
-}
-
-.background-image-holder .holder-item {
-  height: 100%;
-  padding: 2rem 0;
-}
-
-.background-image-holder .container {
-    position: relative;
-    height: 100%;
-}
-
-.holder-item {
-  background-image: url('../images/bg.webp');
-  background-position: bottom center;
-  padding-bottom: 300px!important;
-}
-
-.holder-item-gallery {
-  background-image: url('../images/fleet/auto06.webp');
-  background-position: bottom;
-  padding-bottom: 500px!important;
-}
-
-.bg-size-cover {
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-.mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(4, 3, 15, 0.55);
-
-  &--white {
-    @extend .mask;
-    background: rgba(255, 255, 255, 0.3);
-  }
-}
-
-.motto {
-  padding-top: 20px;
-  padding-bottom: 30px;
-  font-size: 2rem;
-  color: #f9f9f9;
-  font-weight: bold;
-
-  @media(min-width: $tablet-width) {
-    font-size: 2.5rem;
-  }
-  @media(min-width: $desktop-width) {
-    font-size: 3rem;
-  }
-  @media(min-width: $big-width) {
-    font-size: 3.5rem;
-  }
-}
-
-/// SHAPE ///
-
-.shape-container[data-shape-position="bottom"] {
-  top: auto;
-  bottom: 0;
-}
-
-.shape-container[data-shape-position="top"] {
-  bottom: auto;
-  transform: rotate(180deg);
-}
-
-.shape-container {
-  position: absolute;
-  top: auto;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 150px;
-  z-index: 2;
-  transform: translateZ(0);
-  overflow: hidden;
-}
-
-.shape-container[data-shape-fill="sct-color-1"] .shape-item {
-  fill: #FFF;
-}
-.shape-container .shape-item {
-  fill: #FFF;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  position: absolute;
-}
-
-.section__email {
-  position: relative; /* Ensure this section can serve as a reference for absolute positioning */
-  z-index: 1; /* Adjust as needed */
-}
-
-.shape-contact[data-shape-position="top"] {
-  top: 0; /* Position at the top */
-  bottom: auto;
-  transform: rotate(180deg); /* Rotates the shape, adjust as needed */
-  z-index: 2; /* Ensure this is above the .section__email.grey.darken-3 */
-}
-
-// .shape-contact[data-shape-fill="sct-color-1"] .shape-item {
-//   fill: #202124!important;
-// }
-.shape-contact .shape-item {
-  background-color: white;
-  // fill: linear-gradient(to right, #232526, #414345);
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  position: absolute;
-}
-
-.p-shape {
-  transform: scaleY(-1) scaleX(-1);
-}
-
-.p-shape .shape-contact .shape-item {
-  background-color: white !important;
-  fill: #e0e0e0 !important;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  position: absolute;
-}
-
-/// NAVBAR ///
-
-@mixin transition-all()
-{
-  -webkit-transition: all .35s;
-  -moz-transition: all .35s;
-  transition: all .35s;
-}
-
-nav {
-  height: 72px;
-  line-height: 72px;
-  width: 80%;
-  background-color: transparent;
-  margin-left: 10%;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
-.navbar-default {
+.navbar.navbar-default {
   position: fixed;
-  text-transform: lowercase;
-  background: transparent;
-  box-shadow: none;
-  z-index: 1000;
-  @include transition-all;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.78);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid rgba(11,16,32,.06);
+  transition: box-shadow .3s ease, background .3s ease, border-color .3s ease;
+
+  .nav-wrapper {
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+    height: 78px;
+    background: transparent;
+  }
 
   .brand-logo {
-    margin: 0 15px 15px 15px;
-    height: inherit;
-    padding: 10px;
+    position: static;
+    transform: none;
+    height: 44px;
+    width: auto;
+    margin-right: auto;
   }
 
   ul {
-    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: .15rem;
+    margin: 0;
 
-    li {
-      display: inline;
-      float: none;
+    li { list-style: none; display: flex; align-items: center; }
+    li > a {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .55rem .95rem;
+      font-weight: 600;
+      font-size: .92rem;
+      color: $ink !important;
+      border-radius: 999px;
+      transition: background .2s ease, color .2s ease;
 
-      a {
-        display: inline-block;
+      &:hover { background: $surface-3; color: $accent !important; }
+
+      img {
+        width: 22px;
+        height: 16px;
+        object-fit: cover;
+        border-radius: 2px;
+        box-shadow: 0 0 0 1px rgba(11,16,32,.08);
       }
     }
   }
 
-  li {
-    margin-right: 1%;
+  .link--elara { position: relative; }
+  .link--elara span { position: relative; }
+  .link--elara span::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 2px;
+    background: linear-gradient(90deg, $accent, $accent-2);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s ease;
   }
-
-  a {
-    border: 2px solid transparent;
-    line-height: 45px;
-    transition: all .35s;
-
-    &:hover, &.active {
-      background-color: transparent;
-    }
-
-    &:hover::after {
-      color: #f18e37;
-      margin-left: 0;
-      width: 100%;
-      left: 0;
-    }
-
-    &:after {
-      position: relative;
-      color: #f18e37;
-      display: block;
-      height: 3px;
-      width: 20px;
-      bottom: -5px;
-      left: 50%;
-      margin-left: -10px;
-      content: "";
-      transition: all .35s;
-    }
-  }
-
-  &.navbar-collapsed {
-    height: 60px;
-    line-height: 60px;
-    background: rgba(66, 66, 66, 0.95);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    a {
-      color: white;
-
-      &:hover, &.active {
-        background-color: transparent;
-        color: #202124;
-      }
-
-      &:after {
-        display: none;
-        transition: all .35s;
-      }
-    }
-  }
+  .link--elara:hover span::after { transform: scaleX(1); }
+}
+.navbar.scrolled {
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 6px 24px rgba(11,16,32,.08);
 }
 
-nav .nav-wrapper {
-  border-radius: 10px;
-}
-
-.nav-wrapper ul li img {
-  height: 20px; /* Adjust this value based on your navbar's height */
-  vertical-align: middle; /* This helps in aligning the image vertically */
-}
-
-.language-flags {
-  display: inline-flex;
-}
-
-.language-flags img {
-  height: 20px; /* Adjust the height as needed */
-  vertical-align: middle; /* Align images vertically */
-}
-
-.side-nav {
-  z-index: 1000;
+/* Mobile menu trigger */
+.side-nav.hide-on-large-only {
   position: fixed;
-  padding: 10px;
-  left: 0;
+  top: 14px; right: 14px;
+  z-index: 110;
+  .sidenav-trigger {
+    background: rgba(255,255,255,.95) !important;
+    color: $ink !important;
+    padding: .65rem 1.1rem;
+    border-radius: 999px;
+    box-shadow: $shadow-md;
+    font-weight: 700;
+    height: auto;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .75rem;
+  }
 }
-
 .sidenav {
-  z-index: 1001;
-  text-align: center;
-
-  li > a > i.material-icons {
-    float: none;
-    margin: 0
+  background: #fff;
+  width: 300px;
+  li > a {
+    color: $ink !important;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0 24px;
   }
-
-  .sidenav-logo {
-    width: 60%;
-    margin-top: 15px;
+  li > a:hover { background: $surface-3; color: $accent !important; }
+  .language-flags {
+    display: flex; gap: .75rem;
+    padding: 1rem 24px;
+    border-bottom: 1px solid $line;
+    a { padding: 0 !important; min-height: 0 !important; }
+    img {
+      width: 32px; height: 22px;
+      object-fit: cover; border-radius: 4px;
+      box-shadow: 0 0 0 1px rgba(11,16,32,.08);
+    }
   }
+  .sidenav-logo { width: 120px; margin: 2rem auto 1rem; }
+  .footer-copyright {
+    padding: 1rem 24px 1.5rem;
+    background: transparent !important;
+    color: $muted !important;
+    font-size: .8rem;
+    text-align: center;
+  }
+  .footer-copyright .container { color: $muted !important; }
 }
 
-/// ABOUT ///
+/* =========================================================================
+   Hero (#home)
+   ========================================================================= */
 
-.section {
-  &__about {
-    padding-bottom: 6rem;
+#home {
+  position: relative;
+  background: $ink;
+
+  .background-image-holder { padding: 0 !important; }
+
+  .holder-item,
+  .holder-item-gallery {
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/bg.webp');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 
-    &--align-center {
-      -ms-flex-align: center!important;
-      align-items: center!important;
-      display: -ms-flexbox;
-      -ms-flex-wrap: wrap;
-      display: flex;
+    &::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at top right, rgba(255,106,0,.18), transparent 55%),
+        radial-gradient(ellipse at bottom left, rgba(0,212,255,.14), transparent 55%),
+        linear-gradient(180deg, rgba(11,16,32,.55) 0%, rgba(11,16,32,.85) 100%);
+      z-index: 1;
     }
+    .container { position: relative; z-index: 2; }
+    .mask { display: none; }
+  }
+  .holder-item-gallery {
+    min-height: 60vh;
+    background-image: url('/images/bg.webp');
+  }
 
-    &--button {
-      padding-top: 2rem;
-      transition: all .35s ease;
+  .logo {
+    width: clamp(180px, 24vw, 320px);
+    margin: 0 auto 2.25rem;
+    filter: drop-shadow(0 16px 40px rgba(255,106,0,.35))
+            drop-shadow(0 4px 12px rgba(0,0,0,.5));
+  }
 
-      &:hover {
-        -webkit-transform: scale(1.1)!important;
-        -ms-transform: scale(1.1)!important;
-        transform: scale(1.1)!important;
-      }
-    }
+  .motto {
+    color: #fff;
+    font-size: clamp(1.6rem, 3.6vw, 2.9rem);
+    font-weight: 600;
+    letter-spacing: -.015em;
+    max-width: 960px;
+    margin: 0 auto 2rem;
+    text-shadow: 0 2px 24px rgba(0,0,0,.45);
+    background: linear-gradient(120deg, #fff 0%, #ffd9bd 60%, $accent-2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-    &--icons {
-      padding-bottom: 2rem!important;
-    }
+  /* Decorative SVG curve under hero */
+  .shape-container {
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    z-index: 3;
+    height: 130px !important;
+    pointer-events: none;
+    svg { width: 100%; height: 100%; display: block; }
+    svg path { fill: $surface; }
+  }
 
-    &--icon {
-      font-size: 6rem;
-    }
-
-    &--icon-text {
-      font-size: 2rem;
-    }
-
-    &--text {
-      font-size: 1.1rem;
-      line-height: 1.9;
-      margin: auto;
-      width: 80%;
-      white-space: pre-line;
-    }
-
-    .btn {
-      text-transform: none!important;
-      font-weight: bold;
-    }
-
-    @media (min-width: 992px) {
-      &--icon {
-        font-size: 5rem;
-      }
-    }
+  /* Scroll hint */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 150px; left: 50%;
+    width: 28px; height: 46px;
+    border: 2px solid rgba(255,255,255,.55);
+    border-radius: 999px;
+    transform: translateX(-50%);
+    z-index: 3;
+    background:
+      radial-gradient(circle at 50% 25%, #fff 0, #fff 3px, transparent 4px);
+    animation: scrollHint 2s ease-in-out infinite;
   }
 }
 
+@keyframes scrollHint {
+  0%   { background-position: 50% 25%; opacity: .5; }
+  50%  { background-position: 50% 55%; opacity: 1;  }
+  100% { background-position: 50% 25%; opacity: .5; }
+}
 
-.block {
-  margin: 0;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+/* =========================================================================
+   About
+   ========================================================================= */
+
+.section__about {
+  padding: clamp(5rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
   position: relative;
 
-  &:after, &:before {
-    display: table;
-    content: "";
-  }
+  .container { max-width: 1180px; }
 
-  &:after {
-    clear: both;
+  h3 {
+    text-align: center;
+    margin: 0 auto 1.5rem;
+    max-width: 780px;
   }
+  &--text {
+    max-width: 820px;
+    margin: 0 auto 2.75rem;
+    color: $ink-soft !important;
+    font-size: 1.08rem;
+    text-align: center;
+    line-height: 1.85;
+    white-space: pre-line;
+  }
+  &--button { text-align: center; margin-bottom: 3.5rem; }
 
-  .block-image {
-    -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear;
+  &--icons {
+    text-align: center;
+    padding: 2rem 1rem !important;
     position: relative;
-    max-width: 100%;
+    border-radius: $radius-lg;
+    transition: transform .3s ease, background .3s ease;
+
+    .section__about--icon {
+      font-size: 2.4rem;
+      color: $accent;
+      background: linear-gradient(135deg, $accent-soft, #fff);
+      width: 84px; height: 84px; line-height: 84px;
+      border-radius: 50%;
+      margin: 0 auto 1.1rem;
+      display: block;
+      box-shadow:
+        0 6px 18px rgba(255,106,0,.18),
+        inset 0 0 0 1px rgba(255,106,0,.15);
+      transition: transform .3s ease;
+    }
+    &:hover .section__about--icon {
+      transform: translateY(-4px) rotate(-6deg);
+    }
+
+    .section__about--icon-text {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: $ink !important;
+      margin-bottom: .3rem;
+      letter-spacing: -.02em;
+    }
+    h6 {
+      color: $muted;
+      font-size: .85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
   }
 }
 
-.img-fluid {
+/* ---------- Buttons (override materialize) ---------- */
+.btn, .btn-large, .btn-flat {
+  font-family: $font !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: .005em !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  height: auto !important;
+  line-height: 1 !important;
+  padding: 1rem 1.9rem !important;
+  transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, background .25s !important;
+}
+.btn:hover, .btn-large:hover { transform: translateY(-2px); box-shadow: $shadow-md !important; }
+.btn.orange, .btn-large.orange {
+  background: linear-gradient(135deg, $accent 0%, $accent-2 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 28px rgba(255,106,0,.30) !important;
+}
+.btn.orange:hover, .btn-large.orange:hover {
+  box-shadow: 0 16px 36px rgba(255,106,0,.40) !important;
+}
+.btn.white, .btn-large.white {
+  background: #fff !important;
+  color: $ink !important;
+  border: 1px solid $line !important;
+}
+
+/* =========================================================================
+   Services
+   ========================================================================= */
+
+/* =========================================================================
+   Gallery (preview on home + dedicated page)
+   ========================================================================= */
+
+#gallery {
+  padding: clamp(5rem, 8vw, 7rem) 0 clamp(2rem, 4vw, 3rem);
+
+  .section__gallery--title {
+    text-align: center;
+    color: $accent !important;
+    margin-bottom: 1rem;
+  }
+  .section__gallery .container { max-width: 1180px; }
+
+  .section__gallery__images {
+    padding: 2.5rem 0 4rem;
+    .container { max-width: 1180px; }
+
+    .row {
+      align-items: center;
+      gap: 2rem 0;
+      margin-bottom: 2.5rem;
+      &.valign-wrapper { display: flex; flex-wrap: wrap; }
+
+      img {
+        border-radius: $radius-xl;
+        box-shadow: $shadow-md;
+        transition: transform .45s cubic-bezier(.2,.7,.2,1),
+                    box-shadow .45s;
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 4 / 3;
+      }
+      img:hover {
+        transform: scale(1.03) rotate(-.4deg);
+        box-shadow: $shadow-lg;
+      }
+    }
+    .section__about--text {
+      text-align: left;
+      padding: 0 1.5rem;
+      font-size: 1rem;
+      color: $ink-soft !important;
+    }
+  }
+}
+
+/* Dedicated gallery page */
+body .section__gallery__images .row {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+body .section__gallery__images .row > [class*="col"] {
+  padding: .5rem !important;
+}
+.materialboxed {
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: zoom-in;
+  width: 100%;
+}
+.materialboxed:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: $shadow-md;
+}
+
+/* =========================================================================
+   Partners — infinite marquee
+   ========================================================================= */
+
+.section__partners {
+  background: $ink !important;
+  color: #fff;
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 50%, rgba(255,106,0,.18), transparent 50%),
+      radial-gradient(ellipse at 85% 50%, rgba(0,212,255,.16), transparent 50%);
+    pointer-events: none;
+  }
+
+  .partners__inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+  }
+
+  .partners__title {
+    color: #fff !important;
+    margin: 0 0 2.5rem;
+  }
+
+  .eyebrow {
+    color: $accent-2 !important;
+    background: rgba(255,106,0,.12) !important;
+  }
+}
+
+.partners__marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg,
+    transparent 0, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0, black 8%, black 92%, transparent 100%);
+  padding: 1rem 0;
+}
+
+.partners__track {
+  display: flex;
+  gap: 3.5rem;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.partners__marquee:hover .partners__track {
+  animation-play-state: paused;
+}
+.partners__item {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: $radius-lg;
+  backdrop-filter: blur(4px);
+  transition: background .3s, border-color .3s, transform .3s;
+}
+.partners__item img {
   max-width: 100%;
-  height: auto;
+  max-height: 64px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: .65;
+  transition: opacity .3s ease, filter .3s ease, transform .3s ease;
+}
+.partners__item:hover {
+  background: rgba(255,106,0,.08);
+  border-color: rgba(255,106,0,.30);
+  transform: translateY(-3px);
+}
+.partners__item:hover img {
+  opacity: 1;
+  filter: none;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* =========================================================================
+   Contact — completely new
+   ========================================================================= */
+
+.section__contact {
+  padding: 0;
+}
+.contact__hero {
+  position: relative;
+  padding: clamp(5rem, 8vw, 7rem) 0 clamp(4rem, 7vw, 6rem);
+  background: linear-gradient(180deg, $surface 0%, $surface-2 100%);
+  overflow: hidden;
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1180px;
+  }
+}
+.contact__bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .7;
+  z-index: 0;
+  pointer-events: none;
+
+  &--1 {
+    width: 520px; height: 520px;
+    top: -180px; right: -120px;
+    background: radial-gradient(circle, $accent 0%, transparent 70%);
+  }
+  &--2 {
+    width: 460px; height: 460px;
+    bottom: -180px; left: -140px;
+    background: radial-gradient(circle, $neon-2 0%, transparent 70%);
+    opacity: .35;
+  }
+}
+.contact__bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(11,16,32,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,16,32,.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact__header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+}
+.contact__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  color: $ink !important;
+}
+.contact__lead {
+  color: $ink-soft !important;
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.contact__main {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  margin: 0 auto 3rem;
+}
+
+.contact__email-card {
+  position: relative;
+  background: linear-gradient(135deg, $ink 0%, $ink-2 100%);
+  border-radius: $radius-xl;
+  padding: clamp(2rem, 4vw, 3rem);
+  overflow: hidden;
+  color: #fff;
+  box-shadow: $shadow-lg;
+  border: 1px solid rgba(255,255,255,.06);
+
+  &::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at top right, rgba(255,106,0,.30), transparent 55%),
+      radial-gradient(ellipse at bottom left, rgba(0,212,255,.20), transparent 55%);
+    pointer-events: none;
+  }
+}
+.contact__email-glow {
+  position: absolute;
+  top: -50%; left: -20%;
+  width: 70%; height: 200%;
+  background: radial-gradient(circle, rgba(255,106,0,.25), transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: orbPulse 6s ease-in-out infinite;
+}
+@keyframes orbPulse {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: .8; }
+  50%      { transform: translate(40px, -20px) scale(1.1); opacity: 1; }
+}
+
+.contact__email-label {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $accent-2;
+  background: rgba(255,106,0,.14);
+  padding: .35rem .85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+.contact__email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: clamp(1.4rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+  color: #fff !important;
+  letter-spacing: -.02em;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+  transition: color .25s;
+
+  .contact__email-icon {
+    transition: transform .3s ease;
+    font-size: 1.5rem;
+  }
+  &:hover {
+    color: $accent-2 !important;
+    .contact__email-icon { transform: translate(4px, -4px); }
+  }
+}
+.contact__email-text {
+  background: linear-gradient(120deg, #fff 0%, #ffd9bd 50%, $accent-2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contact__email-note {
+  color: rgba(255,255,255,.75) !important;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-magnetic {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: 1rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .98rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background .25s, color .25s, border-color .25s, transform .12s ease-out, box-shadow .25s;
+  text-decoration: none;
+  will-change: transform;
+
+  i.material-icons { font-size: 1.2rem; }
+}
+.btn-magnetic--primary {
+  background: linear-gradient(135deg, $accent 0%, $accent-2 100%);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(255,106,0,.36);
+}
+.btn-magnetic--primary:hover {
+  box-shadow: 0 16px 36px rgba(255,106,0,.50);
+  color: #fff;
+}
+.btn-magnetic--ghost {
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  border-color: rgba(255,255,255,.18);
+  backdrop-filter: blur(6px);
+}
+.btn-magnetic--ghost:hover {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.32);
+  color: #fff;
+}
+
+.contact__info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.contact__info-card {
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  padding: 1.4rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+    border-color: transparent;
+  }
+}
+.contact__info-icon {
+  font-size: 1.6rem !important;
+  color: $accent !important;
+  background: $accent-soft;
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact__info-card h4 {
+  font-size: 1.02rem;
+  margin: 0 0 .25rem;
+  color: $ink !important;
+  font-weight: 700;
+}
+.contact__info-card p {
+  margin: 0;
+  color: $ink-soft !important;
+  font-size: .92rem;
+}
+
+/* Contact people */
+.contact__people {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.contact__person {
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: stretch;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, border-color .35s;
+}
+.contact__person:hover {
+  transform: translateY(-4px);
+  box-shadow: $shadow-lg;
+  border-color: transparent;
+}
+.contact__person--photo {
+  position: relative;
+  overflow: hidden;
+  background: $surface-3;
+}
+.contact__person--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.contact__person:hover .contact__person--photo img { transform: scale(1.06); }
+
+.contact__person--overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,106,0,.0), rgba(123,92,255,.0));
+  transition: background .35s;
+  pointer-events: none;
+}
+.contact__person:hover .contact__person--overlay {
+  background: linear-gradient(135deg, rgba(255,106,0,.10), rgba(123,92,255,.10));
+}
+
+.contact__person--info {
+  padding: 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.contact__person--role {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: $accent;
+  background: $accent-soft;
+  padding: .25rem .65rem;
+  border-radius: 999px;
+  margin-bottom: .65rem;
+}
+.contact__person--name {
+  font-size: 1.4rem;
+  margin: 0;
+  color: $ink !important;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.contact__person--links {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    color: $ink-soft;
+    font-size: .92rem;
+    transition: color .2s;
+    word-break: break-all;
+  }
+  a i.material-icons {
+    color: $accent !important;
+    font-size: 1.1rem;
+  }
+  a:hover { color: $accent; }
+}
+
+/* =========================================================================
+   Map
+   ========================================================================= */
+
+#map {
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  background: $surface-2;
+  position: relative;
+
+  .section__map { padding: 0; }
+  .section__map--middle-align {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+  }
+  .section__map--title {
+    text-align: left !important;
+    margin-bottom: 1rem;
+    color: $ink !important;
+  }
+  .section__about--text {
+    text-align: left !important;
+    color: $ink-soft !important;
+    margin: 0;
+  }
+  iframe {
+    border-radius: $radius-xl;
+    box-shadow: $shadow-lg;
+    overflow: hidden;
+    height: clamp(380px, 50vw, 560px) !important;
+    width: 100% !important;
+    filter: contrast(1.05) saturate(.9);
+  }
+  .section__map--no-padding { padding: 0 !important; }
+}
+
+/* =========================================================================
+   Footer
+   ========================================================================= */
+
+.section__footer--block.midnight {
+  background:
+    linear-gradient(135deg, $ink 0%, $ink-2 60%, $ink-3 100%);
+  padding: clamp(2.5rem, 4vw, 4rem) 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(255,106,0,.18), transparent 55%),
+      radial-gradient(ellipse at 80% 50%, rgba(0,212,255,.14), transparent 55%);
+    pointer-events: none;
+  }
+
+  h3 {
+    text-align: center;
+    color: #fff !important;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(120deg, #fff 0%, $accent-3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.page-footer.section__footer {
+  background: $surface !important;
+  color: $ink;
+  padding: clamp(3rem, 6vw, 5rem) 0 0;
+  border-top: 1px solid $line;
+
+  .container { max-width: 1180px; }
+  .row { display: flex; flex-wrap: wrap; gap: 2rem 0; }
+
+  h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    margin-bottom: 1.3rem;
+    color: $ink !important;
+    font-weight: 700;
+  }
+  .about-company p {
+    color: $ink-soft !important;
+    font-size: .95rem;
+    line-height: 1.75;
+  }
+  .about-table {
+    width: 100%;
+    border-collapse: collapse;
+    td {
+      padding: .6rem 0;
+      border-bottom: 1px solid $line;
+      font-size: .92rem;
+      color: $ink-soft !important;
+    }
+    td:first-child { width: 42%; padding-right: 1rem; }
+    .text-bold { color: $ink !important; }
+  }
+
+  .footer-copyright {
+    background: $surface-2 !important;
+    color: $muted !important;
+    margin-top: 3rem;
+    padding: 1.25rem 0;
+    font-size: .85rem;
+  }
+  .footer-copyright .container { color: $muted !important; }
+
+  .footer-copyright__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-copyright__link {
+    color: $muted !important;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .footer-copyright__link:hover { color: $accent !important; }
+}
+
+/* =========================================================================
+   Scroll-to-top
+   ========================================================================= */
+
+.scroll-top.btn-floating {
+  position: fixed !important;
+  bottom: 24px; right: 24px;
+  background: $ink !important;
+  width: 54px; height: 54px;
+  box-shadow: $shadow-lg !important;
+  z-index: 50;
+  border: 1px solid rgba(255,255,255,.06);
+  i { color: #fff !important; line-height: 54px; }
+  &:hover {
+    background: linear-gradient(135deg, $accent 0%, $accent-2 100%) !important;
+    transform: translateY(-2px);
+  }
+}
+
+/* =========================================================================
+   Cookie banner + modal
+   ========================================================================= */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 16px;
+  left: 16px; right: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+  background: rgba(11,16,32,.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: $radius-lg;
+  padding: 1.1rem 1.4rem;
+  z-index: 200;
+  box-shadow: $shadow-lg;
+  transform: translateY(180%);
+  opacity: 0;
+  transition: transform .55s cubic-bezier(.2,.7,.2,1), opacity .45s;
+  pointer-events: none;
+}
+.cookie-banner.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.cookie-banner__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+}
+.cookie-banner__icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, $accent 0%, $accent-2 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(255,106,0,.35);
+  i { color: #fff; font-size: 1.4rem; }
+}
+.cookie-banner__text {
+  font-size: .92rem;
+  color: rgba(255,255,255,.85);
+  line-height: 1.55;
+}
+.cookie-banner__actions {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.cookie-banner__btn {
+  font-family: $font;
+  font-weight: 600;
+  font-size: .88rem;
+  padding: .7rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s, transform .15s;
+}
+.cookie-banner__btn--ghost {
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  border-color: rgba(255,255,255,.18);
+}
+.cookie-banner__btn--ghost:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.35);
+  color: #fff;
+}
+.cookie-banner__btn--primary {
+  background: linear-gradient(135deg, $accent 0%, $accent-2 100%);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255,106,0,.32);
+}
+.cookie-banner__btn--primary:hover { transform: translateY(-1px); }
+
+.cookie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.cookie-modal.is-visible { opacity: 1; pointer-events: auto; }
+
+.cookie-modal__backdrop {
+  position: absolute; inset: 0;
+  background: rgba(11,16,32,.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.cookie-modal__dialog {
+  position: relative;
+  background: #fff;
+  border-radius: $radius-xl;
+  max-width: 640px;
+  width: calc(100% - 2rem);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  box-shadow: $shadow-lg;
+  border: 1px solid $line;
+  transform: translateY(20px) scale(.98);
+  transition: transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.cookie-modal.is-visible .cookie-modal__dialog {
+  transform: translateY(0) scale(1);
+}
+
+.cookie-modal__close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: $surface-3;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $ink;
+  transition: background .2s, color .2s, transform .15s;
+
+  &:hover { background: $accent-soft; color: $accent; }
+  i.material-icons { font-size: 1.2rem; }
+}
+
+.cookie-modal__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2rem 1rem;
+}
+.cookie-modal__icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, $accent 0%, $accent-2 100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(255,106,0,.32);
+  flex-shrink: 0;
+
+  i { color: #fff; font-size: 1.6rem; }
+}
+.cookie-modal__header h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: $ink !important;
+}
+.cookie-modal__body {
+  padding: 0 2rem 1.5rem;
+}
+.cookie-modal__intro {
+  color: $ink-soft;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.cookie-modal__section {
+  padding: 1.15rem 0;
+  border-top: 1px solid $line;
+
+  &:last-child { padding-bottom: 0; }
+}
+.cookie-modal__section--head {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: .5rem;
+  h4 {
+    margin: 0;
+    color: $ink !important;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+}
+.cookie-modal__section--icon {
+  color: $accent !important;
+  font-size: 1.3rem !important;
+}
+.cookie-modal__section p {
+  margin: 0;
+  color: $ink-soft;
+  font-size: .94rem;
+  line-height: 1.65;
+}
+.cookie-modal__footer {
+  padding: 1.25rem 2rem 2rem;
+  display: flex;
+  gap: .65rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  border-top: 1px solid $line;
+
+  .cookie-banner__btn--ghost {
+    color: $ink;
+    border-color: $line;
+    background: $surface;
+  }
+  .cookie-banner__btn--ghost:hover {
+    background: $surface-3;
+    color: $ink;
+    border-color: $muted;
+  }
+}
+
+/* =========================================================================
+   Misc cleanup
+   ========================================================================= */
+
+.shape-item, .shape-container svg { pointer-events: none; }
+.mask { display: none; }
+.pulse::before { display: none; }
+.container-fluid { padding: 0; max-width: 100%; }
+.card { box-shadow: $shadow-sm !important; }
+.z-depth-3, .z-depth-5 { box-shadow: $shadow-sm !important; }
+
+/* hide legacy shape decorations in contact email block (replaced by orbs) */
+.section__email .shape-contact { display: none; }
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+
+@media (max-width: $tablet) {
+  .navbar.navbar-default { display: none !important; }
+
+  #home .holder-item { min-height: 84vh; }
+  #home::after { display: none; }
+
+  .section__about--icons { margin-bottom: 1.5rem; }
+
+  #map .section__map--middle-align { flex-direction: column; }
+  #map .section__map--title { text-align: center !important; }
+  #map .section__about--text { text-align: center !important; }
+
+  .section__gallery__images .row.valign-wrapper { flex-direction: column; }
+  .section__gallery__images .section__about--text {
+    text-align: center; padding: 1rem;
+  }
+
+  .page-footer.section__footer .row > [class*="col"] { width: 100%; }
+
+  .contact__main {
+    grid-template-columns: 1fr;
+  }
+  .contact__people {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $mobile) {
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.7rem; }
+  h3 { font-size: 1.5rem; }
+
+  #home .motto { font-size: 1.3rem; }
+  
+
+  
+
+  .contact__email-card { padding: 1.75rem; }
+  .contact__email-link { font-size: 1.4rem; }
+
+  .contact__person {
+    grid-template-columns: 1fr;
+  }
+  .contact__person--photo { aspect-ratio: 16/9; }
+
+  .cookie-banner__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .cookie-banner__icon { margin: 0 auto; }
+  .cookie-banner__actions { justify-content: center; }
+
+  .partners__item { width: 140px; height: 90px; }
+  .partners__track { gap: 2rem; }
+
+  .footer-copyright__line { justify-content: center; text-align: center; }
+}
+
+/* =========================================================================
+   v2 — bolder futuristic upgrades (overrides earlier rules)
+   ========================================================================= */
+
+/* ---------- Floating background blobs (site-wide ambient life) ---------- */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: .35;
+}
+body::before {
+  width: 520px; height: 520px;
+  top: -160px; right: -120px;
+  background: radial-gradient(circle, $accent 0%, transparent 70%);
+  animation: blobDrift1 22s ease-in-out infinite alternate;
+}
+body::after {
+  width: 460px; height: 460px;
+  bottom: -160px; left: -140px;
+  background: radial-gradient(circle, $neon-2 0%, transparent 70%);
+  animation: blobDrift2 28s ease-in-out infinite alternate;
+  opacity: .25;
+}
+@keyframes blobDrift1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-80px, 60px) scale(1.18); }
+}
+@keyframes blobDrift2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(90px, -50px) scale(1.22); }
+}
+
+/* Make sections sit above ambient blobs */
+
+/* (Wave dividers removed — they introduced visible color seams.) */
+
+/* =========================================================================
+   Navbar v2 — floating capsule
+   ========================================================================= */
+
+.navbar.navbar-default {
+  background: transparent !important;
+  border: none !important;
+  padding: 14px clamp(1rem, 4vw, 3rem);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  .nav-wrapper {
+    background: rgba(11,16,32,.72) !important;
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 999px;
+    padding: 0 1.6rem 0 .9rem !important;
+    height: 64px;
+    box-shadow:
+      0 10px 36px rgba(11,16,32,.28),
+      inset 0 0 0 1px rgba(255,255,255,.05),
+      0 0 0 1px rgba(255,106,0,.0);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .3s ease, background .3s ease;
+  }
+
+  .nav-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, rgba(255,106,0,.35), rgba(0,212,255,.35), transparent);
+    background-size: 300% 100%;
+    z-index: -1;
+    animation: navGlow 8s linear infinite;
+    opacity: .8;
+  }
+
+  .brand-logo {
+    height: 38px;
+    margin-left: .4rem;
+    filter: brightness(0) invert(1);
+    transition: filter .3s ease;
+  }
+  .nav-wrapper:hover .brand-logo {
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,106,0,.6));
+  }
+
+  ul li > a {
+    color: rgba(255,255,255,.85) !important;
+    padding: .5rem .9rem !important;
+
+    &:hover {
+      background: rgba(255,106,0,.12) !important;
+      color: $accent-2 !important;
+    }
+    img {
+      box-shadow: 0 0 0 1px rgba(255,255,255,.20);
+    }
+  }
+
+  .link--elara span::after {
+    background: linear-gradient(90deg, $accent, $neon-1);
+    box-shadow: 0 0 12px rgba(255,106,0,.6);
+    bottom: -8px;
+  }
+}
+.navbar.scrolled .nav-wrapper {
+  background: rgba(11,16,32,.92) !important;
+  box-shadow:
+    0 16px 42px rgba(11,16,32,.40),
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 0 28px rgba(255,106,0,.15);
+}
+@keyframes navGlow {
+  from { background-position: 0% 0%; }
+  to   { background-position: 300% 0%; }
+}
+
+/* =========================================================================
+   Services v2 — dark futuristic cards
+   ========================================================================= */
+
+/* Fix icon color override globally inside btn-floating (was bleeding through .grey-text.text-darken-3) */
+.btn-floating i.material-icons.grey-text,
+.btn-floating i.material-icons.grey-text.text-darken-3,
+.btn-floating i.material-icons.grey-text.text-darken-4 {
+  color: #fff !important;
+}
+
+/* =========================================================================
+   Gallery v2 — organic / elliptical image shapes
+   ========================================================================= */
+
+#gallery {
+  background: $surface;
+  position: relative;
+  padding: clamp(6rem, 9vw, 9rem) 0 clamp(3rem, 5vw, 4rem);
+
+  &::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(255,106,0,.08), transparent 50%),
+      radial-gradient(ellipse at 20% 80%, rgba(123,92,255,.06), transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > * { position: relative; z-index: 1; }
+
+  .section__gallery__images {
+    .row.valign-wrapper {
+      align-items: center;
+      gap: 3rem 1rem;
+    }
+  }
+
+  /* Organic blob clip-paths — alternating shapes per image */
+  .gall-1, .gall-2, .gall-3 {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.2,.7,.2,1),
+                filter .5s ease;
+    filter: saturate(1.08);
+  }
+
+  .gall-1 {
+    /* organic blob */
+    border-radius: 64% 36% 58% 42% / 48% 64% 36% 52% !important;
+    box-shadow:
+      0 30px 60px rgba(11,16,32,.20),
+      0 0 0 6px rgba(255,255,255,.6),
+      0 0 0 7px rgba(255,106,0,.18) !important;
+  }
+  .gall-2 {
+    /* ellipse leaning */
+    border-radius: 42% 58% 38% 62% / 56% 42% 58% 44% !important;
+    box-shadow:
+      0 30px 60px rgba(11,16,32,.20),
+      0 0 0 6px rgba(255,255,255,.6),
+      0 0 0 7px rgba(0,212,255,.18) !important;
+  }
+  .gall-3 {
+    /* asymmetric pill */
+    border-radius: 56% 44% 64% 36% / 42% 58% 42% 58% !important;
+    box-shadow:
+      0 30px 60px rgba(11,16,32,.20),
+      0 0 0 6px rgba(255,255,255,.6),
+      0 0 0 7px rgba(123,92,255,.18) !important;
+  }
+  .gall-1:hover, .gall-2:hover, .gall-3:hover {
+    transform: scale(1.04) rotate(-1deg);
+    filter: saturate(1.15);
+  }
+
+  .section__about--text {
+    font-size: 1.05rem !important;
+    color: $ink !important;
+    line-height: 1.85;
+  }
+
+  /* Title styling */
+  .section__gallery--title {
+    color: $ink !important;
+    background: linear-gradient(120deg, $ink 0%, $accent 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* (gallery → partners wave divider removed) */
+
+/* =========================================================================
+   Partners v2 — wave dividers in/out
+   ========================================================================= */
+
+.section__partners {
+  /* incoming wave from gallery already covered by #gallery::after */
+  /* outgoing wave to services (services is dark too, so just transition softly) */
+  /* keep as-is, services wave handles transition */
+}
+
+/* =========================================================================
+   Map v2 — fixed two-column layout
+   ========================================================================= */
+
+#map {
+  background: linear-gradient(180deg, $surface 0%, $surface-2 100%);
+  padding: clamp(5rem, 8vw, 7rem) 0 clamp(5rem, 8vw, 7rem) !important;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 90% 10%, rgba(255,106,0,.08), transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(0,212,255,.08), transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container-fluid {
+    position: relative;
+    z-index: 1;
+    padding: 0 clamp(1rem, 4vw, 2rem) !important;
+  }
+
+  /* Force grid layout — override materialize col floats */
+  .section__map--middle-align {
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Reset materialize column widths inside grid */
+  .section__map--middle-align > .col {
+    width: 100% !important;
+    margin: 0 !important;
+    left: auto !important;
+    padding: 0 !important;
+    flex: none !important;
+    float: none !important;
+  }
+
+  .section__map--title {
+    text-align: left !important;
+    color: $ink !important;
+    margin-bottom: 1.2rem;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+  }
+  .section__about--text {
+    text-align: left !important;
+    color: $ink-soft !important;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  iframe {
+    border-radius: $radius-xl;
+    box-shadow:
+      0 30px 60px rgba(11,16,32,.18),
+      0 0 0 1px rgba(11,16,32,.05);
+    overflow: hidden;
+    height: clamp(380px, 50vw, 560px) !important;
+    width: 100% !important;
+    filter: contrast(1.05) saturate(.95);
+    display: block;
+  }
+}
+
+/* =========================================================================
+   Contact v2 — divider wave below
+   ========================================================================= */
+
+/* (contact hero divider removed) */
+
+/* =========================================================================
+   Hero v2 — keep shape but make wave more organic (already SVG)
+   ========================================================================= */
+
+#home .shape-container {
+  height: 160px !important;
+  svg path { fill: $surface !important; }
+}
+
+/* =========================================================================
+   About v2 — softer ambient, wave to services
+   ========================================================================= */
+
+.section__about {
+  background:
+    radial-gradient(ellipse at top, rgba(255,106,0,.05), transparent 50%),
+    $surface;
+  position: relative;
+  overflow: hidden;
+
+}
+
+/* Parallax quote — restyle, add gradient border into services */
+
+/* =========================================================================
+   Footer v2 — entry wave
+   ========================================================================= */
+
+/* (footer block divider removed) */
+
+/* =========================================================================
+   Make ALL sections starting from partners feel cohesive (dark glow theme)
+   ========================================================================= */
+
+/* Already: partners dark, services dark, contact has gradient orbs.
+   Add subtle floating particles to dark sections. */
+
+/* =========================================================================
+   Responsive fixes for v2
+   ========================================================================= */
+@media (max-width: $tablet) {
+  #map .section__map--middle-align {
+    grid-template-columns: 1fr !important;
+  }
+  .navbar.navbar-default .nav-wrapper {
+    padding: 0 1rem !important;
+  }
+}
+
+@media (max-width: $mobile) {
+  #gallery .gall-1,
+  #gallery .gall-2,
+  #gallery .gall-3 {
+    /* keep organic shape but smaller rings */
+    box-shadow:
+      0 16px 30px rgba(11,16,32,.18),
+      0 0 0 4px rgba(255,255,255,.7),
+      0 0 0 5px rgba(255,106,0,.18) !important;
+  }
+  body::before, body::after { opacity: .18; }
+}
+
+/* =========================================================================
+   v3 — corrections
+   ========================================================================= */
+
+/* Make absolutely sure navbar is fixed and does not push content */
+.navbar.navbar-default {
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+}
+
+/* Scroll-to-top — center the icon properly */
+.scroll-top.btn-floating {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+
+  i.material-icons {
+    color: #fff !important;
+    line-height: 1 !important;
+    font-size: 1.6rem !important;
+    margin: 0 !important;
+    height: auto !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* =========================================================================
+   Services — totally new "bento mosaic" with fleet imagery
+   ========================================================================= */
+
+/* Replace materialize float-rows with bento css-grid */
+
+/* Bento layout — 5 tiles spanning different cells */
+
+/* Bento tile design */
+
+/* Fleet image as background, different per tile */
+
+/* Gradient overlay for legibility */
+
+/* Numbered badge top-left */
+
+/* Replace the btn-floating icon — keep it but reposition + restyle */
+
+/* The first (full-width) tile is a feature tile — bigger title, two-col content */
+
+/* Mobile bento tweaks */
+
+/* =========================================================================
+   v4 — refinements
+   ========================================================================= */
+
+/* ---------- 1. Hero shape continuity with about section ----------
+   About section was tinted by an orange radial glow at top, so the
+   plain-white SVG wave didn't blend. Remove the top glow from about
+   so the wave fades into uniform white seamlessly. */
+.section__about {
+  background: $surface !important;
+}
+.section__about::after { display: none !important; }
+
+#home .shape-container svg path {
+  fill: $surface !important;
+}
+
+/* ---------- 2. Navbar — dark glass, no animated gradient ---------- */
+.navbar.navbar-default .nav-wrapper {
+  background: rgba(11,16,32,.55) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow:
+    0 10px 36px rgba(11,16,32,.18),
+    inset 0 0 0 1px rgba(255,255,255,.04) !important;
+}
+.navbar.navbar-default .nav-wrapper::before {
+  display: none !important;
+}
+.navbar.navbar-default.scrolled .nav-wrapper {
+  background: rgba(11,16,32,.78) !important;
+  box-shadow:
+    0 14px 36px rgba(11,16,32,.28),
+    inset 0 0 0 1px rgba(255,255,255,.06) !important;
+}
+
+/* ---------- 3. Services — editorial split layout (alternating) ----------
+   Each tile is full-width with image on one side, text on the other.
+   Odd: image left, text right. Even: image right, text left.
+   First tile (12-col): big asymmetric feature row. */
+
+/* Image side via ::before with asymmetric clip-path */
+
+/* Soft tint overlay only on image side, not full card */
+
+/* Alternating sides */
+
+/* Per-tile background image — different photo per service */
+
+/* Text side */
+
+/* Reposition number badge inside text side */
+
+/* Icon as inline label, not floating overlay */
+
+/* First tile (12-col, "Dyspozycyjność") — make it taller / hero-style */
+
+/* Reset previous-version overrides that would conflict */
+
+/* Responsive: stack image above text */
+
+/* ---------- 4. Glow divider between sections ----------
+   Cosmetic neon strip — doesn't depend on adjacent bg colors. */
+
+@keyframes dotPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%      { transform: translate(-50%, -50%) scale(1.4); }
+}
+
+/* ---------- 5. Gallery — keep image+text side-by-side on tablet ----------
+   The old "stack on tablet" rule made the row column-flex below 992px.
+   Force side-by-side until mobile breakpoint. */
+
+#gallery .section__gallery__images .row.valign-wrapper {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+#gallery .section__gallery__images .row.valign-wrapper > [class*="col"] {
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  float: none !important;
+}
+
+#gallery .section__gallery__images .section__about--text {
+  text-align: left !important;
+  padding: 0 !important;
+  font-size: 1.05rem !important;
+}
+
+@media (max-width: $mobile) {
+  #gallery .section__gallery__images .row.valign-wrapper {
+    grid-template-columns: 1fr;
+  }
+  #gallery .section__gallery__images .section__about--text {
+    text-align: center !important;
+    padding: 0 .5rem !important;
+  }
+}
+
+/* ---------- 6 + 7. Contact — fix info cards alignment, fix person photo on tablet ---------- */
+
+.contact__info-grid {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-self: stretch;
+}
+.contact__info-card {
+  display: grid !important;
+  grid-template-columns: 48px 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: 2px;
+  padding: 1.1rem 1.3rem !important;
+  text-align: left;
+}
+.contact__info-icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 12px !important;
+  font-size: 1.4rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: center;
+  margin: 0 !important;
+}
+.contact__info-card h4 {
+  margin: 0 !important;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  line-height: 1.3 !important;
+  font-size: 1rem !important;
+}
+.contact__info-card p {
+  margin: 0 !important;
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  font-size: .92rem !important;
+  line-height: 1.45 !important;
+  color: $ink-soft !important;
+}
+
+/* Contact people — fix tablet photo overscale.
+   On tablet keep two columns but make photo smaller column. */
+@media (min-width: ($mobile + 1)) and (max-width: $tablet) {
+  .contact__people {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .contact__person {
+    grid-template-columns: 140px 1fr !important;
+    min-height: 0;
+  }
+  .contact__person--photo {
+    aspect-ratio: 3 / 4;
+    width: 140px;
+  }
+  .contact__person--info {
+    padding: 1.1rem 1.2rem !important;
+  }
+  .contact__person--name { font-size: 1.1rem !important; }
+  .contact__person--links a { font-size: .82rem !important; }
+}
+
+/* Narrow-tablet fallback if 2-col still too tight */
+@media (min-width: ($mobile + 1)) and (max-width: 820px) {
+  .contact__people { grid-template-columns: 1fr !important; }
+  .contact__person { grid-template-columns: 180px 1fr !important; }
+  .contact__person--photo { width: 180px; aspect-ratio: 4 / 5; }
+}
+
+/* ---------- 8. Smooth contact → map transition ---------- */
+.section__contact .contact__hero {
+  background: linear-gradient(180deg, $surface 0%, $surface-2 100%) !important;
+}
+#map {
+  background: linear-gradient(180deg, $surface-2 0%, $surface 100%) !important;
+}
+/* Add a glow divider element via CSS bleed at the seam */
+#map::before {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,106,0,.10), transparent 35%),
+    radial-gradient(ellipse at 90% 100%, rgba(255,106,0,.08), transparent 55%),
+    radial-gradient(ellipse at 10% 100%, rgba(0,212,255,.08), transparent 55%) !important;
+}
+
+/* ---------- 9. Footer redesign ---------- */
+
+/* "Zapraszamy do współpracy" block — make it a real CTA strip */
+.section__footer--block.midnight {
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1rem, 4vw, 2rem) !important;
+  position: relative;
+  overflow: hidden;
+}
+.section__footer--block.midnight h3 {
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem) !important;
+  max-width: 880px;
+  margin: 0 auto !important;
+  line-height: 1.2;
+}
+
+/* Main footer */
+.page-footer.section__footer {
+  background:
+    linear-gradient(180deg, $surface 0%, $surface-2 100%) !important;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 0 !important;
+  border-top: none !important;
+  position: relative;
+  overflow: hidden;
+}
+.page-footer.section__footer::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent, rgba(255,106,0,.45), rgba(0,212,255,.30), transparent);
+}
+
+.page-footer.section__footer .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-footer.section__footer .row {
+  display: grid !important;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+@media (max-width: $tablet) {
+  .page-footer.section__footer .row {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.page-footer.section__footer .about-company {
+  position: relative;
+}
+.page-footer.section__footer .about-company h4 {
+  font-size: .82rem !important;
+  color: $accent !important;
+  letter-spacing: .22em;
+  margin-bottom: 1.2rem !important;
+  position: relative;
+  padding-left: 28px;
+}
+.page-footer.section__footer .about-company h4::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 18px; height: 2px;
+  background: linear-gradient(90deg, $accent, $accent-2);
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+.page-footer.section__footer .about-company p {
+  font-size: .95rem !important;
+  line-height: 1.75 !important;
+  color: $ink-soft !important;
+  margin-bottom: 1rem;
+}
+
+/* Right column — company data */
+.page-footer.section__footer .row > .col.l5 h4 {
+  font-size: .82rem !important;
+  letter-spacing: .22em;
+  color: $accent !important;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 1.2rem !important;
+}
+.page-footer.section__footer .row > .col.l5 h4::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 18px; height: 2px;
+  background: linear-gradient(90deg, $accent, $accent-2);
+  transform: translateY(-50%);
   border-radius: 2px;
 }
 
-
-/// SERVICES ///
-
-.shadow-text {
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+.page-footer.section__footer .about-table {
+  background: #fff;
+  border-radius: $radius-lg;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid $line;
+  box-shadow: $shadow-sm;
+}
+.page-footer.section__footer .about-table td {
+  border-bottom: 1px dashed $line !important;
+  padding: .65rem 0 !important;
+  font-size: .9rem !important;
+}
+.page-footer.section__footer .about-table tr:last-child td {
+  border-bottom: none !important;
+}
+.page-footer.section__footer .about-table td:first-child {
+  width: 40% !important;
+  padding-right: 1rem !important;
+}
+.page-footer.section__footer .about-table .text-bold {
+  font-size: .72rem !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: $muted !important;
+}
+.page-footer.section__footer .about-table td:last-child span {
+  color: $ink !important;
+  font-weight: 500;
 }
 
-.services {
-  &__cards {
-    padding-top: 70px;
-  }
-
-  &__card {
-    border-radius: .5rem;
-    min-height: 220px;
-    padding: 15px;
-
-    &--text {
-      padding-left: 75px;
-    }
-    &--icon {
-      font-size: 60px;
-      color: #424242;
-    }
-
-    .btn-floating {
-      margin-right: 15px;
-    }
-  }
+/* Footer bottom bar */
+.page-footer.section__footer .footer-copyright {
+  background: transparent !important;
+  margin-top: 3.5rem !important;
+  padding: 1.4rem 0 1.6rem !important;
+  border-top: 1px solid $line;
+  font-size: .85rem;
+}
+.page-footer.section__footer .footer-copyright .container {
+  max-width: 1180px;
+}
+.page-footer.section__footer .footer-copyright__line {
+  color: $muted;
+}
+.page-footer.section__footer .footer-copyright__line span {
+  color: $muted;
+}
+.page-footer.section__footer .footer-copyright__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+.page-footer.section__footer .footer-copyright__link::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: $accent;
+  box-shadow: 0 0 8px rgba(255,106,0,.7);
 }
 
-.parallax-container {
-  background-color: rgba(4, 3, 15, 0.7);
-  height: 550px;
+/* =========================================================================
+   v5 — refinements
+   ========================================================================= */
+
+/* ---------- 1. Restore plain page-footer (revert v4) ---------- */
+.page-footer.section__footer {
+  background: $surface !important;
+  padding: clamp(3rem, 6vw, 5rem) 0 0 !important;
+  border-top: 1px solid $line !important;
+}
+.page-footer.section__footer::before { display: none !important; }
+
+.page-footer.section__footer .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 2rem 0 !important;
+  grid-template-columns: none !important;
+}
+.page-footer.section__footer .row > .col.l7 { flex: 1 1 58%; }
+.page-footer.section__footer .row > .col.l5 { flex: 1 1 40%; }
+@media (max-width: $tablet) {
+  .page-footer.section__footer .row > [class*="col"] { flex: 1 1 100%; }
+}
+
+.page-footer.section__footer h4 {
+  font-size: 1rem !important;
+  text-transform: uppercase;
+  letter-spacing: .14em !important;
+  color: $ink !important;
+  font-weight: 700 !important;
+  padding: 0 !important;
+  margin-bottom: 1.3rem !important;
+}
+.page-footer.section__footer h4::before { display: none !important; }
+
+.page-footer.section__footer .about-company p {
+  color: $ink-soft !important;
+  font-size: .95rem !important;
+  line-height: 1.75 !important;
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+.page-footer.section__footer .about-table {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+.page-footer.section__footer .about-table td {
+  border-bottom: 1px solid $line !important;
+  border-radius: 0 !important;
+  padding: .6rem 0 !important;
+  font-size: .92rem !important;
+  color: $ink-soft !important;
+}
+.page-footer.section__footer .about-table tr:last-child td {
+  border-bottom: 1px solid $line !important;
+}
+.page-footer.section__footer .about-table td:first-child {
+  width: 42% !important;
+  padding-right: 1rem !important;
+}
+.page-footer.section__footer .about-table .text-bold {
+  font-size: .92rem !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: $ink !important;
+  font-weight: 700 !important;
+}
+.page-footer.section__footer .about-table td:last-child span {
+  color: $ink-soft !important;
+  font-weight: 400;
+}
+
+.page-footer.section__footer .footer-copyright {
+  background: $surface-2 !important;
+  margin-top: 3rem !important;
+  padding: 1.25rem 0 !important;
+  border-top: none !important;
+  color: $muted !important;
+  font-size: .85rem;
+}
+.page-footer.section__footer .footer-copyright__link::before { display: none; }
+.page-footer.section__footer .footer-copyright__link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- 2. Midnight CTA block — bold redesign ---------- */
+.section__footer--block.midnight {
+  background: $ink !important;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 2rem) !important;
+  isolation: isolate;
+}
+.section__footer--block.midnight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 30%, rgba(255,106,0,.30), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(123,92,255,.25), transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(0,212,255,.10), transparent 70%);
+  z-index: 0;
+  display: block !important;
+  animation: ctaPulse 12s ease-in-out infinite alternate;
+}
+.section__footer--block.midnight::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  z-index: 0;
+  pointer-events: none;
+}
+@keyframes ctaPulse {
+  0%   { transform: scale(1)    rotate(0deg); }
+  50%  { transform: scale(1.04) rotate(.4deg); }
+  100% { transform: scale(1.02) rotate(-.4deg); }
+}
+
+.section__footer--block.midnight h3 {
+  /* override v3 gradient — keep but make it bigger and full-width */
+  margin: 0 !important;
+}
+
+.footer-cta {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
-
-p.contact-quote {
-  position: relative;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 2rem;
-
-  &:first-child:before {
-    font-family: 'Material Icons';
-    content: "format_quote";
-    color: rgba(255,255,255, 0.4);
-    font-size: 10rem;
-    position: absolute;
-    top: -.7em;
-    left: -0.2em;
-  }
+.footer-cta__eyebrow {
+  color: $accent-2 !important;
+  background: rgba(255,106,0,.14) !important;
+  margin-bottom: 1.4rem;
+}
+.footer-cta__title {
+  font-size: clamp(2rem, 4.5vw, 3.4rem) !important;
+  line-height: 1.1 !important;
+  margin: 0 0 1.25rem !important;
+  background: linear-gradient(120deg, #fff 0%, $accent-3 55%, $accent-2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -.02em;
+}
+.footer-cta__lead {
+  color: black !important;
+  font-size: 1.08rem !important;
+  line-height: 1.7 !important;
+  max-width: 680px;
+  margin: 0 auto 2rem !important;
+}
+.footer-cta__btn {
+  display: inline-flex;
+  margin: 0 auto;
 }
 
-.divider-bottom {
-  padding-bottom: 60px;
-  border-bottom: 1px solid #f0f0f0;
+/* ---------- 3. Default materialize nav box-shadow — kill it ---------- */
+nav,
+.navbar,
+.navbar.navbar-default {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+.navbar.navbar-default.scrolled .nav-wrapper {
+  box-shadow:
+    0 8px 22px rgba(11,16,32,.16),
+    inset 0 0 0 1px rgba(255,255,255,.05) !important;
 }
 
-/// SCROLL ///
-
-.scroll-top {
-  position: fixed;
-  display: block;
-  bottom: 1.5625rem;
-  right: 1.5625rem;
-  z-index: 1000;
+/* ---------- 4. Bigger hero logo ---------- */
+#home .logo {
+  width: clamp(240px, 32vw, 480px) !important;
 }
 
-/// GALLERY ///
+/* ---------- 5. Services — editorial timeline list (no cards) ---------- */
 
+/* Flat vertical list */
+
+/* Kill the background-image and overlay from v3/v4 */
+
+/* Icon (the btn-floating) becomes a clean square */
+
+/* Content column */
+
+/* Responsive: stack on tablet & mobile */
+
+/* ---------- 6. Bridge shape between #services and #gallery ----------
+   Replaces the divider line with overlapping background blobs that bleed
+   into both sections, creating visual continuity rather than separation. */
+
+/* Allow #services and #gallery to NOT clip the divider's blobs */
+
+#gallery  { overflow: visible !important; }
+/* Re-clip the inner ambient layers manually */
+
+#gallery > *  { position: relative; z-index: 1; }
+
+/* =========================================================================
+   v6 — unified site background + services fix + light CTA block
+   ========================================================================= */
+
+/* ---------- A. Single shared canvas for the whole site ----------
+   Move all gradient orbs from individual sections onto the document.
+   Sections become transparent and float on this canvas, so visual
+   transitions stay perfectly smooth. */
+
+body {
+  background:
+    /* layered radial mesh — fixed so it doesn't move with scroll */
+    radial-gradient(ellipse 70vw 60vh at 0% 0%,   rgba(255,106,0,.12), transparent 60%),
+    radial-gradient(ellipse 60vw 60vh at 100% 18%, rgba(123,92,255,.10), transparent 60%),
+    radial-gradient(ellipse 80vw 55vh at 50% 45%, rgba(0,212,255,.08),  transparent 65%),
+    radial-gradient(ellipse 70vw 60vh at 100% 75%, rgba(255,106,0,.10), transparent 60%),
+    radial-gradient(ellipse 60vw 55vh at 0% 95%,   rgba(123,92,255,.10), transparent 60%),
+    $surface !important;
+  background-attachment: fixed !important;
+}
+
+/* The animated floating blobs (body::before/::after) — re-tune for stronger life */
+body::before {
+  width: 620px; height: 620px;
+  background: radial-gradient(circle, rgba(255,106,0,.55) 0%, transparent 70%);
+  opacity: .42 !important;
+}
+body::after {
+  width: 540px; height: 540px;
+  background: radial-gradient(circle, rgba(123,92,255,.55) 0%, transparent 70%);
+  opacity: .30 !important;
+}
+
+/* ---------- B. Make content sections transparent so canvas shows ---------- */
+
+/* Strip the per-section ::before glow layers (they conflicted) */
+
+/* Keep contact orbs and grid still visible — they decorate the email card area */
+.contact__bg-orb, .contact__bg-grid { display: block !important; }
+
+/* ---------- C. Services — proper grid layout (fixes broken timeline) ----------
+   .btn-floating lives inside .card-content, so the outer grid was useless.
+   Use a 2-column grid on .card (number | content) and a nested grid
+   inside .card-content (icon | title+text). */
+
+/* The big number (::before of .card) */
+
+/* Inner content area becomes its own grid: [icon] [title + text] */
+
+/* Responsive — stack: number top, then icon+content below */
+
+/* ---------- D. Section h3 colors fixed for transparent backgrounds ---------- */
+
+/* ---------- E. Zapraszamy do współpracy — LIGHT now ---------- */
+.section__footer--block.midnight {
+  background:
+    linear-gradient(135deg, rgba(255,106,0,.10) 0%, rgba(123,92,255,.07) 50%, rgba(0,212,255,.06) 100%),
+    $surface !important;
+  color: $ink !important;
+  padding: clamp(4rem, 7vw, 6.5rem) clamp(1rem, 4vw, 2rem) !important;
+  border-top: 1px solid rgba(11,16,32,.06);
+  border-bottom: 1px solid rgba(11,16,32,.06);
+}
+.section__footer--block.midnight::before {
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 30%, rgba(255,106,0,.20), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(123,92,255,.16), transparent 60%) !important;
+}
+.section__footer--block.midnight::after {
+  background-image:
+    linear-gradient(rgba(11,16,32,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,16,32,.04) 1px, transparent 1px) !important;
+}
+
+.footer-cta__eyebrow {
+  color: $accent !important;
+  background: rgba(255,106,0,.10) !important;
+  border: 1px solid rgba(255,106,0,.18);
+}
+.footer-cta__title {
+  background: linear-gradient(120deg, $ink 0%, $accent 60%, $accent-2 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+.footer-cta__lead {
+  color: $ink-soft !important;
+}
+
+/* ---------- F. Partners still dark accent — sharpen edges so the
+                light canvas transition reads as intentional ---------- */
+.section__partners {
+  /* keep dark, but smooth color in/out via inset shadows */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 -1px 0 rgba(255,255,255,.04);
+}
+
+/* ---------- G. Hero shape continuity — match new transparent body ---------- */
+#home .shape-container svg path {
+  fill: $surface !important;
+}
+/* Since body has fixed gradient blobs, the wave overlaps them.
+   The body bg is mostly white so the wave still reads cleanly. */
+
+/* ---------- H. Bridge shapes — already in v5; make them stronger now
+                that sections share one canvas, so they read as "ambient" ---------- */
+
+/* ---------- I. Make sure footer page section sits above the body canvas blobs ---------- */
+.page-footer.section__footer { background: $surface !important; position: relative; z-index: 1; }
+
+/* ---------- J. Reduce ambient blob opacity slightly on dark partners
+                section to avoid color bleeding through borders ---------- */
+.section__partners { z-index: 2; }
+
+/* =========================================================================
+   v7 — fix services number rendering, kill section overflow seams,
+        remove grid in CTA block, add more visual life to services
+   ========================================================================= */
+
+/* ---------- 1. NUKE the v3 bento bg-image per-tile rules ----------
+   These were higher-specificity than v6 number rule, so the truck image
+   was still being applied to ::before and the gradient number was invisible. */
+
+/* Also nuke any leftover ::after from v3 (the dark gradient overlay) */
+
+/* Card itself MUST be transparent — kill all v2/v3 backgrounds with strong specificity */
+
+/* ---------- 2. Remove the futuristic grid pattern from CTA "Zapraszamy" ---------- */
+.section__footer--block.midnight::after {
+  display: none !important;
+  background-image: none !important;
+}
+
+/* ---------- 3. Kill section overflow:hidden that clips ambient gradients ----------
+   This was creating the sharp horizontal seams visible between contact, map etc. */
+.section__contact,
+.section__contact .contact__hero,
+#map,
+#contact,
+.section__about,
 #gallery {
-  .row .col {
-    padding: 5px;
+  overflow: visible !important;
+}
+
+/* Contact decorative orbs — recolor with stronger purple to fit canvas */
+.contact__bg-orb--1 {
+  width: 460px !important;
+  height: 460px !important;
+  top: -120px !important;
+  right: -120px !important;
+  opacity: .45 !important;
+}
+.contact__bg-orb--2 {
+  width: 400px !important;
+  height: 400px !important;
+  bottom: -120px !important;
+  left: -140px !important;
+  opacity: .30 !important;
+}
+.contact__bg-grid { display: none !important; }
+
+/* ---------- 4. Services — add visual decoration (NOT just text) ---------- */
+
+/* Decorative vertical "road" line connecting all numbers, with dashed pattern */
+
+/* Hide the road-line on tablet (when layout changes) */
+
+/* Floating decorative shapes inside services area */
+
+/* Make sure rows sit above decorations */
+
+/* Add a colored "dot" between number and content (vertical timeline node) */
+
+/* Stronger hover state — no weird border-glow artifacts.
+   Use background only at high transparency, fade in/out via opacity. */
+
+/* Kill any leftover materialize waves-effect ripple overlay */
+
+/* ---------- 5. Lock btn-floating styling against all materialize classes ---------- */
+
+/* ---------- 6. More breathing space, bigger numbers feel ---------- */
+
+/* ---------- 7. Cleanup ambient body bg blob positions to avoid the
+                purple/pink seam visible in user screenshot ---------- */
+body::before {
+  /* keep top-right orange — fine */
+}
+body::after {
+  /* move the purple blob away from contact/map seam */
+  top: auto !important;
+  bottom: -160px !important;
+  left: -180px !important;
+  width: 540px !important;
+  height: 540px !important;
+}
+
+/* The mid-page mesh radials on body{background:...} already cover middle.
+   To avoid hard color bands near specific section borders, reduce mid orbs
+   opacity. */
+body {
+  background:
+    radial-gradient(ellipse 80vw 60vh at 0% 0%,    rgba(255,106,0,.10), transparent 60%),
+    radial-gradient(ellipse 70vw 60vh at 100% 20%, rgba(123,92,255,.08), transparent 60%),
+    radial-gradient(ellipse 90vw 55vh at 50% 50%, rgba(0,212,255,.05),  transparent 70%),
+    radial-gradient(ellipse 80vw 60vh at 100% 80%, rgba(255,106,0,.08), transparent 60%),
+    radial-gradient(ellipse 70vw 55vh at 0% 100%,   rgba(123,92,255,.08), transparent 60%),
+    $surface !important;
+  background-attachment: fixed !important;
+}
+
+/* =========================================================================
+   v8 — modern services icons + thinner / better aligned timeline axis
+   ========================================================================= */
+
+/* ---------- Timeline axis: thinner, better placed ---------- */
+
+/* The pulsing dot before .card-content already sits at left:-.85rem of content;
+   keep it slightly larger but flat for cleaner look */
+
+/* ---------- Modern icons — outlined glass tile w/ gradient text icon ---------- */
+
+/* Soft inner radial glow */
+
+/* Subtle highlight stroke top */
+
+/* The icon glyph itself — large, gradient-coloured */
+
+/* Hover — brighter tile, icon scales + glows */
+
+/* Smaller breakpoints — keep proportional sizing */
+
+/* Inner content grid: adjust icon column to fit the larger glass tile */
+
+/* =========================================================================
+   v9 — premium polish (inspired by glossar.app + ebury.com)
+   • Subtle grain/noise overlay on body for tactile feel
+   • Bigger, more impactful stats in About section
+   • Marquee tagline band between hero & about
+   • Buttons get sliding arrow on hover
+   • Partner logos polished hover
+   • Stats / scroll-triggered micro-interactions
+   • Heading rhythm tweaks
+   ========================================================================= */
+
+/* ---------- 1. Grain / noise overlay (page-wide, very subtle) ---------- */
+body::after {
+  /* Reuse existing pseudo-element by re-styling it as the grain layer.
+     Earlier I had it as a drifting blob — drop that role to body::before only
+     and convert ::after into a fixed grain texture. */
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>") !important;
+  background-size: 200px 200px !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  bottom: auto !important;
+  left: 0 !important;
+  position: fixed !important;
+  filter: none !important;
+  border-radius: 0 !important;
+  opacity: .035 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  animation: none !important;
+  mix-blend-mode: multiply;
+}
+
+/* Bring back the second drifting purple blob via a custom DOM-less helper:
+   add it on the .footer-cta block as another decorative orb so the page
+   still has the floating life it had with body::after. */
+.section__footer--block.midnight::before {
+  /* already exists; nothing to do here */
+}
+
+/* ---------- 2. About — Premium stats showcase ---------- */
+
+.section__about {
+  padding: clamp(5rem, 8vw, 8rem) 0 clamp(4rem, 7vw, 6rem) !important;
+}
+
+.section__about h3 {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -.025em !important;
+  line-height: 1.1 !important;
+  background: linear-gradient(120deg, $ink 0%, $ink 60%, $accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+}
+
+.section__about--text {
+  font-size: clamp(1.05rem, 1.3vw, 1.18rem) !important;
+  max-width: 760px !important;
+  color: $ink-soft !important;
+}
+
+/* Stats row → a single premium showcase strip with dividers */
+.section__about .row {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 0 !important;
+  max-width: 1180px;
+  margin: 3rem auto 0;
+  padding: 2.5rem clamp(1rem, 3vw, 2rem);
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(11,16,32,.06);
+  border-radius: 28px;
+  box-shadow:
+    0 10px 40px rgba(11,16,32,.06),
+    0 1px 0 rgba(255,255,255,.6) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.section__about .row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(255,106,0,.07), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section__about--icons {
+  position: relative;
+  z-index: 1;
+  padding: 1.25rem .75rem !important;
+  border-right: 1px solid rgba(11,16,32,.08);
+  transition: transform .3s ease;
+  text-align: center;
+}
+.section__about--icons:last-child { border-right: none; }
+
+.section__about--icons:hover { transform: translateY(-4px); }
+
+.section__about--icons .section__about--icon {
+  width: 56px !important;
+  height: 56px !important;
+  line-height: 56px !important;
+  background: rgba(255,106,0,.10) !important;
+  color: $accent !important;
+  font-size: 1.6rem !important;
+  border-radius: 16px !important;
+  margin: 0 auto 1rem !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,106,0,.18),
+    0 4px 14px rgba(255,106,0,.10) !important;
+}
+
+.section__about--icons .section__about--icon-text {
+  font-size: clamp(1.9rem, 3vw, 2.6rem) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, $ink 0%, $accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  letter-spacing: -.02em;
+  line-height: 1 !important;
+  margin-bottom: .5rem !important;
+}
+
+.section__about--icons h6 {
+  font-size: .78rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: .12em !important;
+  color: $muted !important;
+  line-height: 1.4;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+@media (max-width: $tablet) {
+  .section__about .row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .section__about--icons:nth-child(2) { border-right: none; }
+  .section__about--icons:nth-child(1),
+  .section__about--icons:nth-child(2) {
+    border-bottom: 1px solid rgba(11,16,32,.08);
   }
 }
-
-#materialbox-overlay {
-  background-color: rgba(0,0,0,0.95);
+@media (max-width: $mobile) {
+  .section__about .row {
+    grid-template-columns: 1fr !important;
+    padding: 1.25rem clamp(.75rem, 3vw, 1.5rem);
+  }
+  .section__about--icons {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(11,16,32,.08);
+  }
+  .section__about--icons:last-child { border-bottom: none; }
 }
 
-.section {
-  &__gallery {
-    padding-bottom: 6rem;
-    padding-top: 4rem;
-    position: relative;
-    width: 100%;
+/* ---------- 3. Marquee tagline band between hero & about ---------- */
 
-    &__images {
-      padding-bottom: 10px;
+.tagline-marquee {
+  background: transparent;
+  padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(1rem, 2vw, 1.5rem);
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.tagline-marquee__track {
+  display: flex;
+  gap: 4rem;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+  align-items: center;
+}
+.tagline-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: 0 0 auto;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: transparent;
+  background: linear-gradient(120deg, $ink 0%, $ink 40%, $accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tagline-marquee__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $accent, $accent-2);
+  flex: 0 0 auto;
+  box-shadow: 0 0 16px rgba(255,106,0,.55);
+}
 
-      .btn {
-        height: auto;
-        line-height: 70px;
-        padding: 0 40px;
-      }
+/* ---------- 4. Buttons — sliding arrow on hover ---------- */
 
-      @media(max-width: $mobile-width) {
-        .row.valign-wrapper { display: inherit; }
-      }
-    }
+.btn-magnetic--primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-magnetic--primary i.material-icons {
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.btn-magnetic--primary:hover i.material-icons {
+  transform: translateX(4px);
+}
+
+.btn.btn-large.orange {
+  position: relative;
+  overflow: hidden;
+}
+.btn.btn-large.orange::after {
+  content: '→';
+  display: inline-block;
+  margin-left: .55rem;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+  font-weight: 600;
+}
+.btn.btn-large.orange:hover::after {
+  transform: translateX(5px);
+}
+
+/* ---------- 5. Partner logos — premium hover (tilt + scale) ---------- */
+
+.partners__item {
+  transition: background .3s, border-color .3s, transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.partners__item:hover {
+  transform: translateY(-4px) rotate(-1.5deg) scale(1.04);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,106,0,.45);
+  box-shadow: 0 16px 36px rgba(11,16,32,.35);
+}
+
+/* ---------- 6. Hero typography — bigger, more dramatic ---------- */
+
+#home .motto {
+  font-size: clamp(1.9rem, 4vw, 3.3rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -.025em !important;
+  line-height: 1.15 !important;
+  max-width: 980px !important;
+}
+
+/* ---------- 7. Section heading rhythm — bigger and bolder ---------- */
+
+/* ---------- 8. Subtle "pill" indicator on each section (eyebrow style) ----
+   For about-section title, add an automatic small eyebrow label above h3. */
+.section__about > .container > .col.l6 {
+  text-align: center;
+  position: relative;
+}
+.section__about > .container > .col.l6::before {
+  content: 'O firmie';
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $accent;
+  background: rgba(255,106,0,.10);
+  border: 1px solid rgba(255,106,0,.20);
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+/* Re-flow: put pill on its own line above the gradient h3 */
+
+#gallery .section__gallery > .container > .col.l6 {
+  text-align: center;
+  position: relative;
+}
+#gallery .section__gallery > .container > .col.l6::before {
+  content: 'Galeria';
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $accent;
+  background: rgba(255,106,0,.10);
+  border: 1px solid rgba(255,106,0,.20);
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+#map .section__map .section__map--middle-align > .col.l5 {
+  position: relative;
+}
+#map .section__map .section__map--middle-align > .col.l5::before {
+  content: 'Lokalizacja';
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $accent;
+  background: rgba(255,106,0,.10);
+  border: 1px solid rgba(255,106,0,.20);
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- 9. Glossar-style soft card-like wrap for sections ----
+   Add a frosted glass container around #map for premium feel */
+#map .section__map--middle-align {
+  background: rgba(255,255,255,.55) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(11,16,32,.06);
+  border-radius: 28px;
+  padding: clamp(2rem, 4vw, 3.5rem) !important;
+  box-shadow:
+    0 10px 40px rgba(11,16,32,.06),
+    0 1px 0 rgba(255,255,255,.6) inset;
+}
+
+/* ---------- 10. Smoother contact email card hover ---------- */
+.contact__email-card {
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;
+}
+.contact__email-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 24px 60px rgba(11,16,32,.30),
+    0 0 0 1px rgba(255,106,0,.20);
+}
+
+/* =========================================================================
+   v10 — fixes: mobile nav, about layout, services consistency,
+        new circular icons, tire-track timeline, gallery CTA, kill marquee
+   ========================================================================= */
+
+/* ---------- 1. Mobile / tablet — robust visibility + no horizontal scroll ---------- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* Mobile menu trigger MUST appear at tablet and below */
+@media (max-width: $tablet) {
+  .navbar.navbar-default { display: none !important; }
+  .side-nav.hide-on-large-only {
+    display: block !important;
+    position: fixed !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 110 !important;
+  }
+  .side-nav.hide-on-large-only .sidenav-trigger {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: .5rem !important;
+    background: rgba(11,16,32,.85) !important;
+    color: #fff !important;
+    padding: .7rem 1.2rem !important;
+    border-radius: 999px !important;
+    box-shadow: 0 8px 24px rgba(11,16,32,.30) !important;
+    font-weight: 700 !important;
+    letter-spacing: .12em !important;
+    text-transform: uppercase !important;
+    font-size: .78rem !important;
+    backdrop-filter: blur(12px);
   }
 }
-
-
-.btn-shadow {
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 6px 10px -5px rgba(0,0,0,0.44), 0 8px 8px 0 rgba(0,0,0,0.30);
+@media (min-width: ($tablet + 1)) {
+  .side-nav.hide-on-large-only { display: none !important; }
 }
 
-.section__gallery__images .container {
-  width: 90%;
+/* ---------- 2. Tagline marquee — fully removed ---------- */
+.tagline-marquee,
+.tagline-marquee__track,
+.tagline-marquee__item,
+.tagline-marquee__dot {
+  display: none !important;
 }
 
-.materialboxed {
-  border-radius: 5px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
+/* ---------- 3. About — solid white bg matching hero wave ---------- */
+.section__about {
+  background: $surface !important;
+}
+.section__about::before,
+.section__about::after { display: none !important; }
+
+#home .shape-container svg path { fill: $surface !important; }
+
+/* ---------- 4. About stats — restore materialize 4-column layout
+                while keeping the v9 visual polish (frosted card) ---------- */
+.section__about .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+  max-width: 1180px;
+  margin: 3rem auto 0;
+  padding: 2rem clamp(.5rem, 2vw, 1.5rem);
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(11,16,32,.06);
+  border-radius: 28px;
+  box-shadow:
+    0 10px 40px rgba(11,16,32,.06),
+    0 1px 0 rgba(255,255,255,.6) inset;
+  position: relative;
+  overflow: hidden;
+}
+.section__about .row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(255,106,0,.07), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/// PARTNERS ///
-
-.section {
-  &__partners {
-    margin: 0;
-    padding-top: 30px;
-  }
+/* Each stat column: full width control + center alignment */
+.section__about .row > .col.section__about--icons {
+  flex: 1 1 25% !important;
+  width: 25% !important;
+  padding: 1.5rem 1rem !important;
+  margin: 0 !important;
+  text-align: center !important;
+  position: relative;
+  z-index: 1;
+  border-right: 1px solid rgba(11,16,32,.08);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  transition: transform .3s ease;
+}
+.section__about .row > .col.section__about--icons:last-child {
+  border-right: none;
+}
+.section__about .row > .col.section__about--icons:hover {
+  transform: translateY(-4px);
 }
 
-.carousel {
-  height: 180px;
+.section__about--icons .section__about--icon {
+  width: 60px !important;
+  height: 60px !important;
+  line-height: 60px !important;
+  background: rgba(255,106,0,.10) !important;
+  color: $accent !important;
+  font-size: 1.7rem !important;
+  border-radius: 16px !important;
+  margin: 0 auto 1rem !important;
+  display: block !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,106,0,.18),
+    0 4px 14px rgba(255,106,0,.10) !important;
 }
-
-.carousel.carousel-slider .carousel-item {
-  min-height: auto;
-  height: auto;
-}
-
-.carousel.carousel-slider img.responsive-img {
-  max-width: 70%;
-}
-
-/// CONTACT ///
-
-.contact {
-
-  &__cards {}
-
-  &__card {
-    border-radius: .5rem;
-
-    &--title {
-      font-size: 38px;
-      color: #424242;
-    }
-
-    &--text {
-      color: #9e9e9e;
-      font-size: 1.5rem;
-    }
-  }
-
-  // &__mask {
-  //   background: url('../images/bg-contact.svg');
-  // }
-}
-
-
-
-.section {
-  &__email {
-    padding-bottom: 3rem;
-    position: relative;
-    width: 100%;
-  }
-}
-
-.bg-size--contain {
-    background-size: contain;
-}
-.bg-absolute-cover {
-    background-repeat: no-repeat;
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-}
-
-.svgcover {
+.section__about--icons .block-content {
   width: 100%;
+  text-align: center;
+}
+.section__about--icons .section__about--icon-text {
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem) !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, $ink 0%, $accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  letter-spacing: -.02em;
+  line-height: 1 !important;
+  margin: 0 0 .5rem 0 !important;
+}
+.section__about--icons h6 {
+  font-size: .76rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: .12em !important;
+  color: $muted !important;
+  line-height: 1.4;
+  max-width: 200px;
+  margin: 0 auto !important;
+}
+
+/* Responsive: tablet 2-col, mobile 1-col */
+@media (max-width: $tablet) {
+  .section__about .row > .col.section__about--icons {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+  }
+  .section__about .row > .col.section__about--icons:nth-child(2) { border-right: none; }
+  .section__about .row > .col.section__about--icons:nth-child(1),
+  .section__about .row > .col.section__about--icons:nth-child(2) {
+    border-bottom: 1px solid rgba(11,16,32,.08);
+  }
+}
+@media (max-width: $mobile) {
+  .section__about .row > .col.section__about--icons {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(11,16,32,.08) !important;
+  }
+  .section__about .row > .col.section__about--icons:last-child {
+    border-bottom: none !important;
+  }
+}
+
+/* ---------- 5. Services first card — nuke earlier per-tile overrides ---------- */
+
+/* ---------- 6. Timeline — new "tire track" look (two parallel dashed lines) ---------- */
+
+/* The pulsing dot at content edge — move slightly to sit between the rails */
+
+/* ---------- 7. Service icons — new design: gradient-filled circle, big white icon ---------- */
+
+/* Soft outer aura halo (replaces v8 inner glow) */
+
+/* Icon glyph — large white solid (NO background-clip:text — that was the parsing issue) */
+
+/* Responsive icon sizing */
+
+/* ---------- 8. Gallery CTA — bold gradient pill, obvious action ---------- */
+#gallery .button.btn.btn-large.white,
+#gallery .btn.btn-large.white {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .65rem !important;
+  background: linear-gradient(135deg, $accent 0%, $accent-2 100%) !important;
+  background-color: transparent !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 1.1rem 2.2rem !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em !important;
+  border-radius: 999px !important;
+  box-shadow:
+    0 14px 30px rgba(255,106,0,.30),
+    inset 0 0 0 1px rgba(255,255,255,.15) !important;
+  text-transform: none !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1),
+              box-shadow .3s ease !important;
+}
+#gallery .button.btn.btn-large.white::after,
+#gallery .btn.btn-large.white::after {
+  content: '→';
+  display: inline-block;
+  font-weight: 700;
+  margin-left: .25rem;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+#gallery .button.btn.btn-large.white:hover,
+#gallery .btn.btn-large.white:hover {
+  transform: translateY(-3px) !important;
+  box-shadow:
+    0 22px 44px rgba(255,106,0,.40),
+    inset 0 0 0 1px rgba(255,255,255,.20) !important;
+  color: #fff !important;
+}
+#gallery .button.btn.btn-large.white:hover::after,
+#gallery .btn.btn-large.white:hover::after {
+  transform: translateX(6px);
+}
+
+/* Container around the CTA — add some breathing room and a subtle eyebrow line */
+#gallery .gall-3 + * {} /* placeholder so editor doesn't strip */
+
+/* ---------- 9. Eyebrow pills — make smaller and only above intended h3 ----
+   v9 added them broadly; ensure they don't clash on mobile */
+
+/* ---------- 10. Make sure transparent sections don't show seams against
+                 the solid-white about section. The body bg is responsible for
+                 the gradient ambience on services/gallery/contact/map. ---------- */
+
+/* ---------- 11. Iframe in map — make sure it doesn't blow up the container ---------- */
+#map iframe {
+  max-width: 100%;
   display: block;
-  height: inherit;
 }
 
+/* ---------- 12. Mobile: kill some heavy decorations to keep things readable ---------- */
+@media (max-width: $mobile) {
+  body::before {
+    opacity: .25 !important;
+    width: 360px !important;
+    height: 360px !important;
+  }
+  .contact__bg-orb--1, .contact__bg-orb--2 { opacity: .25 !important; }
+  
+}
 
-/// MAP ///
+/* =========================================================================
+   v11 — new services UI (horizontal expanding strips with photos)
+        + legal pages styling
+        + cookie modal full-link
+        + footer two-link layout
+   ========================================================================= */
 
-.section {
-  &__map {
-    padding-top: 30px;
-    overflow: hidden;
+/* ---------- A. Services — horizontal accordion strips ----------
+   Layout: 5 narrow image strips side-by-side; hovering one expands it
+   to reveal full description, others compress. Modern, transport-themed
+   (uses fleet photos). Stacks vertically on mobile.
+   ---------------------------------------------------------------- */
 
-    &--middle-align {
-      display: flex;
-      -webkit-box-align: center!important;
-      -ms-flex-align: center!important;
-      align-items: center!important;
-    }
+/* Reset the timeline / tire-track decorations (no longer needed) */
 
-    &--no-padding {
-      padding-right: 0!important;
-    }
+/* Section padding & heading */
 
-    &--title {
-      font-size: 44px;
-      color: #424242;
-    }
+/* Row becomes horizontal flex container */
 
-    &--text {
-      font-size: 1.2rem;
-      line-height: 1.9;
-      margin: auto;
-      width: 80%;
-    }
+/* Expanded state on hover (and on first card by default for clarity) */
+
+/* Card itself — image-backed tile */
+
+/* Per-tile background images (fleet photos) */
+
+/* Dark gradient overlay for legibility */
+
+/* Number badge — top-left (counter on .card::after) */
+
+/* Content wrapper sits at bottom, above overlay */
+
+/* Icon — glass tile pinned within content */
+
+/* Title — always visible, scales up on expand */
+
+/* Description — hidden when collapsed, revealed on hover */
+
+/* Subtle hint at bottom-right of collapsed strip — arrow */
+
+/* Responsive: stack vertically on tablet & mobile (all expanded) */
+
+/* =========================================================================
+   B. Cookie modal — full-link line in footer
+   ========================================================================= */
+.cookie-modal__footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+}
+.cookie-modal__footer-actions {
+  display: flex;
+  gap: .65rem;
+  flex-wrap: wrap;
+}
+.cookie-modal__full-link {
+  color: $accent;
+  font-weight: 600;
+  font-size: .92rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  transition: color .2s ease, transform .25s ease;
+}
+.cookie-modal__full-link:hover {
+  color: $accent-2;
+  transform: translateX(2px);
+}
+
+/* =========================================================================
+   C. Footer — two policy links side by side
+   ========================================================================= */
+.page-footer.section__footer .footer-copyright__links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.page-footer.section__footer .footer-copyright__line {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1rem;
+}
+.page-footer.section__footer .footer-copyright__link {
+  color: $muted !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  font-size: .85rem;
+  transition: color .2s ease;
+}
+.page-footer.section__footer .footer-copyright__link:hover {
+  color: $accent !important;
+}
+.page-footer.section__footer .footer-copyright__link::before { display: none !important; }
+
+@media (max-width: $mobile) {
+  .page-footer.section__footer .footer-copyright__line {
+    justify-content: center;
+    text-align: center;
+  }
+  .page-footer.section__footer .footer-copyright__links {
+    width: 100%;
+    justify-content: center;
   }
 }
 
-/// FOOTER ///
+/* =========================================================================
+   D. Legal pages — typography & layout
+   ========================================================================= */
 
-.section {
-  &__footer {
-    background-image: url('../images/mapa-footer.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    &--block {
-      margin: 0;
-      padding: 30px;
-    }
-  }
+.legal-page {
+  padding-top: 104px; /* offset for fixed navbar */
+  min-height: calc(100vh - 200px);
+  position: relative;
+  z-index: 1;
 }
 
-/// LOADER ///
+.legal-page__hero {
+  background: $surface;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid $line;
+  position: relative;
+  overflow: hidden;
+}
+.legal-page__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at top right, rgba(255,106,0,.08), transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(123,92,255,.06), transparent 55%);
+  pointer-events: none;
+}
+.legal-page__hero .container {
+  max-width: 880px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+.legal-page__hero .eyebrow {
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255,106,0,.18);
+}
+.legal-page__title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  background: linear-gradient(120deg, $ink 0%, $accent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin: 0 0 .75rem;
+}
+.legal-page__updated {
+  color: $muted;
+  font-size: .9rem;
+  letter-spacing: .04em;
+  margin: 0;
+}
 
-#loader-wrapper {
-  position: fixed;
-  top: 0;
+.legal-page__body {
+  background: $surface;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(4rem, 7vw, 6rem);
+}
+.legal-page__body .container {
+  max-width: 880px;
+}
+.legal-page__content {
+  color: $ink-soft;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.legal-section {
+  margin-bottom: 2.5rem;
+}
+.legal-section h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  color: $ink;
+  letter-spacing: -.01em;
+  margin: 0 0 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.legal-section h2::before {
+  content: '';
+  position: absolute;
   left: 0;
+  top: .35em;
+  bottom: .35em;
+  width: 3px;
+  background: linear-gradient(180deg, $accent, $accent-2);
+  border-radius: 2px;
+}
+
+.legal-section h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $ink;
+  margin: 0 0 .5rem;
+}
+
+.legal-section p {
+  margin: 0 0 1rem;
+  color: $ink-soft;
+}
+
+.legal-section ul {
+  margin: 0 0 1rem 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+.legal-section ul li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: .5rem;
+  color: $ink-soft;
+}
+.legal-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .65em;
+  width: 6px;
+  height: 6px;
+  background: $accent;
+  border-radius: 50%;
+}
+
+.legal-section a {
+  color: $accent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.legal-section a:hover { color: $accent-2; }
+
+.legal-section strong {
+  color: $ink;
+  font-weight: 700;
+}
+
+.legal-card {
+  background: $surface-2;
+  border: 1px solid $line;
+  border-radius: $radius-lg;
+  padding: 1.5rem 1.75rem;
+  margin: 1.25rem 0;
+  display: block;
+}
+.legal-card__title {
+  margin: 0 0 .75rem !important;
+  color: $ink !important;
+  font-size: 1.1rem !important;
+}
+.legal-card .legal-card__title + p {
+  margin: 0;
+}
+
+.legal-card__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  margin: 0 !important;
+  padding: .55rem 0;
+  border-bottom: 1px dashed $line;
+}
+.legal-card__row:last-child { border-bottom: none; }
+.legal-card__label {
+  flex: 0 0 110px;
+  text-transform: uppercase;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  font-weight: 700;
+  color: $muted;
+  align-self: center;
+}
+.legal-card__value {
+  color: $ink !important;
+  font-weight: 500;
+  word-break: break-word;
+}
+a.legal-card__value { color: $accent !important; }
+a.legal-card__value:hover { color: $accent-2 !important; }
+
+@media (max-width: $mobile) {
+  .legal-card__row {
+    flex-direction: column;
+    gap: .15rem;
+  }
+  .legal-card__label {
+    flex: none;
+    font-size: .66rem;
+  }
+}
+
+/* legal-page layout uses navbar — leave shape-container etc untouched */
+
+/* =========================================================================
+   v12 — new services UI (NO images, clean editorial bento)
+        + nav offset for legal pages
+        + "Manage cookies" link style
+        + bring back nav properly on legal pages
+   ========================================================================= */
+
+/* ---------- A. Legal pages: navbar offset & visible appearance ---------- */
+
+/* The fixed navbar overlaps the hero — push hero down a bit on legal pages */
+.legal-page {
+  padding-top: 116px;
+}
+
+/* The legal-page navbar should always be visible (dark glass over white bg) */
+.page-layout .navbar.navbar-default { display: block !important; }
+.page-layout .navbar.navbar-default .nav-wrapper {
+  background: rgba(11,16,32,.65) !important;
+}
+
+/* ---------- B. Footer "Zarządzaj cookies" link ---------- */
+.page-footer.section__footer .footer-copyright__link[data-cookie-action] {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+.page-footer.section__footer .footer-copyright__link[data-cookie-action]::before {
+  content: '⚙';
+  display: inline-block;
+  color: $accent;
+  font-size: .9rem;
+  line-height: 1;
+}
+
+/* ---------- C. Services — clean editorial bento, NO images ----------
+   5 tiles in a CSS grid. First tile spans both columns (hero).
+   Each card: white surface with HUGE translucent number as decorative
+   background. Small icon top, big title, description. Gradient border
+   on hover. No images, just typography + colour. */
+
+/* Reset everything from prior services iterations */
+
+/* Section frame */
+
+/* Row → CSS grid 2 columns, gap, max-width container */
+
+/* First card (Dyspozycyjność, .col.l12) spans full row width */
+
+/* The card itself — clean light surface with NO image bg */
+
+/* GIGANTIC translucent number as decorative background (::before) */
+
+/* ::after off (we used it for some prior iterations) */
+
+/* Content wrapper sits above the number */
+
+/* Icon — small rounded square, gradient orange */
+
+/* Title — big, bold */
+
+/* Description */
+
+/* First (hero) card — bigger typography, more padding */
+
+/* Tablet & mobile responsive */
+
+/* =========================================================================
+   v12-fix — explicitly nuke v11 per-tile background-image rules
+   These had higher specificity (0,1,5,0) + !important, beating my v12
+   override on lower-specificity selectors. We restate at same specificity
+   so the image URLs are wiped cleanly. */
+
+/* Per-tile even-card layout overrides from v5 (image-left vs image-right
+   split) must be cancelled — they re-flowed direction/grid-template */
+
+/* Hover on per-tile shouldn't apply v5 brightness change to ::before */
+
+/* =========================================================================
+   v12-fix-2 — make the giant number actually visible
+   The gradient-clip approach with .10 alpha was nearly invisible on white.
+   Switch to solid orange color with .18 alpha (visible, still subtle).
+   ========================================================================= */
+
+/* Hover: brighter, slight movement */
+
+/* Hero card (first one) — even bigger number */
+
+/* Make sure ::after never reappears as anything else */
+
+/* Make sure card itself doesn't clip the number if we want partial bleed.
+   Keep overflow hidden (rounded corners) — number is positioned inside via
+   top: -0.08em and right: 0.05em, so only a few px of top get clipped which
+   is intentional. */
+
+/* Bump card minimum height a bit so number has room to breathe */
+
+/* Ensure content is constrained so big number never sits underneath the text */
+
+/* =========================================================================
+   v13 — FINAL SERVICES DESIGN  (scoped to .bento-mode wrapper)
+   ----------------------------------------------------------------------------
+   All prior versions accreted conflicting `.card.services__card::before`
+   rules with !important. To win the cascade cleanly we scope every rule
+   under `.bento-mode` which is a new class added in services.haml.
+   Specificity becomes 0,1,3,1 (or 0,1,5,1 for per-tile) — beats every
+   prior 0,1,2,1 ::before rule even those flagged !important.
+   ========================================================================= */
+
+/* Section frame */
+
+/* The Materialize .row → 2-col CSS grid */
+
+/* Each .col is a passthrough block (kill materialize float/widths) */
+
+/* ------------ The card ----------------------------------------------- */
+
+/* Hero tile (first) — bigger min-height + padding */
+
+/* ------------ HUGE decorative number on ::before --------------------- */
+
+/* Hero card — even bigger number */
+
+/* Wipe any ::after artefacts (some prior versions used it) */
+
+/* ------------ Card content -------------------------------------------- */
+
+/* ------------ Icon tile (.btn-floating) ------------------------------- */
+
+/* ------------ Title + description ------------------------------------- */
+
+/* ------------ Responsive ---------------------------------------------- */
+
+/* =========================================================================
+   v14 — Timeline + Bento (alternating cards on a central orange road)
+   Replaces the v13 bento with equal-weight cards distributed on
+   alternating sides of a vertical timeline.
+   ========================================================================= */
+
+/* Reset bento-mode hero priority */
+
+/* Container + grid — 3-column: [card area | spine | card area] */
+
+/* Central vertical spine (the "road") */
+
+/* Alternate cards left / right of spine */
+
+/* Force cards to fall on their proper row (preserve order in the grid) */
+
+/* Cards: same size, same priority */
+
+/* ::before is now the numbered marker disc that sits on the spine */
+
+/* Odd cards: marker extends right toward spine */
+
+/* Even cards: marker extends left toward spine */
+
+/* Connecting "arm" from card edge to spine, via ::after */
+
+/* Marker pulses subtly on hover */
+
+/* ----- Card content layout — keep simple flex column ------------------ */
+
+/* Icon (.btn-floating) — small orange tile inside content */
+
+/* Title + text — equal sizing for ALL cards (no hero exception) */
+
+/* ----- Responsive: below 900px → single column, spine on the left ----- */
+@media (max-width: 900px) {
+  
+  
+  
+  /* Marker on left side of every card */
+  
+  
+  
+}
+
+/* =========================================================================
+   SERVICES — Timeline + Bento (final, single source of truth)
+   Each card equal weight, alternating left/right of a central orange spine.
+   Below 900px the spine moves to the left edge and all cards stack.
+   ========================================================================= */
+
+/* Optional parallax-quote band placed before #services in services.haml */
+.parallax-container {
+  height: clamp(280px, 40vw, 420px);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.parallax-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(255, 106, 0, .35), transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(0, 212, 255, .20), transparent 55%),
+    linear-gradient(120deg, rgba(11, 16, 32, .85), rgba(11, 16, 32, .65));
+  z-index: 1;
+}
+.parallax-container .parallax img {
   width: 100%;
   height: 100%;
-  z-index: 10002;
+  object-fit: cover;
+  filter: brightness(.55) saturate(1.05);
 }
-
-#loader {
+.parallax-container .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1000px;
+  padding: 0 1.5rem;
+}
+.parallax-container .contact-quote {
+  font-size: clamp(1.15rem, 2vw, 1.8rem);
+  font-weight: 500;
+  color: #fff !important;
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  line-height: 1.5;
+  font-style: italic;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .4);
+}
+.parallax-container cite {
+  color: rgba(255, 255, 255, .85) !important;
+  font-size: .9rem;
   display: block;
+  font-style: normal;
+  letter-spacing: .08em;
+}
+
+/* Section frame */
+#services {
+  background: transparent;
+  padding: clamp(5rem, 8vw, 7rem) 0;
   position: relative;
-  left: 50%;
-  top: 50%;
-  width: 200px;
-  height: 200px;
-  margin: -75px 0 0 -75px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: #c62828;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  z-index: 10003;
-
-  & span {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #50514F;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-
-    &:nth-of-type(2) {
-      content: "";
-      position: absolute;
-      top: 25px;
-      left: 25px;
-      right: 25px;
-      bottom: 25px;
-      border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: #252627;
-      -webkit-animation: spin 1.5s linear infinite;
-      animation: spin 1.5s linear infinite;
-    }
-
-    &:nth-of-type(3) {
-      content: "";
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      right: 40px;
-      bottom: 40px;
-      border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: #FF9F1C;
-      -webkit-animation: spin 1s linear infinite;
-      animation: spin 1s linear infinite;
-    }
-
-    &:nth-of-type(4) {
-      content: "";
-      position: absolute;
-      top: 65px;
-      left: 65px;
-      right: 65px;
-      bottom: 65px;
-      border-radius: 50%;
-      border: 3px solid transparent;
-      border-top-color: #000;
-      -webkit-animation: spin 1s linear infinite;
-      animation: spin 1s linear infinite;
-    }
-  }
+  z-index: 1;
 }
-
-
-.link--elara {
-    font-size: 1.375rem;
+#services h3 {
+  text-align: center;
+  margin: 0 auto 3rem;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+  background: linear-gradient(120deg, #0b1020 0%, #ff6a00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
 }
-
-.link--elara::before {
-    transform-origin: 50% 100%;
-    transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
-    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
-}
-
-.link--elara:hover::before {
-    transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
-    clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
-}
-
-.link--elara span {
-    display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
-}
-
-.link--elara:hover span {
-    transform: translate3d(0, -2px, 0);
-}
-
-.content__item {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    counter-increment: itemcounter;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.content__item::before {
-    color: var(--color-number);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.link {
-    cursor: pointer;
-    font-size: 18px;
-    position: relative;
-    white-space: nowrap;
-    color: var(--color-text);
-}
-
-.link::before,
-.link::after {
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background: currentColor;
-    top: 90%;
-    left: 0;
-    pointer-events: none;
-}
-
-.link::before {
-    content: '';
-}
-
-.clip--path {
-    clip-path: polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
-    webkit-clip-path: polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
-    border-radius: 50px;
-}
-
-.gall-1 {
-  border-radius: 30% 70% 50% 50% / 70% 40% 60% 30%;
-}
-
-.gall-2 {
-  border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
-}
-
-.gall-3 {
-  border-radius: 20% 80% 50% 50% / 80% 20% 70% 30%;
-}
-
-
-////// BUTTON ///////
-
-.button {
-  border: none;
-  padding: 1.5rem 3rem;
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  position: relative;
+#services h3::before {
+  content: 'Usługi';
   display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #ff6a00;
+  -webkit-text-fill-color: #ff6a00;
+  background: rgba(255, 106, 0, .10);
+  border: 1px solid rgba(255, 106, 0, .20);
+  padding: .4rem .9rem;
+  border-radius: 999px;
 }
 
-.button::before,
-.button::after {
+/* Container + row layout: timeline grid */
+.services__cards {
+  position: relative;
+  counter-reset: svc-n;
+}
+.services__cards .row {
+  display: grid;
+  grid-template-columns: 1fr 4px 1fr;
+  grid-auto-rows: auto;
+  gap: 2.5rem 3rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem clamp(1rem, 3vw, 2rem);
+  position: relative;
+  counter-reset: svc-n;
+}
+
+/* The orange spine — absolute so it always spans full height */
+.services__cards .row::before {
+  content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(255, 106, 0, .55) 6%,
+    rgba(255, 106, 0, .55) 94%,
+    transparent 100%);
+  border-radius: 4px;
+  filter: drop-shadow(0 0 10px rgba(255, 106, 0, .35));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* .col passthroughs (kill materialize float/widths) */
+.services__cards .row > .col {
   width: 100%;
-  height: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  float: none;
+  display: flex;
+  position: relative;
+  z-index: 1;
 }
 
-.button--mimas {
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
+/* Alternating sides + explicit grid rows */
+.services__cards .row > .col:nth-child(odd) { grid-column: 1; }
+.services__cards .row > .col:nth-child(even) { grid-column: 3; }
+.services__cards .row > .col:nth-child(1) { grid-row: 1; }
+.services__cards .row > .col:nth-child(2) { grid-row: 2; }
+.services__cards .row > .col:nth-child(3) { grid-row: 3; }
+.services__cards .row > .col:nth-child(4) { grid-row: 4; }
+.services__cards .row > .col:nth-child(5) { grid-row: 5; }
+
+/* The card */
+.card.services__card {
+  display: block;
+  width: 100%;
+  padding: 1.85rem 2rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, .96) 0%,
+    rgba(255, 255, 255, .78) 100%);
+  border: 1px solid rgba(11, 16, 32, .08);
+  box-shadow:
+    0 6px 20px rgba(11, 16, 32, .06),
+    inset 0 1px 0 rgba(255, 255, 255, .75);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+  transition:
+    transform .35s cubic-bezier(.2, .7, .2, 1),
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+.card.services__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 106, 0, .30);
+  box-shadow:
+    0 16px 36px rgba(11, 16, 32, .10),
+    0 0 0 1px rgba(255, 106, 0, .15),
+    0 0 40px rgba(255, 106, 0, .08);
+}
+
+/* Numbered marker disc — pastel gradient matching page bg */
+.card.services__card::before {
+  content: counter(svc-n, decimal-leading-zero);
+  counter-increment: svc-n;
+  position: absolute;
+  top: 1.85rem;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 106, 0, .20) 0%, transparent 60%),
+    radial-gradient(circle at 75% 80%, rgba(123, 92, 255, .18) 0%, transparent 60%),
+    linear-gradient(135deg, #ffffff 0%, #fff7f0 55%, #f5f0ff 100%);
+  color: #ff6a00;
+  -webkit-text-fill-color: #ff6a00;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow:
+    0 8px 22px rgba(255, 106, 0, .18),
+    0 0 0 1px rgba(255, 106, 0, .25),
+    inset 0 0 0 1px rgba(255, 255, 255, .6);
+  font-family: 'Quicksand', sans-serif;
+  font-size: .95rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  color: #fff;
-  background: #424242;
-
-  & span {
-    position: relative;
-    color: #fff;
-  }
-
-  &:hover {
-    & span {
-      color: #e7e7e7;
-    }
-  }
+  letter-spacing: .08em;
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+  transition:
+    transform .35s cubic-bezier(.2, .7, .2, 1),
+    box-shadow .35s ease,
+    color .35s ease;
+}
+.services__cards .row > .col:nth-child(odd) .card.services__card::before {
+  right: -3.85rem;
+}
+.services__cards .row > .col:nth-child(even) .card.services__card::before {
+  left: -3.85rem;
+}
+.card.services__card:hover::before {
+  color: #d9590a;
+  -webkit-text-fill-color: #d9590a;
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow:
+    0 14px 30px rgba(255, 106, 0, .30),
+    0 0 0 1px rgba(255, 106, 0, .40),
+    inset 0 0 0 1px rgba(255, 255, 255, .7);
 }
 
-.button--mimas::before {
+/* Connecting arm from card edge to spine */
+.card.services__card::after {
   content: '';
-  background: linear-gradient(to right, #f18e37, #f1c642);
-  width: 140%;
-  left: -20%;
-  transform: skew(30deg);
-  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  position: absolute;
+  top: calc(1.85rem + 25px);
+  height: 2px;
+  width: 2.5rem;
+  background: rgba(255, 106, 0, .45);
+  box-shadow: 0 0 6px rgba(255, 106, 0, .25);
+  z-index: 1;
+  pointer-events: none;
+}
+.services__cards .row > .col:nth-child(odd) .card.services__card::after {
+  right: -2.5rem;
+}
+.services__cards .row > .col:nth-child(even) .card.services__card::after {
+  left: -2.5rem;
 }
 
-.button--mimas:hover::before {
-  transform: translate3d(100%,0,0);
+/* Card content layout */
+.card.services__card .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: .85rem;
+  padding: 0;
+  background: transparent;
+  color: #0b1020;
 }
 
-textarea.materialize-textarea {
-  color: white;
+/* Icon (.btn-floating) — small orange tile */
+.card.services__card .btn-floating {
+  position: static;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff6a00 0%, #ff8a3d 100%) !important;
+  border: none !important;
+  box-shadow:
+    0 6px 16px rgba(255, 106, 0, .22),
+    inset 0 0 0 1px rgba(255, 255, 255, .18) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-self: flex-start;
+  flex: 0 0 auto;
+  overflow: visible;
+  transform: none;
+  float: none !important;
+  transition: transform .35s ease;
 }
+.card.services__card .btn-floating::before,
+.card.services__card .btn-floating::after {
+  display: none !important;
+  content: none !important;
+}
+.card.services__card:hover .btn-floating {
+  transform: rotate(-6deg) scale(1.06);
+}
+.card.services__card .btn-floating i.material-icons {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  font-size: 1.2rem;
+  line-height: 46px;
+  width: 46px;
+  text-align: center;
+  display: block;
+  margin: 0;
+  background: none;
+  text-shadow: none;
+}
+
+/* Title + description */
+.card.services__card .card-title {
+  display: block;
+  margin: 0;
+  color: #0b1020 !important;
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  text-align: left;
+}
+.card.services__card .services__card--text {
+  color: #3f4a73 !important;
+  font-size: .96rem;
+  line-height: 1.65;
+  text-align: left;
+}
+
+/* Mobile: spine to the left, all cards in one column */
+@media (max-width: 900px) {
+  .services__cards .row {
+    grid-template-columns: 24px 1fr;
+    gap: 1.25rem 1.5rem;
+    padding: 1rem clamp(.5rem, 2vw, 1rem);
+  }
+  .services__cards .row::before {
+    left: 20px;
+    transform: none;
+  }
+  .services__cards .row > .col,
+  .services__cards .row > .col:nth-child(odd),
+  .services__cards .row > .col:nth-child(even) {
+    grid-column: 2;
+  }
+  .services__cards .row > .col:nth-child(odd) .card.services__card::before,
+  .services__cards .row > .col:nth-child(even) .card.services__card::before {
+    left: -2.4rem;
+    right: auto;
+    width: 40px;
+    height: 40px;
+    font-size: .8rem;
+    top: 1.5rem;
+  }
+  .services__cards .row > .col:nth-child(odd) .card.services__card::after,
+  .services__cards .row > .col:nth-child(even) .card.services__card::after {
+    left: -1.1rem;
+    right: auto;
+    width: 1.1rem;
+    top: calc(1.5rem + 19px);
+  }
+  .card.services__card { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .services__cards .row { gap: 1rem 1.25rem; }
+  .card.services__card { padding: 1.25rem; }
+  .card.services__card .services__card--text { font-size: .92rem; }
+}
+
+/* =========================================================================
+   Section bridge — a wide, full-width horizontal gradient cloud that
+   blurs the seam between adjacent light sections. Used between
+   #services↔#gallery and #contact↔#map.
+   ========================================================================= */
+
+/* Sections must not clip the bridge's bleed */
+#services { overflow: visible; }
+#gallery,
+#contact,
+.section__contact .contact__hero,
+#map {
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.divider-glow {
+  position: relative;
+  width: 100%;
+  height: 0;             /* anchor — no vertical layout impact */
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+  background: none;
+}
+
+/* The bridge itself: a wide horizontal cloud that fades vertically.
+   Spans full container width so no left/right colour seams.
+   Two stacked radial fills give a subtle orange→purple blend. */
+.divider-glow::before {
+  content: '';
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  top: -260px;
+  width: 116%;
+  height: 540px;
+  background:
+    radial-gradient(ellipse 55% 50% at 28% 50%, rgba(255, 106, 0, .20) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 50% at 78% 50%, rgba(123, 92, 255, .15) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255, 138, 61, .07) 0%, transparent 75%);
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 0;
+}
+
+/* Subtle highlight strip at the exact seam for extra softness */
+.divider-glow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 106, 0, .08) 20%,
+    rgba(123, 92, 255, .06) 80%,
+    transparent 100%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+@media (max-width: 900px) {
+  .divider-glow::before {
+    top: -180px;
+    height: 380px;
+    filter: blur(50px);
+  }
+}
+
+/* =========================================================================
+   Final overrides — section backgrounds & navbar tweaks
+   ----------------------------------------------------------------------------
+   Without these, the v3 rules (`#gallery { background: #fff; }`) paint
+   solid white over the bridge cloud, recreating the seam. Force every
+   light section to be transparent so the body's animated gradient + the
+   bridge clouds can show through.
+   ========================================================================= */
+
+#gallery,
+#contact,
+.section__contact,
+.section__contact .contact__hero,
+#map {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* The contact-hero used to layer two gradients with a linear bg —
+   wipe its background-image too just in case */
+.section__contact .contact__hero {
+  background-image: none !important;
+}
+
+/* #map had `background: linear-gradient(...)` — kill that too */
+#map {
+  background-image: none !important;
+}
+
+/* =========================================================================
+   Navbar — 85% width, centered, 40% opacity
+   ========================================================================= */
+
+.navbar.navbar-default {
+  /* From `top:0; left:0; right:0` (full width) to 85% centred pill */
+  left: 50% !important;
+  right: auto !important;
+  width: 85% !important;
+  max-width: 1280px !important;
+  transform: translateX(-50%) !important;
+}
+
+.navbar.navbar-default .nav-wrapper {
+  background: rgba(11, 16, 32, .40) !important;
+  border: 1px solid rgba(255, 255, 255, .08) !important;
+  backdrop-filter: blur(22px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+  box-shadow:
+    0 10px 36px rgba(11, 16, 32, .18),
+    inset 0 0 0 1px rgba(255, 255, 255, .04) !important;
+}
+
+/* Scrolled state — slightly more opaque for readability */
+.navbar.navbar-default.scrolled .nav-wrapper {
+  background: rgba(11, 16, 32, .38) !important;
+  box-shadow:
+    0 14px 36px rgba(11, 16, 32, .28),
+    inset 0 0 0 1px rgba(255, 255, 255, .06) !important;
+}
+
+/* Mobile / tablet — the desktop navbar is hidden, no width changes needed */
+@media (max-width: 992px) {
+  .navbar.navbar-default {
+    width: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    max-width: none !important;
+  }
+}
+
+/* =========================================================================
+   Gallery page — solid white surface so the hero-wave (filled white) butts
+   cleanly against the gallery body. Without this, the page picks up the
+   body-wide gradient mesh and shows a visible colour seam where the wave
+   meets the section below.
+   ========================================================================= */
+body.gallery-page {
+  background: #ffffff !important;
+}
+body.gallery-page::before,
+body.gallery-page::after {
+  display: none !important;
+}
+body.gallery-page #home .shape-container svg path {
+  fill: #ffffff !important;
+}
+
+/* Kill the homepage gallery section's radial-gradient overlay on the
+   dedicated /gallery/ page — that overlay was painting pinkish tints
+   over the white surface and caused the visible seam below the hero. */
+body.gallery-page #gallery {
+  background: #ffffff !important;
+}
+body.gallery-page #gallery::before,
+body.gallery-page #gallery::after {
+  display: none !important;
+  content: none !important;
+}
+
+

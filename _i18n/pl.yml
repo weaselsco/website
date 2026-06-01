@@ -1,4 +1,9 @@
 site:
+  seo:
+    title-suffix: 'Transport krajowy i międzynarodowy'
+    description: 'Firma transportowa z Wągrowca. Profesjonalny transport krajowy i międzynarodowy, spedycja, przewozy ponadgabarytowe maszyn rolniczych i budowlanych. 2000+ transportów rocznie, dyspozycyjność 365×24, własna flota.'
+    keywords: 'transport, spedycja, transport międzynarodowy, transport krajowy, transport ponadgabarytowy, transport maszyn budowlanych, transport maszyn rolniczych, Wągrowiec, Wielkopolska, Weasels'
+
   header: Twój partner w transporcie!
   about:
     title: Oddaj swój ładunek w dobre ręce!
@@ -14,6 +19,7 @@ site:
   contact:
     title: Porozmawiajmy!
     lead: Bardzo chętnie odpowiemy na każde pytanie i ustalimy szczegóły transportu Twojego ładunku.
+    lead-2: Chętnie odpowiemy na Twoje pytania i pomożemy ustalić szczegóły transportu.
     maciej:
       title: 'Maciej Łasecki'
       mail: 'maciej.lasecki@weasels.co'
@@ -22,12 +28,40 @@ site:
       title: 'Michał Łasecki'
       mail: 'michal.lasecki@weasels.co'
       tel: '+48 726 922 069'
+    magda:
+      title: 'Magdalena Cibail'
+      mail: 'magda.cibail@weasels.co'
+      tel: '+48 123 456 789'
+    lukasz:
+      title: 'Łukasz Wieczorek'
+      mail: 'lukasz.wieczorek@weasels.co'
+      tel: '+48 123 456 789'
     mail: Napisz do nas!
-    form:
-      name: Imię i nazwisko *
-      email:  Email *
-      msg: Wiadomość *
-      btn: Wyślij wiadomość
+    main-email: 'transport@weasels.co'
+    main-phone: '+48 726 922 069'
+    cta-title: 'Skontaktuj się z nami bezpośrednio'
+    cta-lead: 'Wystarczy jedna wiadomość. Odpisujemy w ciągu kilku godzin w dni robocze.'
+    cta-btn: 'Napisz wiadomość'
+    cta-call: 'Zadzwoń teraz'
+    hours-title: 'Godziny pracy'
+    hours: 'Poniedziałek – Piątek, 7:00 – 17:00'
+    response-title: 'Czas odpowiedzi'
+    response: 'Średnio do 3 godzin w dni robocze'
+
+  cookies:
+    banner-text: 'Używamy plików cookies, aby strona działała poprawnie i abyśmy mogli ją ulepszać. Klikając „Akceptuję” zgadzasz się na ich użycie.'
+    accept: 'Akceptuję'
+    decline: 'Tylko niezbędne'
+    more: 'Polityka cookies'
+    title: 'Polityka cookies'
+    intro: 'Ta strona korzysta z plików cookies (małych plików tekstowych przechowywanych na urządzeniu użytkownika), aby zapewnić jej poprawne działanie oraz zbierać anonimowe statystyki użytkowania.'
+    section-1-title: 'Niezbędne'
+    section-1: 'Pliki wymagane do działania strony — np. zapamiętanie wybranego języka. Nie wymagają zgody.'
+    section-2-title: 'Analityczne'
+    section-2: 'Google Analytics pomaga nam zrozumieć, jak korzystasz ze strony. Dane są anonimowe i zagregowane.'
+    section-3-title: 'Twoja zgoda'
+    section-3: 'Możesz w każdej chwili zmienić swoją decyzję czyszcząc dane przeglądarki dla tej witryny.'
+    close: 'Zamknij'
 
   footer:
     title: Zapraszamy do współpracy!
@@ -78,7 +112,7 @@ site:
   partners: Nasi partnerzy
 
   gallery:
-    btn: galeria
+    btn: Zobacz całą galerię
     title: Transport międzynarodowy, maszyn rolniczych i budowlanych
     about-1: Naszą główną domeną są przewozy ładunków na terenie Unii Europejskiej. Chętnie podejmujemy się transportów do innych krajów, zgodnie z życzeniem klienta. Towar ubezpieczony jest polisą OC przewoźnika w ruchu międzynarodowym i krajowym. Posiadamy naczepy przeznaczone do transportu maszyn rolniczych oraz budowlanych.
     about-2: Nasza firma transportowa pragnie dostarczyć pełen wachlarz usług w zakresie drogowego transportu krajowego i międzynarodowego. Usługi transportowe i spedycja to nasza specjalność, a także pasja!

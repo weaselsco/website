@@ -3,12 +3,9 @@
 %script{:src => "/js/main.js"}
 %script{:src => "/js/materialize.js"}
 %script{:src => "/js/wow.min.js"}
+%script{:src => "/js/modern.js", :defer => "defer"}
 %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4j2deXH0aObAjySDyFuSYHsULo3M5ud8&callback=initMap"}
-/ Global site tag (gtag.js) - Google Analytics
-%script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=G-SB9CYZ58C4"}
-:javascript
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SB9CYZ58C4');
+/ Google Analytics is loaded conditionally via /js/modern.js after the
+/ user accepts cookies (see loadAnalytics() in modern.js).
+/ Measurement ID stored as a data attribute for the JS to read.
+%script{:type => "text/plain", :id => "ga-config", "data-ga-id" => "G-SB9CYZ58C4"}

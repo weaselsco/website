@@ -1,57 +1,101 @@
-#contact.scrollspy
-  .section
-    .section.white
-      .container
-        .row
-          .col.l12.wow.fadeIn
-            %h3.center.grey-text.text-darken-3.text-bold.section__gallery--title
-              {% t site.contact.title %}
-            .section__about--text.grey-text.lighten-3.center
-              {% t site.contact.lead %}
-        .contact__cards
-          .row
-            .col.l6.m6.s12.center
-              .card.contact__card.waves-effect.wow.fadeIn
-                .card-image
-                  %img{:src => "images/contact/maciej1.webp", alt: 'Maciej'}
-                .card-content.black-text.contact__mask
-                  .contact__card--title {% t site.contact.maciej.title %}
-                  .contact__card--text
-                    .contact-info.center {% t site.contact.maciej.mail %}
-                    .contact-info.center.black-text {% t site.contact.maciej.tel %}
+#contact.scrollspy.section__contact
+  .contact__hero
+    .contact__bg-orb.contact__bg-orb--1
+    .contact__bg-orb.contact__bg-orb--2
+    .contact__bg-grid
 
-            .col.l6.m6.s12.center
-              .card.contact__card.waves-effect.wow.fadeIn
-                .card-image
-                  %img{:src => "images/contact/michal.webp", alt: 'Michał'}
-                .card-content.black-text.contact__mask
-                  .mask--contact-call
-                  .contact__card--title {% t site.contact.michal.title %}
-                  .contact__card--text
-                    .contact-info.center {% t site.contact.michal.mail %}
-                    .contact-info.center.black-text {% t site.contact.michal.tel %}
-
-  .section__email.midnight
-    {% haml parts/shape1.haml %}
     .container
-      .row
-        .col.l12
-          %h3.center.grey-text.text-lighten-3.text-bold.section__gallery--title {% t site.contact.mail %}
-        .col.l12
-          .contact-form
-            %form#contactForm{action: "https://formspree.io/michal.lasecki@weasels.co", method: "POST", "data-toggle" => "validator"}
-              #msgSubmit.h3.text-center.hidden
-              .input-field.col.m12.s12
-                %label.h4{"data-validation-required-message" => "Proszę wprowadź swoje imię i nazwisko.", :for => "name"} {% t site.contact.form.name %}
-                %input#name.form-control.validate{"data-error" => "NEW ERROR MESSAGE", :required => "", :name => "name" ,:type => "text"}
-              .input-field.col.m12.s12
-                %label.h4{:for => "email"} {% t site.contact.form.email %}
-                %input#email.form-control.validate{:required => "", :name => "_replyto", :type => "email"}
-              .input-field.col.m12.s12
-                %label.h4{:for => "message"} {% t site.contact.form.msg %}
-                %textarea#message.form-control.materialize-textarea.validate{:required => "", name: 'message'}
-              %div
-                %input{:name => "_subject", :type => "hidden", :value => "Nowa wiadomość z Weasels.co!"}
-                %input{:name => "_gotcha", :style => "display:none; color:white", :type => "text"}
-                %input{:name => "_next", :type => "hidden", :value => "//weasels.co"}
-              %button#form-submit.btn.waves-effect.waves-light.btn-large.white.darken-1.black-text.right{type: 'submit'} {% t site.contact.form.btn %}
+      .contact__header.reveal
+        %span.eyebrow {% t site.contact.title %}
+        %h2.contact__title {% t site.contact.cta-title %}
+        %p.contact__lead {% t site.contact.lead %}
+
+      .contact__main.reveal
+        .contact__email-card
+          .contact__email-glow
+          %span.contact__email-label {% t site.contact.cta-title %}
+          %a.contact__email-link{href: "mailto:transport@weasels.co"}
+            %span.contact__email-text transport@weasels.co
+            %i.material-icons.contact__email-icon arrow_outward
+          %p.contact__email-note {% t site.contact.cta-lead %}
+
+          .contact__actions
+            %a.btn-magnetic.btn-magnetic--primary{href: "mailto:transport@weasels.co"}
+              %i.material-icons mail_outline
+              %span {% t site.contact.cta-btn %}
+            %a.btn-magnetic.btn-magnetic--ghost{href: "tel:+48727907796"}
+              %i.material-icons call
+              %span {% t site.contact.cta-call %}
+
+        .contact__info-grid
+          .contact__info-card
+            %i.material-icons.contact__info-icon schedule
+            %h4 {% t site.contact.hours-title %}
+            %p {% t site.contact.hours %}
+          .contact__info-card
+            %i.material-icons.contact__info-icon bolt
+            %h4 {% t site.contact.response-title %}
+            %p {% t site.contact.response %}
+          .contact__info-card
+            %i.material-icons.contact__info-icon phone_in_talk
+            %h4 {% t site.contact.maciej.tel %}
+            %p {% t site.contact.maciej.title %}
+
+      .contact__people.reveal
+        .contact__person
+          .contact__person--photo
+            %img{src: "images/contact/maciej1.webp", alt: 'Maciej Łasecki — spedycja Weasels Sp. z o.o.', loading: 'lazy', decoding: 'async', width: '480', height: '480'}
+            .contact__person--overlay
+          .contact__person--info
+            %div
+              %span.contact__person--role Prezes
+              %h3.contact__person--name {% t site.contact.maciej.title %}
+            .contact__person--links
+              %a{href: "mailto:maciej.lasecki@weasels.co"}
+                %i.material-icons mail_outline
+                %span {% t site.contact.maciej.mail %}
+              %a{href: "tel:+48727907796"}
+                %i.material-icons call
+                %span {% t site.contact.maciej.tel %}
+
+        .contact__person
+          .contact__person--photo
+            %img{src: "images/contact/michal.webp", alt: 'Michał Łasecki — zarząd Weasels Sp. z o.o.', loading: 'lazy', decoding: 'async', width: '480', height: '480'}
+            .contact__person--overlay
+          .contact__person--info
+            %div
+              %span.contact__person--role Zarząd
+              %h3.contact__person--name {% t site.contact.michal.title %}
+            .contact__person--links
+              %a{href: "mailto:michal.lasecki@weasels.co"}
+                %i.material-icons mail_outline
+                %span {% t site.contact.michal.mail %}
+              %a{href: "tel:+48726922069"}
+                %i.material-icons call
+                %span {% t site.contact.michal.tel %}
+
+        -# .contact__person
+        -#   .contact__person--photo
+        -#     %img{src: "images/contact/magda.webp", alt: 'Magda Cibail', loading: 'lazy', decoding: 'async', width: '480', height: '480'}
+        -#     .contact__person--overlay
+        -#   .contact__person--info
+        -#     %div
+        -#       %span.contact__person--role Dział kadr
+        -#       %h3.contact__person--name {% t site.contact.magda.title %}
+        -#     .contact__person--links
+        -#       %a{href: "mailto:magdalena.cibail@weasels.co"}
+        -#         %i.material-icons mail_outline
+        -#         %span {% t site.contact.magda.mail %}
+        -#
+        -# .contact__person
+        -#   .contact__person--photo
+        -#     %img{src: "images/contact/lukasz.webp", alt: 'Łukasz Wieczorek', loading: 'lazy', decoding: 'async', width: '480', height: '480'}
+        -#     .contact__person--overlay
+        -#   .contact__person--info
+        -#     %div
+        -#       %span.contact__person--role Spedycja
+        -#       %h3.contact__person--name {% t site.contact.lukasz.title %}
+        -#     .contact__person--links
+        -#       %a{href: "mailto:lukasz.wieczorek@weasels.co"}
+        -#         %i.material-icons mail_outline
+        -#         %span {% t site.contact.lukasz.mail %}

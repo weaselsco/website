@@ -1,10 +1,46 @@
 url: https://weasels.co
 title: Weasels Sp. z o.o.
-email: michal.lasecki@weasels.co
+tagline: Transport krajowy i międzynarodowy
+description: >-
+  Weasels Sp. z o.o. — firma transportowa z Wągrowca. Profesjonalny transport
+  krajowy i międzynarodowy, spedycja, przewozy ponadgabarytowe. 2000+
+  transportów rocznie, 365×24 dyspozycyjność, własna flota.
+email: transport@weasels.co
+author: Weasels Sp. z o.o.
 markdown: kramdown
 permalink: pretty
 languages: ["pl", "en", "de"]
+default_lang: pl
 exclude_from_localizations: ["js/", "images/", "css/"]
+exclude: ["Capfile", "Gemfile", "Gemfile.lock", "config/", "*.bak"]
+
+# Default Open Graph image (relative to /images)
+og_image: /images/logo-2.svg
+twitter_handle: ""
+
+# Company structured data
+company:
+  name: "Weasels Sp. z o.o."
+  legal_name: "Weasels Sp. z o.o."
+  nip: "PL 766 199 52 94"
+  regon: "365359540"
+  krs: "0000635743"
+  address:
+    street: "Rakojedzka 32H"
+    postal: "62-085"
+    city: "Skoki"
+    region: "wielkopolskie"
+    country: "PL"
+  base_address:
+    street: "Orzechowa 1"
+    postal: "62-100"
+    city: "Wągrowiec"
+  geo:
+    lat: 52.8138
+    lon: 17.1821
+  phone: "+48726922069"
+  email: "transport@weasels.co"
+  opening_hours: "Mo-Fr 07:00-17:00"
 collections:
   gallery:
     output: true
@@ -50,12 +86,18 @@ text:
     maciej-tel: '+48 727 907 796'
     maciej: 'Maciej Łasecki'
     maciej-mail: 'maciej.lasecki@weasels.co'
+    magda-tel: '+48 727 907 796'
+    magda: 'Magdalena Cibail'
+    magda-mail: 'magda.cibail@weasels.co'
+    lukasz-tel: '+48 727 907 796'
+    lukasz: 'Łukasz Wieczorek'
+    lukasz-mail: 'lukasz.wieczorek@weasels.co'
     address: |
-      ul. Leśna 24a
+      ul. Orzechowa 1
       62-100 Wągrowiec
       woj. wielkopolskie
       Polska
-    base-location: 'ul. Leśna 24a, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
+    base-location: 'ul. Orzechowa 1, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
   footer:
     name: 'weasels sp. z o. o.'
     about-1: |
@@ -71,8 +113,8 @@ text:
     krs-t: 'KRS:'
     regon: '365359540'
     regon-t: 'Regon:'
-    location: 'ul. Brzozowa 13, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
-    base-location: 'ul. Leśna 24a, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
+    location: 'ul. Rakojedzka 32H, 62-085 Skoki, woj. wielkopolskie, Polska'
+    base-location: 'ul. Orzechowa 1, 62-100 Wągrowiec, woj. wielkopolskie, Polska'
     location-t: 'Siedziba:'
     spec: 'Transport Drogowy Towarów ( PKD : 49.41.Z )'
     spec-t: 'Działalność:'
@@ -80,9 +122,8 @@ text:
     finance-t: 'Kapitał zakładowy'
     email: 'transport@weasels.co'
     court: 'Sąd Rejonowy w Wągrowcu. ul. Kościuszki 18. 62-100 Wągrowiec'
-plugins_dir:
+plugins:
   - jekyll-seo-tag
   - jekyll-haml
   - jekyll-sitemap
-plugins:
   - jekyll-multiple-languages-plugin

@@ -1,0 +1,20 @@
+!!!
+%html(lang="pl")
+  {% haml head.haml %}
+  %body.page-layout
+    {% haml parts/navbar.haml %}
+    %main.legal-page
+      .legal-page__hero
+        .container
+          %span.eyebrow {{ page.eyebrow | default: "Dokument" }}
+          %h1.legal-page__title {{ page.title }}
+          {% if page.updated %}
+          %p.legal-page__updated Ostatnia aktualizacja: {{ page.updated }}
+          {% endif %}
+      .legal-page__body
+        .container
+          .legal-page__content
+            {{ content }}
+    {% haml parts/scroll.haml %}
+    {% haml parts/cookies.haml %}
+    {% haml script.haml %}

@@ -1,6 +1,12 @@
 .section__footer--block.midnight
-  %h3.center.grey-text.text-lighten-3.text-bold.section__gallery--title
-    {% t site.footer.title %}
+  .footer-cta
+    %span.eyebrow.footer-cta__eyebrow Współpraca
+    %h3.center.grey-text.text-lighten-3.text-bold.section__gallery--title.footer-cta__title
+      {% t site.footer.title %}
+    %p.footer-cta__lead {% t site.contact.lead-2 %}
+    %a.btn-magnetic.btn-magnetic--primary.footer-cta__btn{href: "#contact"}
+      %i.material-icons mail_outline
+      %span {% t site.contact.cta-btn %}
 
 %footer.page-footer.white.section__footer
   .container
@@ -38,12 +44,17 @@
               %td
                 %span.right.text-bold {% t site.footer.table.address %}
               %td
-                %span Brzozowa 13, 62-100 Wągrowiec, Polska
+                %span Rakojedzka 32H, 62-085 Skoki, Polska
             %tr
               %td
                 %span.right.text-bold {% t site.footer.table.base %}
               %td
-                %span Leśna 24a, 62-100 Wągrowiec, Polska
+                %span Orzechowa 1, 62-100 Wągrowiec, Polska
   .footer-copyright
     .container.black-text
-      {{ site.time | date: '%Y' }} © Weasels. Wszelkie prawa zastrzeżone. Made by Michał Łasecki
+      .footer-copyright__line
+        %span {{ site.time | date: '%Y' }} © Weasels. Wszelkie prawa zastrzeżone. Made by Michał Łasecki
+        .footer-copyright__links
+          %a.footer-copyright__link{href: "/polityka-prywatnosci/"} Polityka prywatności
+          %a.footer-copyright__link{href: "/polityka-cookies/"} Polityka cookies
+          %a.footer-copyright__link{href: "#", "data-cookie-action" => "manage"} Zarządzaj cookies

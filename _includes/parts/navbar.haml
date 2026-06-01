@@ -11,7 +11,7 @@
       %li
         %a{href: "/de"}
           %img{src: "/images/lang/de.webp", alt: "Deutsch"}
-      {% if page.collection == "gallery" %}
+      {% if page.collection == "gallery" or page.layout == "page" %}
       %li.content__item
         %a.link.link--elara{:href => "/"}
           %span {% t site.navbar.main %}
@@ -61,5 +61,5 @@
   %img.sidenav-logo{:src => "/images/logo-male.svg", alt: 'Logo'}
   .footer-copyright
     .container.black-text
-      2022 © Weasels. Wszelkie prawa zastrzeżone. Made by
+      %span {{ site.time | date: '%Y' }} © Weasels. Wszelkie prawa zastrzeżone. Made by
     .text-bold Michał Łasecki
